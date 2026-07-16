@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Campus Security</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Campus Security</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-498ce83d0a022b06075ff9e8cb346097.png" alt="Campus Security" usemap="#view-498ce83d0a022b06075ff9e8cb346097map"/>
+			   <map name="view-498ce83d0a022b06075ff9e8cb346097map">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-af029e62eb9dcfb52d0f3a78d1514c16.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-c799ace4f2eee5921b3bf8d89787e826.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-7eb7f534754f03f41c0142d61a0291ab.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-22fe8091233ccf0250060106f0fe25c4.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-44d93570f04871201506a8b2d4652fdc.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-7b6ae86fa9171b08c38695580bf938c4.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-24d669e564524df376c880fbb4f8142d.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-e9ba5da5664ce5af5dde0032e160cfd7.html" target="element" >
+				          <area shape="rect" coords="178,1157,348,1270" href="../objects/n-0bf20ed56e500aaa5e36c844e292dfce.html" target="element" >
+				          <area shape="rect" coords="178,967,348,1080" href="../objects/n-3bf7a2fbf483461b0ea8babc361b49a1.html" target="element" >
+				          <area shape="rect" coords="333,777,503,890" href="../objects/n-17d4e733ce220d7309991aaef20c0f1d.html" target="element" >
+				          <area shape="rect" coords="24,777,194,890" href="../objects/n-719311656c4db51143889e77d54a76de.html" target="element" >
+				          <area shape="rect" coords="178,586,348,699" href="../objects/n-dc0b9d510640051d30989e4a5ceafbce.html" target="element" >
+				          <area shape="rect" coords="178,396,348,509" href="../objects/n-c7ea99f9bea556ac2bd51f13907a7d1e.html" target="element" >
+				          <area shape="rect" coords="178,205,348,318" href="../objects/n-85ed8d110b7a28de63018948fdcdb649.html" target="element" >
+				          <area shape="rect" coords="249,1391,298,1416" href="../objects/n-6b6667301cc90d6189d7fe971da4837b.html" target="element" >
+				          <area shape="rect" coords="249,58,298,83" href="../objects/n-83ac220e15b2b50af25634ac79e8c7af.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+Campus Security ensures the safety of students, staff, and visitors by proactively monitoring threats, controlling access, and responding to incidents. The process integrates surveillance technology, human patrols, and emergency protocols to deliver a secure campus environment.
+
+## Roles
+- Security Officer: Monitors surveillance, patrols grounds, and responds to incidents.
+- Security Supervisor: Assesses threats, escalates incidents, and coordinates emergency response.
+- Campus Safety Director: Reviews incident reports and approves security policy updates.
+- System: Automated surveillance and access control systems.
+
+## Upstream Inputs
+- Surveillance Feed: Real-time video from campus cameras.
+- Access Control Alerts: Unauthorized entry attempts or badge anomalies.
+- Incident Reports: Reports from staff, students, or automated sensors.
+- Threat Intelligence: External alerts from law enforcement or security networks.
+
+## Downstream Outputs
+- Incident Log: Record of all security events with timestamps and actions taken.
+- Emergency Dispatch: Notification to campus police or local emergency services.
+- Security Bulletin: Communication to campus community about resolved threats.
+- Policy Update: Revised security procedures based on incident review.
+
+## Key Decisions
+- Threat Severity Assessment: Determine if an incident is low or high severity.
+- Escalation Decision: Decide whether to involve external emergency services.
+- Post-Incident Action: Determine if policy changes are needed.
+
+## Exception Paths
+- False Alarm: Surveillance alert is a false positive; no further action required.
+- Unresolved Incident: Incident cannot be contained by campus resources; external law enforcement is called.
+- System Failure: Surveillance or access control system is offline; manual patrols are doubled.
+
+## Step Walkthrough
+1. Monitor Surveillance Feeds: Security Officer reviews live camera feeds and access control alerts for suspicious activity.
+2. Detect Potential Incident: System flags an anomaly or Officer identifies a threat; an initial incident record is created.
+3. Assess Threat Severity: Security Supervisor evaluates the incident against threat criteria to classify as low or high severity.
+4. Resolve Low-Severity Incident: Security Officer addresses the issue on-site (e.g., escorting an unauthorized person out) and logs the resolution.
+5. Initiate Emergency Response: For high-severity incidents, Security Supervisor activates emergency protocols and dispatches response teams.
+6. Document Incident Details: Security Officer records all actions, timestamps, and outcomes in the incident log.
+7. Review Post-Incident Report: Campus Safety Director analyzes the incident log and determines if security policy updates are required.
+
+Steps:
+1. Monitor Surveillance Feeds: The Security Officer continuously monitors video surveillance from campus cameras and reviews access control system alerts for unauthorized entries or anomalies. This step ensures early detection of potential threats. The officer logs any suspicious activity for further assessment.
+2. Detect Potential Incident: An incident is detected either by automated system alerts (e.g., motion detection, badge failure) or by the Security Officer's observation. A preliminary incident record is created with timestamp and location. This step triggers the assessment phase.
+3. Assess Threat Severity: The Security Supervisor reviews the incident record and classifies it as low severity (e.g., minor trespass, unlocked door) or high severity (e.g., active threat, fire, medical emergency). This decision determines the response path. The assessment is documented in the incident record.
+4. Resolve Low-Severity Incident: For low-severity incidents, the Security Officer takes direct action such as escorting an unauthorized person off campus, securing an unlocked door, or resetting a false alarm. The officer updates the incident record with resolution details and closes the case.
+5. Initiate Emergency Response: For high-severity incidents, the Security Supervisor immediately activates the emergency response plan, notifies campus police or local emergency services, and dispatches on-site response teams. A coordinated response is launched to contain the threat and ensure safety.
+6. Document Incident Details: After the incident is resolved or contained, the Security Officer completes a detailed incident report including all actions taken, timestamps, personnel involved, and final outcome. This log is stored for compliance and review purposes.
+7. Review Post-Incident Report: The Campus Safety Director reviews the completed incident log to identify root causes, response effectiveness, and any gaps in security procedures. If necessary, the Director approves updates to security policies or training materials to prevent recurrence.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:45:28</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-83ac220e15b2b50af25634ac79e8c7af.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-83ac220e15b2b50af25634ac79e8c7af.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-6b6667301cc90d6189d7fe971da4837b.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-6b6667301cc90d6189d7fe971da4837b.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-85ed8d110b7a28de63018948fdcdb649.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-85ed8d110b7a28de63018948fdcdb649.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-c7ea99f9bea556ac2bd51f13907a7d1e.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-c7ea99f9bea556ac2bd51f13907a7d1e.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-dc0b9d510640051d30989e4a5ceafbce.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-dc0b9d510640051d30989e4a5ceafbce.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-719311656c4db51143889e77d54a76de.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-719311656c4db51143889e77d54a76de.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-17d4e733ce220d7309991aaef20c0f1d.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-17d4e733ce220d7309991aaef20c0f1d.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3bf7a2fbf483461b0ea8babc361b49a1.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3bf7a2fbf483461b0ea8babc361b49a1.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0bf20ed56e500aaa5e36c844e292dfce.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0bf20ed56e500aaa5e36c844e292dfce.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-e9ba5da5664ce5af5dde0032e160cfd7.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-e9ba5da5664ce5af5dde0032e160cfd7.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-24d669e564524df376c880fbb4f8142d.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-24d669e564524df376c880fbb4f8142d.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-7b6ae86fa9171b08c38695580bf938c4.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-7b6ae86fa9171b08c38695580bf938c4.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-44d93570f04871201506a8b2d4652fdc.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-44d93570f04871201506a8b2d4652fdc.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-22fe8091233ccf0250060106f0fe25c4.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-22fe8091233ccf0250060106f0fe25c4.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-7eb7f534754f03f41c0142d61a0291ab.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-7eb7f534754f03f41c0142d61a0291ab.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-c799ace4f2eee5921b3bf8d89787e826.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-c799ace4f2eee5921b3bf8d89787e826.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-af029e62eb9dcfb52d0f3a78d1514c16.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-af029e62eb9dcfb52d0f3a78d1514c16.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

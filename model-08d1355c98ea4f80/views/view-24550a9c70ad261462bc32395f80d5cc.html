@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Budget Mgt</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Budget Mgt</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-24550a9c70ad261462bc32395f80d5cc.png" alt="Budget Mgt" usemap="#view-24550a9c70ad261462bc32395f80d5ccmap"/>
+			   <map name="view-24550a9c70ad261462bc32395f80d5ccmap">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-5ac8e3c613a7693ffd7325fefe84ace3.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-0603ecf4f62ebc30b7e6793ccf37c7db.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-b7112637f1e1e591f6e6e6e1b9734235.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-563f13ed732e389aca2d5a6f3e63818a.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-705c41559255cf0c57e5ae5a3fd59708.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-2213df019c7c1d4b13ba78275cc94aa1.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-63a0c333a5dc01acdd96784d8923ffc1.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-277da84f9d1eb2b6e8f18205ebea39aa.html" target="element" >
+				          <area shape="rect" coords="425,1348,595,1461" href="../objects/n-367f7366ee376dcb9611bb7cb8316d0c.html" target="element" >
+				          <area shape="rect" coords="425,1157,595,1270" href="../objects/n-c179fdbb17fd21e34ed1dbae1cdbf492.html" target="element" >
+				          <area shape="rect" coords="409,967,579,1080" href="../objects/n-60bd16e37685987e7ffc65c97f558225.html" target="element" >
+				          <area shape="rect" coords="115,1157,285,1270" href="../objects/n-3d890d74089c00aa26645c1eca1a69f6.html" target="element" >
+				          <area shape="rect" coords="115,777,285,890" href="../objects/n-b141f1a98e67a1486def9ddb972f7bc6.html" target="element" >
+				          <area shape="rect" coords="115,586,285,699" href="../objects/n-de2ea3e87c42d38f7ad5019f32fa7051.html" target="element" >
+				          <area shape="rect" coords="115,396,285,509" href="../objects/n-9ea815a6b1ea081be4297b71fdcc5e76.html" target="element" >
+				          <area shape="rect" coords="115,205,285,318" href="../objects/n-dc4c656eb414e9ae6cbb68197118e963.html" target="element" >
+				          <area shape="rect" coords="496,1581,545,1606" href="../objects/n-66bea70d03de799c621d1dd8dff9df02.html" target="element" >
+				          <area shape="rect" coords="186,58,235,83" href="../objects/n-a26199907853845ba68e24c1859ebafb.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+Budget Management consolidates financial planning inputs from academic and administrative units to produce detailed budget allocations that align with institutional strategic priorities. The process ensures that resources are allocated effectively, financial control is maintained, and variance reporting enables proactive management of financial performance.
+
+## Roles
+- Budget Analyst: Prepares and consolidates budget data
+- Budget Manager: Reviews and adjusts budget allocations
+- Chief Financial Officer (CFO): Approves final budget framework
+- System: Automates data consolidation and report generation
+
+## Upstream Inputs
+- Historical Financial Data
+- Strategic Plans
+- Unit Budget Requests
+
+## Downstream Outputs
+- Approved Budget Framework
+- Variance Reports
+
+## Key Decisions
+- Whether budget allocations align with strategic priorities
+- Whether adjustments are needed before final approval
+- Whether variance thresholds trigger corrective actions
+
+## Exception Paths
+- If budget requests exceed available funds, adjustments are required before re-review
+- If the CFO rejects the budget, the draft must be reworked and resubmitted
+
+## Step Walkthrough
+1. Gather Financial Inputs: Budget Analyst collects historical financial data, strategic plans, and unit budget requests from source systems.
+2. Consolidate Budget Data: System automatically consolidates all inputs into a unified draft budget dataset.
+3. Draft Budget Allocations: Budget Analyst prepares initial budget allocations based on consolidated data and institutional priorities.
+4. Review Budget Draft: Budget Manager reviews the draft allocations for alignment with strategic goals and financial constraints.
+5. Adjust Allocations: Budget Analyst adjusts allocations based on review feedback if issues are found.
+6. Approve Budget Framework: CFO reviews the final budget and either approves or rejects it.
+7. Publish Approved Budget: System publishes the approved budget framework to all relevant units.
+8. Generate Variance Reports: System generates variance reports comparing actuals against the approved budget for monitoring.
+
+Steps:
+1. Gather Financial Inputs: The Budget Analyst retrieves historical financial data from the financial system, obtains the latest strategic plans from the planning office, and collects budget requests from academic and administrative units. All inputs are verified for completeness and accuracy before proceeding.
+2. Consolidate Budget Data: The system processes the collected financial inputs, normalises data formats, and consolidates them into a single draft budget dataset. This dataset includes historical trends, strategic targets, and unit-level requests ready for allocation.
+3. Draft Budget Allocations: The Budget Analyst uses the consolidated dataset to draft preliminary budget allocations. Allocations are distributed across academic and administrative units, ensuring alignment with strategic priorities and historical spending patterns.
+4. Review Budget Draft: The Budget Manager examines the draft budget allocations, checking for alignment with institutional priorities, compliance with financial policies, and reasonableness of unit-level distributions. The review identifies any issues requiring adjustment.
+5. Adjust Allocations: If the Budget Manager identifies issues, the Budget Analyst revises the draft allocations accordingly. Adjustments may involve reallocating funds between units, reducing overspend, or aligning with revised priorities.
+6. Approve Budget Framework: The CFO examines the final budget allocations, considering strategic alignment, financial sustainability, and unit feedback. The decision results in either approval to publish or rejection requiring further rework.
+7. Publish Approved Budget: The system distributes the approved budget framework to all academic and administrative units, making it available for operational planning and expenditure tracking.
+8. Generate Variance Reports: The system produces variance reports that compare actual financial performance against the approved budget allocations. These reports highlight significant variances for management attention and corrective action.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:45:38</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-a26199907853845ba68e24c1859ebafb.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-a26199907853845ba68e24c1859ebafb.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-66bea70d03de799c621d1dd8dff9df02.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-66bea70d03de799c621d1dd8dff9df02.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-dc4c656eb414e9ae6cbb68197118e963.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-dc4c656eb414e9ae6cbb68197118e963.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-9ea815a6b1ea081be4297b71fdcc5e76.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-9ea815a6b1ea081be4297b71fdcc5e76.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-de2ea3e87c42d38f7ad5019f32fa7051.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-de2ea3e87c42d38f7ad5019f32fa7051.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-b141f1a98e67a1486def9ddb972f7bc6.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-b141f1a98e67a1486def9ddb972f7bc6.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3d890d74089c00aa26645c1eca1a69f6.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3d890d74089c00aa26645c1eca1a69f6.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-60bd16e37685987e7ffc65c97f558225.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-60bd16e37685987e7ffc65c97f558225.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-c179fdbb17fd21e34ed1dbae1cdbf492.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-c179fdbb17fd21e34ed1dbae1cdbf492.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-367f7366ee376dcb9611bb7cb8316d0c.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-367f7366ee376dcb9611bb7cb8316d0c.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-277da84f9d1eb2b6e8f18205ebea39aa.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-277da84f9d1eb2b6e8f18205ebea39aa.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-63a0c333a5dc01acdd96784d8923ffc1.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-63a0c333a5dc01acdd96784d8923ffc1.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-2213df019c7c1d4b13ba78275cc94aa1.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-2213df019c7c1d4b13ba78275cc94aa1.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-705c41559255cf0c57e5ae5a3fd59708.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-705c41559255cf0c57e5ae5a3fd59708.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-563f13ed732e389aca2d5a6f3e63818a.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-563f13ed732e389aca2d5a6f3e63818a.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-b7112637f1e1e591f6e6e6e1b9734235.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-b7112637f1e1e591f6e6e6e1b9734235.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0603ecf4f62ebc30b7e6793ccf37c7db.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0603ecf4f62ebc30b7e6793ccf37c7db.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-5ac8e3c613a7693ffd7325fefe84ace3.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-5ac8e3c613a7693ffd7325fefe84ace3.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

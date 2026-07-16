@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Student Financial Administration</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Student Financial Administration</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-b0ab64725ca68ab8a1aa01ddd82268b9.png" alt="Student Financial Administration" usemap="#view-b0ab64725ca68ab8a1aa01ddd82268b9map"/>
+			   <map name="view-b0ab64725ca68ab8a1aa01ddd82268b9map">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-0ac959e139c3c2352d242fe4853bb527.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-7b5a7d7ada796c80658a67b13d76aa3f.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-e52761470bdd894de5a58fbd17fb4cfa.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-62125995a9dd881c9fba2bf72cdbab80.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-b7e50beee5012a735aca94fb1db1b2ee.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-197d3d78371f5b4ab02ed5085cfd071e.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-56de477af8194428ba5a4c373771ca90.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-0a4ac7838afd81941d035d73e2dcaff3.html" target="element" >
+				          <area shape="rect" coords="357,1538,527,1651" href="../objects/n-4cb157f708e016b43b5310a58952f12e.html" target="element" >
+				          <area shape="rect" coords="667,967,837,1080" href="../objects/n-4c0c6fc6cbeb2229d2ec17853a2a31be.html" target="element" >
+				          <area shape="rect" coords="48,1538,218,1651" href="../objects/n-fb229d1ef19c93f64177a96087de55ed.html" target="element" >
+				          <area shape="rect" coords="64,1348,234,1461" href="../objects/n-bb5b3f7cd06f68079aede4b4774e1789.html" target="element" >
+				          <area shape="rect" coords="357,1157,527,1270" href="../objects/n-0f023898ce2aab41b50f2a343106e720.html" target="element" >
+				          <area shape="rect" coords="357,967,527,1080" href="../objects/n-604c96b9712ea40e7d813e506ec7e234.html" target="element" >
+				          <area shape="rect" coords="667,777,837,890" href="../objects/n-2a18859c13131526fbdc4fe6e5a5d35c.html" target="element" >
+				          <area shape="rect" coords="667,586,837,699" href="../objects/n-a91e604eb4eb40a9b4521c49328f14b8.html" target="element" >
+				          <area shape="rect" coords="667,396,837,509" href="../objects/n-52a3123677194b3b3c3617ad4201779a.html" target="element" >
+				          <area shape="rect" coords="667,206,837,319" href="../objects/n-eaa1c1045a833e26e5b9986d7d2e0473.html" target="element" >
+				          <area shape="rect" coords="119,1771,168,1796" href="../objects/n-2206ff63a72fc0b23f3d25e9c9f8f773.html" target="element" >
+				          <area shape="rect" coords="738,58,787,83" href="../objects/n-69149a122a5e62bb5e2938f76fa662f2.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+This process manages the end-to-end financial lifecycle for students, from billing through payment and refund. It ensures that tuition fees are correctly calculated based on enrolment, scholarships are applied, payments are recorded, and any overpayments are refunded in compliance with institutional policy. The process supports institutional financial sustainability and student satisfaction by providing accurate and timely financial administration.
+
+## Roles
+- Financial Administrator: Reviews and adjusts billing, processes refunds
+- System: Automates bill generation, payment recording, and reconciliation
+- Student: Submits payments and provides payment information
+
+## Upstream Inputs
+- Enrolment Data: Course registration and credit load information
+- Fee Schedules: Tuition rates, fees, and deadlines per term
+- Payment Records: Student payment submissions and transaction logs
+- Scholarship Awards: Approved scholarship amounts and eligibility
+
+## Downstream Outputs
+- Tuition Bills: Itemised invoices sent to students
+- Payment Confirmations: Receipts and transaction acknowledgements
+- Refund Disbursements: Refund payments issued to students
+- Financial Reports: Summaries of accounts receivable and disbursements
+
+## Key Decisions
+- Determine if a student qualifies for a scholarship adjustment
+- Decide whether a refund request meets policy criteria
+- Assess if a payment discrepancy requires manual intervention
+
+## Exception Paths
+- Payment discrepancy found: triggers manual review and correction
+- Refund request does not meet policy: rejected with notification to student
+- Scholarship adjustment invalid: billing is reverted to standard fee
+
+## Step Walkthrough
+1. Receive Enrolment Data: The system imports enrolment records and fee schedules to prepare for billing.
+2. Generate Tuition Bills: The system calculates and creates itemised tuition bills for each enrolled student.
+3. Review Scholarship Adjustments: The Financial Administrator reviews scholarship awards and applies adjustments to bills.
+4. Validate Billing Accuracy: The Financial Administrator checks the adjusted bills for correctness and approves them.
+5. Process Student Payments: The system records incoming payments from students and updates account balances.
+6. Reconcile Payment Records: The system matches payments to outstanding bills and flags any discrepancies.
+7. Assess Refund Eligibility: The Financial Administrator evaluates overpayments or withdrawal refund requests against policy.
+8. Issue Refund Disbursement: The system processes approved refunds and sends payment to the student.
+
+Steps:
+1. Receive Enrolment Data: The system receives enrolment data from the student information system, including course registrations and credit loads. Fee schedules for the current term are also loaded. This data forms the basis for all subsequent billing calculations.
+2. Generate Tuition Bills: Using the enrolment data and fee schedules, the system calculates tuition fees, mandatory fees, and any applicable discounts. Itemised bills are generated and stored in the student financial account.
+3. Review Scholarship Adjustments: The Financial Administrator reviews scholarship awards from the financial aid system and applies them as credits to the student's tuition bill. Adjustments are documented for audit purposes.
+4. Validate Billing Accuracy: The Financial Administrator reviews the adjusted bills to ensure all fees, scholarships, and discounts are correctly applied. If accurate, the bills are approved for student notification. If errors are found, the bill is sent back for correction.
+5. Process Student Payments: The system receives payment submissions from students via online portal or bank transfer. Each payment is recorded against the student's account and the outstanding balance is updated.
+6. Reconcile Payment Records: The system automatically matches recorded payments to outstanding tuition bills. Any unmatched amounts or overpayments are flagged as discrepancies for manual review.
+7. Assess Refund Eligibility: The Financial Administrator reviews flagged overpayments or student refund requests. They check the refund policy, including withdrawal deadlines and fee refund percentages, to determine eligibility.
+8. Issue Refund Disbursement: The system generates a refund transaction for approved amounts and initiates payment via the student's preferred method (direct deposit or cheque). A confirmation is sent to the student.
+9. Correct Billing Errors: The Financial Administrator corrects any errors in the adjusted bills, such as incorrect fee amounts or missing scholarships, and resubmits the bills for validation.
+10. Resolve Payment Discrepancies: The Financial Administrator reviews payment discrepancies, contacts the student if needed, and adjusts the account to resolve the mismatch.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:47:25</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-69149a122a5e62bb5e2938f76fa662f2.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-69149a122a5e62bb5e2938f76fa662f2.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-2206ff63a72fc0b23f3d25e9c9f8f773.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-2206ff63a72fc0b23f3d25e9c9f8f773.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-eaa1c1045a833e26e5b9986d7d2e0473.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-eaa1c1045a833e26e5b9986d7d2e0473.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-52a3123677194b3b3c3617ad4201779a.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-52a3123677194b3b3c3617ad4201779a.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-a91e604eb4eb40a9b4521c49328f14b8.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-a91e604eb4eb40a9b4521c49328f14b8.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-2a18859c13131526fbdc4fe6e5a5d35c.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-2a18859c13131526fbdc4fe6e5a5d35c.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-604c96b9712ea40e7d813e506ec7e234.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-604c96b9712ea40e7d813e506ec7e234.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0f023898ce2aab41b50f2a343106e720.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0f023898ce2aab41b50f2a343106e720.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bb5b3f7cd06f68079aede4b4774e1789.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bb5b3f7cd06f68079aede4b4774e1789.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-fb229d1ef19c93f64177a96087de55ed.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-fb229d1ef19c93f64177a96087de55ed.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-4c0c6fc6cbeb2229d2ec17853a2a31be.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-4c0c6fc6cbeb2229d2ec17853a2a31be.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-4cb157f708e016b43b5310a58952f12e.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-4cb157f708e016b43b5310a58952f12e.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0a4ac7838afd81941d035d73e2dcaff3.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0a4ac7838afd81941d035d73e2dcaff3.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-56de477af8194428ba5a4c373771ca90.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-56de477af8194428ba5a4c373771ca90.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-197d3d78371f5b4ab02ed5085cfd071e.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-197d3d78371f5b4ab02ed5085cfd071e.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-b7e50beee5012a735aca94fb1db1b2ee.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-b7e50beee5012a735aca94fb1db1b2ee.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-62125995a9dd881c9fba2bf72cdbab80.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-62125995a9dd881c9fba2bf72cdbab80.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-e52761470bdd894de5a58fbd17fb4cfa.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-e52761470bdd894de5a58fbd17fb4cfa.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-7b5a7d7ada796c80658a67b13d76aa3f.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-7b5a7d7ada796c80658a67b13d76aa3f.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0ac959e139c3c2352d242fe4853bb527.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0ac959e139c3c2352d242fe4853bb527.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

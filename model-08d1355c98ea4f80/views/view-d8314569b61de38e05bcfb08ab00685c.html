@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Information Analytics</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Information Analytics</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-d8314569b61de38e05bcfb08ab00685c.png" alt="Information Analytics" usemap="#view-d8314569b61de38e05bcfb08ab00685cmap"/>
+			   <map name="view-d8314569b61de38e05bcfb08ab00685cmap">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-9cace9bf7b9ff2f017a3085ddd1a0d8e.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-d143c2bb7ecdf3b43578060aeaaaf9a2.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-bb002e15b87720274dd57bd8f3eaa24e.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-e768014db1a7347824d83e76cdeab2aa.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-a4dc89ef55a7943939f56b2b6a21b236.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-28d47a1e5fa3964a59b2245014e5f57d.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-d5f9410d4b05727a5b281fdba4388374.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-d6b51ab342942b4153ac423abfb06f08.html" target="element" >
+				          <area shape="rect" coords="492,1157,662,1270" href="../objects/n-0bb9c1b4056e6f5f12879a95efea19e5.html" target="element" >
+				          <area shape="rect" coords="492,967,662,1080" href="../objects/n-9a84ed56518022f041088b9e0fec8ff9.html" target="element" >
+				          <area shape="rect" coords="183,967,353,1080" href="../objects/n-a4891e04250efc583437fde96e87aea5.html" target="element" >
+				          <area shape="rect" coords="183,777,353,890" href="../objects/n-230b2d47415e0e961fff81a0bff03f41.html" target="element" >
+				          <area shape="rect" coords="338,586,508,699" href="../objects/n-3f4a7ae4056b77707cb99ff3ccfdce1d.html" target="element" >
+				          <area shape="rect" coords="28,586,198,699" href="../objects/n-c5c900d27a9a93ab59893bdb0707a3d5.html" target="element" >
+				          <area shape="rect" coords="183,396,353,509" href="../objects/n-0f7eb372ee0a2b408a7331975fa7f343.html" target="element" >
+				          <area shape="rect" coords="183,205,353,318" href="../objects/n-24bfda34083dca6ddeabdfa6bf13a67b.html" target="element" >
+				          <area shape="rect" coords="563,1391,612,1416" href="../objects/n-84e8dcbfd13a5650500e1f43e74f47f7.html" target="element" >
+				          <area shape="rect" coords="254,58,303,83" href="../objects/n-b31c89e5255e2483578b9e47200a406b.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+This process transforms institutional data into actionable insights through statistical analysis, modelling, and visualisation techniques. It consumes clean and structured datasets and produces analytic reports and predictive models. These outputs enable evidence-based decision-making that improves student outcomes, operational efficiency, and strategic initiatives.
+
+## Roles
+- Data Analyst: Performs statistical analysis, modelling, and visualisation
+- Lead Analyst: Reviews and validates analytical outputs
+- System: Automated data processing and model generation
+
+## Upstream Inputs
+- Clean Structured Dataset: The primary input for analysis
+- Analysis Request: Defines scope, questions, and success criteria
+
+## Downstream Outputs
+- Analytic Report: Final report with findings and visualisations
+- Predictive Model: Validated model for forecasting
+- Insights Package: Consolidated outputs for decision-makers
+
+## Key Decisions
+- Is the analysis scope clear and feasible?
+- Do the results meet quality and accuracy thresholds?
+- Are the insights actionable and ready for dissemination?
+
+## Exception Paths
+- If the analysis request is unclear, it is returned to the requester for clarification.
+- If validation fails, the analysis is reworked and re-validated.
+- If results are not actionable, additional refinement is performed before finalisation.
+
+## Step Walkthrough
+1. Receive Analysis Request: The Data Analyst receives and reviews the analysis request to confirm scope and data requirements.
+2. Scope Analysis: The Data Analyst defines the analytical approach, methods, and success criteria in a brief plan.
+3. Perform Statistical Analysis: The Data Analyst applies statistical techniques to the clean dataset, generating initial findings.
+4. Develop Predictive Model: The Data Analyst builds and trains a predictive model using the dataset, producing a draft model.
+5. Validate Results: The Lead Analyst reviews the analysis and model against success criteria, deciding whether to approve or request rework.
+6. Package Insights: The Data Analyst compiles findings, visualisations, and model documentation into a final report and model package.
+7. Deliver Insights Package: The Data Analyst distributes the final insights package to decision-makers and archives the outputs.
+
+Steps:
+1. Receive Analysis Request: The Data Analyst receives the analysis request, which includes the business question, scope, and required outputs. They confirm the request is clear and complete, and that the necessary clean dataset is available. If the request is unclear, it is returned to the requester for clarification.
+2. Scope Analysis: The Data Analyst defines the scope of the analysis, including the statistical methods, modelling techniques, visualisation types, and success criteria. This step ensures alignment with the business question and data availability. The output is a brief analysis plan.
+3. Perform Statistical Analysis: The Data Analyst applies descriptive and inferential statistical methods to the clean structured dataset. This includes calculating metrics, identifying trends, and generating initial findings. The output is a set of statistical results and preliminary visualisations.
+4. Develop Predictive Model: The Data Analyst selects an appropriate modelling technique (e.g., regression, classification, time series) and trains the model on the clean dataset. The model is evaluated for accuracy and performance. The output is a draft predictive model with performance metrics.
+5. Validate Results: The Lead Analyst reviews the statistical results and draft predictive model against the success criteria defined in the analysis plan. They assess accuracy, relevance, and actionability. If the results meet thresholds, they are approved; otherwise, they are returned for rework.
+6. Rework Analysis: The Data Analyst reworks the statistical analysis or predictive model based on feedback from the Lead Analyst. This may involve refining methods, correcting errors, or improving model performance. The updated outputs are sent back for re-validation.
+7. Package Insights: The Data Analyst consolidates the validated statistical results, predictive model, and visualisations into a comprehensive analytic report. They also prepare model documentation for deployment. The output is a final insights package ready for dissemination.
+8. Deliver Insights Package: The Data Analyst delivers the final analytic report and predictive model to the requesting stakeholders. The outputs are archived in the analytics repository for future reference. The process concludes with a notification to all relevant parties.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:46:13</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-b31c89e5255e2483578b9e47200a406b.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-b31c89e5255e2483578b9e47200a406b.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-84e8dcbfd13a5650500e1f43e74f47f7.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-84e8dcbfd13a5650500e1f43e74f47f7.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-24bfda34083dca6ddeabdfa6bf13a67b.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-24bfda34083dca6ddeabdfa6bf13a67b.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0f7eb372ee0a2b408a7331975fa7f343.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0f7eb372ee0a2b408a7331975fa7f343.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-c5c900d27a9a93ab59893bdb0707a3d5.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-c5c900d27a9a93ab59893bdb0707a3d5.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3f4a7ae4056b77707cb99ff3ccfdce1d.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3f4a7ae4056b77707cb99ff3ccfdce1d.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-230b2d47415e0e961fff81a0bff03f41.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-230b2d47415e0e961fff81a0bff03f41.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-a4891e04250efc583437fde96e87aea5.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-a4891e04250efc583437fde96e87aea5.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-9a84ed56518022f041088b9e0fec8ff9.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-9a84ed56518022f041088b9e0fec8ff9.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0bb9c1b4056e6f5f12879a95efea19e5.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0bb9c1b4056e6f5f12879a95efea19e5.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-d6b51ab342942b4153ac423abfb06f08.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-d6b51ab342942b4153ac423abfb06f08.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-d5f9410d4b05727a5b281fdba4388374.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-d5f9410d4b05727a5b281fdba4388374.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-28d47a1e5fa3964a59b2245014e5f57d.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-28d47a1e5fa3964a59b2245014e5f57d.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-a4dc89ef55a7943939f56b2b6a21b236.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-a4dc89ef55a7943939f56b2b6a21b236.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-e768014db1a7347824d83e76cdeab2aa.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-e768014db1a7347824d83e76cdeab2aa.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bb002e15b87720274dd57bd8f3eaa24e.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bb002e15b87720274dd57bd8f3eaa24e.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-d143c2bb7ecdf3b43578060aeaaaf9a2.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-d143c2bb7ecdf3b43578060aeaaaf9a2.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-9cace9bf7b9ff2f017a3085ddd1a0d8e.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-9cace9bf7b9ff2f017a3085ddd1a0d8e.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

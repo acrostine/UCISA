@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Property Maintenance</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Property Maintenance</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-f467693ae6a8f1896054eecd2286911f.png" alt="Property Maintenance" usemap="#view-f467693ae6a8f1896054eecd2286911fmap"/>
+			   <map name="view-f467693ae6a8f1896054eecd2286911fmap">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-3b63523d81e7540627d53e2f5ea0a6f3.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-89fe2c02526da9734372c0c991983ecd.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-9bc2629aa7ee65961339270cd9aa286f.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-36df3b42b0fa769804520c3a474ac92f.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-523a326e24d85fff130e96ee0d263c68.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-5931f3fc1fa806c2631a2c490781b3ed.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-5a7a070540df448e8b166cb1a13bf800.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-15b6c6c64a465a56d73d8c78d6e9ddaa.html" target="element" >
+				          <area shape="rect" coords="148,1538,318,1651" href="../objects/n-35580cc01125c4f405e0bf9fd3842111.html" target="element" >
+				          <area shape="rect" coords="148,1348,318,1461" href="../objects/n-f5e0554ec08a4ac0233f433333df5b34.html" target="element" >
+				          <area shape="rect" coords="148,1157,318,1270" href="../objects/n-d8a4fec54f50bd7400ae4fbfdab44e44.html" target="element" >
+				          <area shape="rect" coords="24,967,194,1080" href="../objects/n-c67faaf76ef2c24d2a5c75220eb98a96.html" target="element" >
+				          <area shape="rect" coords="148,777,318,890" href="../objects/n-3af88b235491ae11391440b74b42d418.html" target="element" >
+				          <area shape="rect" coords="148,586,318,699" href="../objects/n-fbeb493755a075d783bb7baac3cdc725.html" target="element" >
+				          <area shape="rect" coords="148,396,318,509" href="../objects/n-5dd64d9085c0b5448c4a65db192c7312.html" target="element" >
+				          <area shape="rect" coords="148,206,318,319" href="../objects/n-91a890da18621f2503d14c79ffa0d7a3.html" target="element" >
+				          <area shape="rect" coords="219,1771,268,1796" href="../objects/n-3b93cae33d2b67fdc56d755866ae4e70.html" target="element" >
+				          <area shape="rect" coords="219,58,268,83" href="../objects/n-fdabbdec911ddc318eabedbb4ef9bdc4.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+Property Maintenance ensures that university facilities remain safe, functional, and compliant through systematic handling of both reactive and preventive maintenance activities. The process manages work requests from intake through completion, coordinating resources, tracking progress, and verifying quality to preserve asset value and minimise operational disruption.
+
+## Roles
+- Facilities Manager: Oversees maintenance operations, approves work orders, and reviews performance
+- Maintenance Coordinator: Triages requests, assigns work, and schedules preventive tasks
+- Trades Technician: Executes maintenance and repair work in the field
+- Quality Inspector: Verifies completed work meets standards
+- System: Automated scheduling, notification, and record-keeping
+
+## Upstream Inputs
+- Maintenance Request (from occupants, inspections, or automated alerts)
+- Inspection Report (from routine or condition-based inspections)
+- Resource Availability (staff schedules, parts inventory, equipment status)
+- Preventive Maintenance Schedule (calendar-based or usage-based triggers)
+
+## Downstream Outputs
+- Completed Work Order (with labour, parts, and time records)
+- Asset Condition Update (updated status and maintenance history)
+- Compliance Record (regulatory and safety documentation)
+- Performance Report (response times, completion rates, backlog)
+
+## Key Decisions
+- Priority classification: emergency, urgent, routine, or deferred
+- Resource allocation: which technician and when based on skill and availability
+- Repair vs replace: whether to fix or recommend capital replacement
+- Quality acceptance: whether completed work meets defined standards
+
+## Exception Paths
+- Emergency response: immediate dispatch bypassing normal triage
+- Parts unavailability: work order placed on hold with notification to requester
+- Scope escalation: work exceeds original scope, requires re-approval
+- Quality failure: work rejected, sent back for rework with corrective action
+- Safety violation: work stopped immediately, incident report filed
+
+## Step Walkthrough
+1. Receive Maintenance Request: The system captures requests from multiple channels (phone, web, email, sensor alerts) and creates a work order record with initial details.
+2. Triage and Classify Request: The Maintenance Coordinator reviews the request, assigns a priority level (emergency, urgent, routine, deferred), and categorises the work type (plumbing, electrical, HVAC, structural, grounds).
+3. Assign Work Order: The Coordinator selects an available technician with appropriate skills and schedules the work, considering location, parts availability, and time window.
+4. Execute Maintenance Work: The Trades Technician performs the required repair or preventive task, records labour hours, materials used, and any observations about asset condition.
+5. Inspect Completed Work: The Quality Inspector examines the work against standards, checks for safety compliance, and verifies that the issue is resolved.
+6. Approve Work Completion: If the inspection passes, the Inspector marks the work order as complete; if it fails, the order is sent for rework.
+7. Update Asset Records: The system updates the asset database with maintenance history, condition notes, and any changes to lifecycle status.
+8. Close Work Order: The Facilities Manager reviews the completed record, confirms all documentation is in order, and closes the work order, triggering performance metrics update.
+
+Steps:
+1. Receive Maintenance Request: The system ingests maintenance requests submitted via phone, email, web portal, mobile app, or automated sensor alerts. Each request is logged with submitter details, location, description, and timestamp. A unique work order identifier is generated and the request is queued for triage.
+2. Triage and Classify Request: The Maintenance Coordinator examines the request details, determines urgency based on impact to safety or operations, and assigns a priority level: emergency (immediate response), urgent (same day), routine (within 5 days), or deferred (scheduled later). The work is categorised by trade (plumbing, electrical, HVAC, structural, grounds) and linked to the relevant asset.
+3. Assign Work Order: Based on the priority, trade category, and technician availability, the Coordinator assigns the work order to a qualified technician. The system checks for required parts inventory and suggests a time slot. The assignment is communicated to the technician via mobile notification and the work order status changes to 'Scheduled'.
+4. Execute Maintenance Work: The Trades Technician travels to the location, reviews the work order details, and performs the maintenance activity. The technician records labour hours, materials and parts used, any additional observations about asset condition, and photographs the completed work. For preventive tasks, checklists are completed in the system.
+5. Inspect Completed Work: The Quality Inspector reviews the completed work record, examines the work site, and checks against applicable standards and specifications. For critical systems, regulatory compliance checks are performed. The inspector documents findings and either approves the work or identifies deficiencies requiring correction.
+6. Approve Work Completion: If the inspection passes, the Inspector marks the work order as 'Completed' and the system notifies the requester. If deficiencies are found, the work order is returned to 'In Progress' with a rework instruction. The approval triggers updates to asset condition records and maintenance history.
+7. Update Asset Records: The system automatically updates the asset database with the completed maintenance activity, including date, labour, parts, and any condition changes. Asset lifecycle status is adjusted if needed. This ensures accurate historical data for planning and budgeting.
+8. Close Work Order: The Facilities Manager performs a final review of the complete work order record, confirms all documentation is in order, and closes the work order. The system calculates response time, resolution time, and cost metrics. Closed work orders are archived and contribute to performance reporting.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:45:34</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-fdabbdec911ddc318eabedbb4ef9bdc4.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-fdabbdec911ddc318eabedbb4ef9bdc4.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3b93cae33d2b67fdc56d755866ae4e70.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3b93cae33d2b67fdc56d755866ae4e70.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-91a890da18621f2503d14c79ffa0d7a3.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-91a890da18621f2503d14c79ffa0d7a3.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-5dd64d9085c0b5448c4a65db192c7312.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-5dd64d9085c0b5448c4a65db192c7312.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-fbeb493755a075d783bb7baac3cdc725.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-fbeb493755a075d783bb7baac3cdc725.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3af88b235491ae11391440b74b42d418.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3af88b235491ae11391440b74b42d418.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-c67faaf76ef2c24d2a5c75220eb98a96.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-c67faaf76ef2c24d2a5c75220eb98a96.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-d8a4fec54f50bd7400ae4fbfdab44e44.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-d8a4fec54f50bd7400ae4fbfdab44e44.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-f5e0554ec08a4ac0233f433333df5b34.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-f5e0554ec08a4ac0233f433333df5b34.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-35580cc01125c4f405e0bf9fd3842111.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-35580cc01125c4f405e0bf9fd3842111.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-15b6c6c64a465a56d73d8c78d6e9ddaa.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-15b6c6c64a465a56d73d8c78d6e9ddaa.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-5a7a070540df448e8b166cb1a13bf800.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-5a7a070540df448e8b166cb1a13bf800.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-5931f3fc1fa806c2631a2c490781b3ed.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-5931f3fc1fa806c2631a2c490781b3ed.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-523a326e24d85fff130e96ee0d263c68.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-523a326e24d85fff130e96ee0d263c68.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-36df3b42b0fa769804520c3a474ac92f.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-36df3b42b0fa769804520c3a474ac92f.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-9bc2629aa7ee65961339270cd9aa286f.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-9bc2629aa7ee65961339270cd9aa286f.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-89fe2c02526da9734372c0c991983ecd.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-89fe2c02526da9734372c0c991983ecd.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3b63523d81e7540627d53e2f5ea0a6f3.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3b63523d81e7540627d53e2f5ea0a6f3.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

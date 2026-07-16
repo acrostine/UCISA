@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Module Selection Mgt</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Module Selection Mgt</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-71553d7fbb3b14ecb2ab3fa16c1f2765.png" alt="Module Selection Mgt" usemap="#view-71553d7fbb3b14ecb2ab3fa16c1f2765map"/>
+			   <map name="view-71553d7fbb3b14ecb2ab3fa16c1f2765map">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-51db14f41d26bd15ac31de0fe1f05638.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-bfee7239daa6c9652182cca08c28990c.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-3e147cf84b7738381ad8d6a2222eec71.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-3014e239d531f2f856473fa297ca5668.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-53b2d44d84064b599ec70ed1a541bf53.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-863b3a5da0677c155311c6d50d9563b5.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-0036aefe730d4ffa2a4a74ae4a047be6.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-0059d812c7f2cc7e1dcb20a3b9759118.html" target="element" >
+				          <area shape="rect" coords="425,967,595,1080" href="../objects/n-a2aeab3a36a15669ffa2764e6226bbc1.html" target="element" >
+				          <area shape="rect" coords="410,777,580,890" href="../objects/n-2f7def3e3cb1958ec584835c41011a33.html" target="element" >
+				          <area shape="rect" coords="410,586,580,699" href="../objects/n-74362691442ebcee372460d174d18d58.html" target="element" >
+				          <area shape="rect" coords="116,967,286,1080" href="../objects/n-c4b403749b2b782d3c5744add002d6fe.html" target="element" >
+				          <area shape="rect" coords="116,396,286,509" href="../objects/n-225f950ff35a6ad49109679525aa4e01.html" target="element" >
+				          <area shape="rect" coords="116,206,286,319" href="../objects/n-abca4724a8198ecc6521166f1f98c59e.html" target="element" >
+				          <area shape="rect" coords="496,1200,545,1225" href="../objects/n-3fbc114f1fda73f76cc662eea9e69654.html" target="element" >
+				          <area shape="rect" coords="187,58,236,83" href="../objects/n-f685099a547adfe8bb7af2ddf308bec9.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+The Module Selection Management process enables students to choose modules that support their academic progression while ensuring all selections comply with programme curricula, academic regulations, and course load balancing requirements. It provides a structured workflow from preference submission through validation, advisor review, and final confirmation.
+
+## Roles
+- Student: Submits module preferences and revises selections if needed
+- Academic Advisor: Reviews and approves module selections
+- System: Validates selections against rules and records confirmed enrolments
+
+## Upstream Inputs
+- Programme Curricula
+- Academic Regulations
+- Student Preferences
+- Course Load Capacity Data
+
+## Downstream Outputs
+- Confirmed Module Enrolments
+- Progression Tracking Records
+- Course Load Allocation Data
+
+## Key Decisions
+- Do the selected modules comply with programme curriculum requirements?
+- Are all prerequisites met for the chosen modules?
+- Does the course load fall within acceptable limits?
+- Does the academic advisor approve the selection?
+
+## Exception Paths
+- If validation fails, the student is prompted to revise selections and resubmit
+- If the advisor rejects the selection, the student must revise and resubmit for re-review
+- If course load limits are exceeded, the student must reduce or adjust their selection
+
+## Step Walkthrough
+1. Submit Module Preferences: Student submits their preferred module list via the enrolment system.
+2. Validate Selections: System checks selections against programme curricula, prerequisites, and course load limits.
+3. Revise Selections: Student adjusts their module choices based on validation feedback.
+4. Review Selections: Academic advisor examines the validated selections for academic fit and approval.
+5. Approve Selections: Advisor formally approves the module selection.
+6. Confirm Enrolments: System records the approved selections as confirmed module enrolments.
+
+Steps:
+1. Submit Module Preferences: The student accesses the module selection system and chooses modules from the available offerings. They submit their preferences, which are captured as a formal request. The system records the submission timestamp and prepares the data for validation.
+2. Validate Selections: The system automatically checks each selected module against the programme curriculum to ensure compliance. It verifies prerequisite completion, checks for timetable clashes, and confirms the total course load is within allowed limits. Results are compiled into a validation report.
+3. Revise Selections: If validation identifies issues such as missing prerequisites, curriculum mismatches, or overload, the student is notified and must adjust their selections. The student can add, remove, or swap modules. The revised list is resubmitted for re-validation.
+4. Review Selections: The academic advisor accesses the student's validated module selections through the advisor dashboard. They review the choices for academic coherence, alignment with the student's goals, and any special considerations. The advisor may add comments or request changes.
+5. Approve Selections: The academic advisor makes a final decision to approve or reject the module selections. If approved, the selections move to confirmation. If rejected, the advisor provides reasons and the student must revise. The approval is recorded with a timestamp.
+6. Confirm Enrolments: Upon advisor approval, the system finalises the module enrolments. It updates the student's academic record, allocates course load, and triggers notifications to the student and relevant departments. The confirmed enrolment data is stored for progression tracking.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:47:44</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-f685099a547adfe8bb7af2ddf308bec9.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-f685099a547adfe8bb7af2ddf308bec9.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3fbc114f1fda73f76cc662eea9e69654.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3fbc114f1fda73f76cc662eea9e69654.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-abca4724a8198ecc6521166f1f98c59e.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-abca4724a8198ecc6521166f1f98c59e.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-225f950ff35a6ad49109679525aa4e01.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-225f950ff35a6ad49109679525aa4e01.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-c4b403749b2b782d3c5744add002d6fe.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-c4b403749b2b782d3c5744add002d6fe.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-74362691442ebcee372460d174d18d58.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-74362691442ebcee372460d174d18d58.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-2f7def3e3cb1958ec584835c41011a33.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-2f7def3e3cb1958ec584835c41011a33.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-a2aeab3a36a15669ffa2764e6226bbc1.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-a2aeab3a36a15669ffa2764e6226bbc1.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0059d812c7f2cc7e1dcb20a3b9759118.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0059d812c7f2cc7e1dcb20a3b9759118.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0036aefe730d4ffa2a4a74ae4a047be6.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0036aefe730d4ffa2a4a74ae4a047be6.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-863b3a5da0677c155311c6d50d9563b5.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-863b3a5da0677c155311c6d50d9563b5.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-53b2d44d84064b599ec70ed1a541bf53.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-53b2d44d84064b599ec70ed1a541bf53.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3014e239d531f2f856473fa297ca5668.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3014e239d531f2f856473fa297ca5668.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3e147cf84b7738381ad8d6a2222eec71.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3e147cf84b7738381ad8d6a2222eec71.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bfee7239daa6c9652182cca08c28990c.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bfee7239daa6c9652182cca08c28990c.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-51db14f41d26bd15ac31de0fe1f05638.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-51db14f41d26bd15ac31de0fe1f05638.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

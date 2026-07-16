@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Venue Mgt</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Venue Mgt</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-b883c7d38252b78e78e2e98706a1fef9.png" alt="Venue Mgt" usemap="#view-b883c7d38252b78e78e2e98706a1fef9map"/>
+			   <map name="view-b883c7d38252b78e78e2e98706a1fef9map">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-e1d509e5f8647600bbaeb5ac0008b868.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-fcc9328734a48b5794942122a1e55430.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-1b302d2be0b7ec947dcf000f4262e502.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-467b6c781e006ff9ad59bdc2659ef115.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-0f08161c894d38ca923188b2fa24efac.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-bb47ead678a11185084126110f4166ca.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-9769c911813e3c6762ce685d886a0dee.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-98b01155d2162418ef3f3ba0853b1c5a.html" target="element" >
+				          <area shape="rect" coords="368,1157,538,1270" href="../objects/n-6dd1cc8bd7adb59f3cf667f5d391515e.html" target="element" >
+				          <area shape="rect" coords="59,1348,229,1461" href="../objects/n-0c9b6b9c353000ef944672875447f1e4.html" target="element" >
+				          <area shape="rect" coords="59,1157,229,1270" href="../objects/n-9803933cf8136fc402afb0b6cd1a7ec5.html" target="element" >
+				          <area shape="rect" coords="120,967,290,1080" href="../objects/n-5b52ea762de51f8a97e1d7b4dbcdba90.html" target="element" >
+				          <area shape="rect" coords="120,777,290,890" href="../objects/n-6335aa8f15a62ab64771e9bb3ce6037c.html" target="element" >
+				          <area shape="rect" coords="120,586,290,699" href="../objects/n-0729c752af20b154314a162ab2a6ff05.html" target="element" >
+				          <area shape="rect" coords="244,396,414,509" href="../objects/n-bc59f7da9a974d2db751335f35e4227f.html" target="element" >
+				          <area shape="rect" coords="244,205,414,318" href="../objects/n-060e2b2fa6c2df010ed23afea57d64b6.html" target="element" >
+				          <area shape="rect" coords="130,1581,179,1606" href="../objects/n-9f2f355e9d17562ed188196f1e136ce6.html" target="element" >
+				          <area shape="rect" coords="315,58,364,83" href="../objects/n-0217781c0edad2083357a89021cb4e8b.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+Venue Management coordinates the scheduling, maintenance, and utilisation of campus spaces for academic, social, and external events. It consumes booking requests, facility maintenance data, and event requirements to optimise space availability and functionality. This process maximises resource use and supports a dynamic environment for learning, collaboration, and community engagement.
+
+## Roles
+- Venue Coordinator: Reviews and approves bookings, manages scheduling conflicts
+- Facilities Team: Performs maintenance and setup tasks
+- Event Requester: Submits booking requests and event requirements
+- System: Automates availability checks and notifications
+
+## Upstream Inputs
+- Booking Request
+- Facility Maintenance Data
+- Event Requirements
+
+## Downstream Outputs
+- Venue Schedule
+- Maintenance Work Order
+- Booking Confirmation
+- Venue Setup Instructions
+
+## Key Decisions
+- Is the requested venue available for the requested time slot?
+- Does the event require special setup or maintenance?
+- Are there any scheduling conflicts that need resolution?
+
+## Exception Paths
+- Venue unavailable: Request is returned to requester for alternative date/venue selection
+- Maintenance issue identified: Work order raised and booking held until resolved
+- Scheduling conflict: Venue Coordinator manually resolves or escalates
+
+## Step Walkthrough
+1. Receive Booking Request: Venue Coordinator receives the booking request and event requirements from the requester.
+2. Check Venue Availability: System checks the venue schedule for the requested date and time slot.
+3. Assess Scheduling Conflicts: Venue Coordinator reviews any potential conflicts with existing bookings.
+4. Review Maintenance Status: Facilities Team checks the venue's maintenance data for any outstanding issues.
+5. Approve or Reject Booking: Venue Coordinator approves the booking if available and conflict-free, or rejects with reason.
+6. Coordinate Maintenance Setup: Facilities Team schedules any required maintenance or setup work.
+7. Confirm Booking and Notify: System sends booking confirmation to requester and setup instructions to Facilities Team.
+
+Steps:
+1. Receive Booking Request: The Venue Coordinator accepts the incoming booking request from the event requester. The request includes event type, date, time, expected attendance, and any special requirements. This step initiates the venue management workflow.
+2. Check Venue Availability: The Venue Booking System automatically queries the schedule database to determine if the requested venue is free during the specified time slot. It checks for existing bookings, maintenance blocks, and other reservations.
+3. Assess Scheduling Conflicts: If the venue is available, the Venue Coordinator manually reviews the schedule for any overlapping events or setup/teardown time conflicts. This step ensures no double-booking occurs and that adequate buffer time exists between events.
+4. Review Maintenance Status: The Facilities Team reviews the maintenance log for the requested venue. They check for any pending repairs, scheduled maintenance, or safety issues that could affect the event. If issues exist, they assess whether the venue can still be used or requires work.
+5. Approve or Reject Booking: Based on availability, conflict assessment, and maintenance status, the Venue Coordinator makes the final decision. If all conditions are met, the booking is approved. If not, the request is rejected with a clear explanation and suggestions for alternatives.
+6. Coordinate Maintenance Setup: For approved bookings, the Facilities Team coordinates any necessary maintenance, cleaning, or setup activities. This includes arranging furniture, AV equipment, or special configurations required by the event.
+7. Confirm Booking and Notify: The Venue Booking System automatically generates and sends a confirmation to the event requester. It also sends setup instructions to the Facilities Team. The venue schedule is updated to reflect the new booking.
+8. Resolve Booking Issues: When a booking is rejected due to unavailability or conflicts, the Venue Coordinator contacts the requester to discuss alternatives. This may involve suggesting different dates, times, or venues. The process loops back to re-evaluate the revised request.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:46:37</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-0217781c0edad2083357a89021cb4e8b.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0217781c0edad2083357a89021cb4e8b.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-9f2f355e9d17562ed188196f1e136ce6.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-9f2f355e9d17562ed188196f1e136ce6.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-060e2b2fa6c2df010ed23afea57d64b6.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-060e2b2fa6c2df010ed23afea57d64b6.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bc59f7da9a974d2db751335f35e4227f.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bc59f7da9a974d2db751335f35e4227f.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0729c752af20b154314a162ab2a6ff05.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0729c752af20b154314a162ab2a6ff05.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-6335aa8f15a62ab64771e9bb3ce6037c.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-6335aa8f15a62ab64771e9bb3ce6037c.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-5b52ea762de51f8a97e1d7b4dbcdba90.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-5b52ea762de51f8a97e1d7b4dbcdba90.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-9803933cf8136fc402afb0b6cd1a7ec5.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-9803933cf8136fc402afb0b6cd1a7ec5.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0c9b6b9c353000ef944672875447f1e4.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0c9b6b9c353000ef944672875447f1e4.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-6dd1cc8bd7adb59f3cf667f5d391515e.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-6dd1cc8bd7adb59f3cf667f5d391515e.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-98b01155d2162418ef3f3ba0853b1c5a.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-98b01155d2162418ef3f3ba0853b1c5a.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-9769c911813e3c6762ce685d886a0dee.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-9769c911813e3c6762ce685d886a0dee.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bb47ead678a11185084126110f4166ca.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bb47ead678a11185084126110f4166ca.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0f08161c894d38ca923188b2fa24efac.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0f08161c894d38ca923188b2fa24efac.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-467b6c781e006ff9ad59bdc2659ef115.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-467b6c781e006ff9ad59bdc2659ef115.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-1b302d2be0b7ec947dcf000f4262e502.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-1b302d2be0b7ec947dcf000f4262e502.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-fcc9328734a48b5794942122a1e55430.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-fcc9328734a48b5794942122a1e55430.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-e1d509e5f8647600bbaeb5ac0008b868.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-e1d509e5f8647600bbaeb5ac0008b868.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Library Collection Resource Mgt</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Library Collection Resource Mgt</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-1e358dab1e77352b03095e4960353659.png" alt="Library Collection Resource Mgt" usemap="#view-1e358dab1e77352b03095e4960353659map"/>
+			   <map name="view-1e358dab1e77352b03095e4960353659map">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-bd1e40141b8dd199992bcf22efcb6e8a.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-75039127df311d54070a969b263f8be9.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-421adbc6ceff2bd48a4ce38e8d5c49de.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-96a177a7e104bc405e514c128acecddf.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-6ae12605e9cdf1d0efba45305cfdfefb.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-ac5972c607fb0bb0553f7705f55b72ef.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-a16306795db8b7f51dd1d1d5c3156d5d.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-cd28b7e366ff1af8fa9b92c5d8eeb62a.html" target="element" >
+				          <area shape="rect" coords="197,1919,367,2032" href="../objects/n-3bbe53ba2a1ae010427356216d673629.html" target="element" >
+				          <area shape="rect" coords="197,1728,367,1841" href="../objects/n-cbe5e8d0fd82850e2265518c1b8c026f.html" target="element" >
+				          <area shape="rect" coords="197,1538,367,1651" href="../objects/n-b92decc72a97b4dff15b3b8a7de9e11c.html" target="element" >
+				          <area shape="rect" coords="197,1348,367,1461" href="../objects/n-35bd101ea679fef63cd24db65862a64b.html" target="element" >
+				          <area shape="rect" coords="197,1157,367,1270" href="../objects/n-c6bbbfa8fe4a892e0832330114da9370.html" target="element" >
+				          <area shape="rect" coords="197,967,367,1080" href="../objects/n-f04c68211becc7cb36652230300cad92.html" target="element" >
+				          <area shape="rect" coords="197,777,367,890" href="../objects/n-8c77e408bbcddefc11c060b29e2a2040.html" target="element" >
+				          <area shape="rect" coords="197,586,367,699" href="../objects/n-70817592e78de3a9488fc091439d4058.html" target="element" >
+				          <area shape="rect" coords="73,396,243,509" href="../objects/n-721b56eeef4ab0b35676b7c3b2324e31.html" target="element" >
+				          <area shape="rect" coords="73,205,243,318" href="../objects/n-b7e1d84dc1b10aa41e3f6e45810aa3d3.html" target="element" >
+				          <area shape="rect" coords="144,58,193,83" href="../objects/n-6dd8f3d7d601d514d11fef1ccafc20dd.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+This process manages the lifecycle of library collection resources from identification of need through acquisition, cataloguing, and ongoing maintenance. It ensures that the library's physical and digital holdings remain aligned with institutional teaching and research objectives while optimising the use of allocated budgets.
+
+## Roles
+- Collection Librarian: Initiates selection and coordinates acquisition
+- Acquisitions Officer: Processes purchase orders and manages vendor relationships
+- Cataloguer: Creates and updates bibliographic records
+- Library Director: Approves significant expenditure and policy exceptions
+- System: Automated budget checking and usage analytics
+
+## Upstream Inputs
+- Procurement Requests: Faculty and student requests for new materials
+- Budget Allocations: Annual library materials budget from central finance
+- Usage Statistics: Circulation and download data for existing collection
+- Curriculum Documents: Course lists and research focus areas
+
+## Downstream Outputs
+- Curated Collection: Updated library holdings available for circulation
+- Catalogue Records: Bibliographic metadata for discovery systems
+- Acquisition Orders: Purchase orders sent to vendors
+- Maintenance Reports: Condition and relevance assessments for weeding decisions
+
+## Key Decisions
+- Whether a requested resource meets selection criteria (relevance, cost, duplication)
+- Which vendor to use based on pricing and delivery terms
+- Whether a damaged item should be repaired or replaced
+- Whether low-usage items should be withdrawn or retained
+
+## Exception Paths
+- Resource request rejected due to budget constraints or irrelevance
+- Vendor unable to supply &#8212; order cancelled and reallocated
+- Catalogue record contains errors &#8212; sent back for correction
+- Item damaged beyond repair &#8212; withdrawn and replaced
+
+## Step Walkthrough
+1. Receive Collection Request: Collection Librarian gathers procurement requests, budget data, and usage statistics to identify materials needed.
+2. Evaluate Request Against Criteria: Collection Librarian assesses each request for curriculum alignment, cost, and duplication, producing a selection decision.
+3. Approve Selection: Library Director reviews and approves or rejects the selection recommendation.
+4. Place Acquisition Order: Acquisitions Officer creates and sends purchase orders to selected vendors.
+5. Receive and Process Item: Acquisitions Officer receives delivered items, checks condition, and initiates cataloguing.
+6. Catalogue Resource: Cataloguer creates bibliographic records with classification and subject headings.
+7. Review Catalogue Record: Cataloguer verifies record accuracy and completeness, flagging errors for correction.
+8. Add to Collection: System updates the catalogue and makes the item available for circulation.
+9. Monitor Usage and Condition: Collection Librarian reviews usage statistics and physical condition reports to identify items needing maintenance or withdrawal.
+10. Perform Maintenance Action: Collection Librarian executes repair, replacement, or withdrawal decisions based on assessment findings.
+
+Steps:
+1. Receive Collection Request: The Collection Librarian collects incoming procurement requests from faculty and students, reviews the annual budget allocation, and analyses usage statistics for existing materials. This step establishes the baseline demand and resource constraints for the selection cycle.
+2. Evaluate Request Against Criteria: The Collection Librarian evaluates each potential acquisition against predefined selection criteria including alignment with curriculum and research priorities, cost relative to budget, existing holdings to avoid duplication, and format suitability. A recommendation is prepared for each request.
+3. Approve Selection: The Library Director examines the selection recommendation, considering budget impact, strategic alignment, and any exceptional circumstances. Approved items proceed to acquisition; rejected items are returned with reasons.
+4. Place Acquisition Order: The Acquisitions Officer generates purchase orders for all approved selections, selects appropriate vendors based on pricing and delivery terms, and transmits orders electronically. Order confirmations are tracked for follow-up.
+5. Receive and Process Item: The Acquisitions Officer receives physical or digital items, inspects for damage or defects, matches against purchase orders, and forwards items to the cataloguing queue. Discrepancies are flagged for vendor resolution.
+6. Catalogue Resource: The Cataloguer creates detailed bibliographic records including title, author, ISBN, subject headings, classification numbers, and location information. Digital resources receive appropriate metadata and access links.
+7. Review Catalogue Record: The Cataloguer reviews each draft record for accuracy of bibliographic data, correct classification, and completeness of subject access points. Records that pass review are published; records with errors are returned for correction.
+8. Add to Collection: The System publishes verified catalogue records to the public catalogue, updates item status to 'Available', and integrates digital resources into the discovery platform. The item is now accessible to library users.
+9. Monitor Usage and Condition: The Collection Librarian periodically analyses circulation data, download statistics, and physical condition surveys to identify items with low usage, damage, or obsolescence. Items are flagged for maintenance, repair, or withdrawal.
+10. Perform Maintenance Action: The Collection Librarian carries out the recommended maintenance actions: repairing minor damage, ordering replacements for lost or damaged items, or withdrawing obsolete or low-use materials from the collection. Withdrawn items are removed from the catalogue.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:46:23</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-6dd8f3d7d601d514d11fef1ccafc20dd.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-6dd8f3d7d601d514d11fef1ccafc20dd.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-b7e1d84dc1b10aa41e3f6e45810aa3d3.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-b7e1d84dc1b10aa41e3f6e45810aa3d3.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-721b56eeef4ab0b35676b7c3b2324e31.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-721b56eeef4ab0b35676b7c3b2324e31.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-70817592e78de3a9488fc091439d4058.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-70817592e78de3a9488fc091439d4058.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-8c77e408bbcddefc11c060b29e2a2040.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-8c77e408bbcddefc11c060b29e2a2040.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-f04c68211becc7cb36652230300cad92.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-f04c68211becc7cb36652230300cad92.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-c6bbbfa8fe4a892e0832330114da9370.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-c6bbbfa8fe4a892e0832330114da9370.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-35bd101ea679fef63cd24db65862a64b.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-35bd101ea679fef63cd24db65862a64b.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-b92decc72a97b4dff15b3b8a7de9e11c.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-b92decc72a97b4dff15b3b8a7de9e11c.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-cbe5e8d0fd82850e2265518c1b8c026f.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-cbe5e8d0fd82850e2265518c1b8c026f.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-3bbe53ba2a1ae010427356216d673629.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-3bbe53ba2a1ae010427356216d673629.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-cd28b7e366ff1af8fa9b92c5d8eeb62a.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-cd28b7e366ff1af8fa9b92c5d8eeb62a.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-a16306795db8b7f51dd1d1d5c3156d5d.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-a16306795db8b7f51dd1d1d5c3156d5d.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-ac5972c607fb0bb0553f7705f55b72ef.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-ac5972c607fb0bb0553f7705f55b72ef.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-6ae12605e9cdf1d0efba45305cfdfefb.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-6ae12605e9cdf1d0efba45305cfdfefb.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-96a177a7e104bc405e514c128acecddf.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-96a177a7e104bc405e514c128acecddf.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-421adbc6ceff2bd48a4ce38e8d5c49de.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-421adbc6ceff2bd48a4ce38e8d5c49de.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-75039127df311d54070a969b263f8be9.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-75039127df311d54070a969b263f8be9.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bd1e40141b8dd199992bcf22efcb6e8a.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bd1e40141b8dd199992bcf22efcb6e8a.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

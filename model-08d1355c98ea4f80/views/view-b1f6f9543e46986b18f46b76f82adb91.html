@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Application Lifecycle Mgt</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Application Lifecycle Mgt</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-viewpoint-"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-viewpoint_" target="hint"></a>
+            <!-- Or if a model (i.e has Purpose method) -->
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+			   <img class="diagram" src="../images/view-b1f6f9543e46986b18f46b76f82adb91.png" alt="Application Lifecycle Mgt" usemap="#view-b1f6f9543e46986b18f46b76f82adb91map"/>
+			   <map name="view-b1f6f9543e46986b18f46b76f82adb91map">
+				          <area shape="rect" coords="10,178,100,198" href="../objects/n-a1653b6f7a0213c880901e0de16469f6.html" target="element" >
+				          <area shape="rect" coords="10,154,100,174" href="../objects/n-e25a52c7b2fbd73b3332ea04faa17c55.html" target="element" >
+				          <area shape="rect" coords="10,130,100,150" href="../objects/n-6f2c44073cd8b015e67e141ef5a7c034.html" target="element" >
+				          <area shape="rect" coords="10,106,100,126" href="../objects/n-98cc4b582f74a5eb11d3bdf0f0fff3a1.html" target="element" >
+				          <area shape="rect" coords="10,82,100,102" href="../objects/n-b6d2b7cd82d15b41ca72a1273b693413.html" target="element" >
+				          <area shape="rect" coords="10,58,100,78" href="../objects/n-74a33cd1fd83f2495c3da3447d7136d6.html" target="element" >
+				          <area shape="rect" coords="10,34,100,54" href="../objects/n-faa996732fdc63aac1a451b80db22cab.html" target="element" >
+				          <area shape="rect" coords="10,10,100,30" href="../objects/n-0749d49dfb364fe1de19f1c7b9e78411.html" target="element" >
+				          <area shape="rect" coords="189,1538,359,1651" href="../objects/n-798ce26e4cd7fafbc2ba3a1ed5cfaa7f.html" target="element" >
+				          <area shape="rect" coords="189,1348,359,1461" href="../objects/n-8764a8709f7b118118a67a5349e41b63.html" target="element" >
+				          <area shape="rect" coords="189,1157,359,1270" href="../objects/n-bb31944c68faca0d54f7982e5fe76a82.html" target="element" >
+				          <area shape="rect" coords="189,967,359,1080" href="../objects/n-14e56035fcc50f4c2b95327f69dbc368.html" target="element" >
+				          <area shape="rect" coords="189,777,359,890" href="../objects/n-8ccfc55fdde8bfc466bb27baa0dd6cde.html" target="element" >
+				          <area shape="rect" coords="189,586,359,699" href="../objects/n-4c433cb28f12d1a178608eac667adc71.html" target="element" >
+				          <area shape="rect" coords="65,396,235,509" href="../objects/n-71b0837d72887f8aef4ead48a3a84771.html" target="element" >
+				          <area shape="rect" coords="189,205,359,318" href="../objects/n-bdb3603d212c235d98e1bad9cf52d40d.html" target="element" >
+				          <area shape="rect" coords="260,58,309,83" href="../objects/n-7763646acc319eba2377dc4aab9e40b5.html" target="element" >
+
+			   </map>
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+
+						<li role="presentation"><a href="#elements" aria-controls="elements" role="tab" data-toggle="tab" class="i18n-elements"></a></li>
+						<li role="presentation"><a href="#relationships" aria-controls="relationships" role="tab" data-toggle="tab" class="i18n-relationships"></a></li>
+                    <!-- Model, Query Tab -->
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="convertlinks documentation" style="white-space:pre-wrap">## Purpose
+Application Lifecycle Management governs the end-to-end development, deployment, and maintenance of software applications supporting academic and administrative functions. It consumes user requirements, technical specifications, and feedback, producing stable, secure, and updated applications. This process ensures alignment of software capabilities with institutional goals, enhancing operational efficiency and user satisfaction.
+
+## Roles
+- Business Analyst: Gathers and documents user requirements
+- Application Manager: Reviews and prioritises requirements, oversees lifecycle
+- Developer: Builds and tests application features
+- Quality Assurance Analyst: Validates application against specifications
+- System Administrator: Deploys and maintains applications in production
+
+## Upstream Inputs
+- User Requirements
+- Technical Specifications
+- User Feedback
+- Change Requests
+
+## Downstream Outputs
+- Deployed Application
+- Updated Application
+- Release Notes
+- Maintenance Reports
+
+## Key Decisions
+- Whether to approve or reject a requirement for development
+- Whether the application passes quality validation
+- Whether to deploy the application to production
+- Whether to escalate critical issues for immediate remediation
+
+## Exception Paths
+- Rejected requirements are returned to the Business Analyst for clarification or rework
+- Failed validation triggers a rework loop back to development
+- Critical production issues are escalated for urgent remediation
+
+## Step Walkthrough
+1. Collect Requirements: Business Analyst gathers user requirements and technical specifications from stakeholders.
+2. Review Requirements: Application Manager reviews requirements against institutional goals and technical feasibility.
+3. Approve Requirements: Application Manager approves or rejects requirements; approved ones proceed to development.
+4. Develop Application: Developer builds application features according to approved specifications.
+5. Validate Application: Quality Assurance Analyst tests the application against requirements and quality standards.
+6. Deploy Application: System Administrator deploys the validated application to the production environment.
+7. Monitor and Maintain: System Administrator monitors application performance and applies updates based on feedback and issues.
+8. Address Issues: Developer resolves reported issues or implements changes; critical issues are escalated for immediate action.
+
+Steps:
+1. Collect Requirements: The Business Analyst engages with academic and administrative stakeholders to collect detailed user requirements and technical specifications. This step captures functional needs, performance expectations, and integration constraints. All inputs are documented in a standardised format for review.
+2. Review Requirements: The Application Manager reviews the documented requirements against institutional goals, technical feasibility, and resource availability. Requirements are assessed for clarity, completeness, and priority. A recommendation is prepared for approval or rejection.
+3. Approve Requirements: The Application Manager makes a final decision on each requirement. Approved requirements are prioritised and queued for development. Rejected requirements are returned with feedback for clarification or rework.
+4. Develop Application: The Developer implements the approved requirements, writing code and integrating components. Development follows established coding standards and version control practices. The completed build is prepared for validation.
+5. Validate Application: The Quality Assurance Analyst executes test cases covering functional, performance, and security criteria. Results are documented, and any defects are logged. The application either passes validation or is returned for rework.
+6. Deploy Application: The System Administrator deploys the validated application build to the production environment following change management procedures. Deployment is verified, and release notes are published. The application becomes available to end users.
+7. Monitor and Maintain: The System Administrator continuously monitors application health, performance metrics, and user feedback. Routine maintenance updates and patches are applied. Issues are logged for resolution.
+8. Address Issues: The Developer reviews the issue log and resolves defects or implements minor enhancements. Critical issues are escalated for immediate remediation. Resolved changes are fed back into the development cycle.</div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>generated_by</td><td class="convertlinks no-margin" style="white-space:pre-wrap">build_processes.py::generate_fragment</td></tr><tr><td>generator_path</td><td class="convertlinks no-margin" style="white-space:pre-wrap">pedro/capabilities/build_processes/build_processes.py</td></tr><tr><td>run_at</td><td class="convertlinks no-margin" style="white-space:pre-wrap">2026-07-16T17:46:03</td></tr><tr><td>model_code</td><td class="convertlinks no-margin" style="white-space:pre-wrap">UCISA</td></tr><tr><td>view_type</td><td class="convertlinks no-margin" style="white-space:pre-wrap">process_flow</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+						<div role="tabpanel" class="tab-pane" id="elements">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+									</tr>
+								</thead>
+								<tbody>
+									        <tr>
+									           <td> <a href="../objects/n-7763646acc319eba2377dc4aab9e40b5.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-7763646acc319eba2377dc4aab9e40b5.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bdb3603d212c235d98e1bad9cf52d40d.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bdb3603d212c235d98e1bad9cf52d40d.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-71b0837d72887f8aef4ead48a3a84771.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-71b0837d72887f8aef4ead48a3a84771.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-4c433cb28f12d1a178608eac667adc71.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-4c433cb28f12d1a178608eac667adc71.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-8ccfc55fdde8bfc466bb27baa0dd6cde.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-8ccfc55fdde8bfc466bb27baa0dd6cde.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-14e56035fcc50f4c2b95327f69dbc368.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-14e56035fcc50f4c2b95327f69dbc368.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-bb31944c68faca0d54f7982e5fe76a82.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-bb31944c68faca0d54f7982e5fe76a82.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-8764a8709f7b118118a67a5349e41b63.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-8764a8709f7b118118a67a5349e41b63.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-798ce26e4cd7fafbc2ba3a1ed5cfaa7f.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-798ce26e4cd7fafbc2ba3a1ed5cfaa7f.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-0749d49dfb364fe1de19f1c7b9e78411.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-0749d49dfb364fe1de19f1c7b9e78411.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-faa996732fdc63aac1a451b80db22cab.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-faa996732fdc63aac1a451b80db22cab.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-74a33cd1fd83f2495c3da3447d7136d6.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-74a33cd1fd83f2495c3da3447d7136d6.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-b6d2b7cd82d15b41ca72a1273b693413.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-b6d2b7cd82d15b41ca72a1273b693413.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-98cc4b582f74a5eb11d3bdf0f0fff3a1.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-98cc4b582f74a5eb11d3bdf0f0fff3a1.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-6f2c44073cd8b015e67e141ef5a7c034.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-6f2c44073cd8b015e67e141ef5a7c034.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-e25a52c7b2fbd73b3332ea04faa17c55.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-e25a52c7b2fbd73b3332ea04faa17c55.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+									        <tr>
+									           <td> <a href="../objects/n-a1653b6f7a0213c880901e0de16469f6.html" target="element">  </a> </td>
+									           <td> <a href="../objects/n-a1653b6f7a0213c880901e0de16469f6.html" target="element" class="i18n-elementtype-DiagramModelNote"> </a> </td>
+									        </tr>
+
+
+								</tbody>
+							</table>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="relationships">
+							<table class="table table-striped table-hover table-condensed">
+								<thead>
+									<tr>
+										<th class="i18n-name"></th>
+										<th class="i18n-type"></th>
+										<th class="i18n-source"></th>
+										<th class="i18n-target"></th>
+									</tr>
+								</thead>
+								<tbody>
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+											<!-- DEBUG: Skipping element from class com.archimatetool.model.impl.DiagramModelNote -->
+
+								</tbody>
+							</table>
+						</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>
