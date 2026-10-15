@@ -1,0 +1,12 @@
+source \ target,Commercial Activity,Consumers,Enabling Capabilities,Locations,Market Segments,Products,Research,Stakeholders,Strategy & Governance,Teaching & Learning,OUT (row sum)
+Commercial Activity,6,0,6,0,0,0,1,0,2,0,15
+Consumers,0,0,0,0,0,0,0,0,0,0,0
+Enabling Capabilities,0,0,14,0,0,0,0,0,0,1,15
+Locations,0,0,0,0,0,0,0,0,0,0,0
+Market Segments,0,0,0,0,0,0,0,0,0,0,0
+Products,0,0,0,0,0,0,0,0,0,0,0
+Research,1,0,8,0,0,0,12,0,2,0,23
+Stakeholders,0,0,0,0,0,0,0,0,0,0,0
+Strategy & Governance,0,0,7,0,0,0,0,0,3,2,12
+Teaching & Learning,0,0,2,0,0,0,0,0,0,13,15
+IN (col sum),7,0,37,0,0,0,13,0,7,16,80

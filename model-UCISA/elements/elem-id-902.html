@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Manage Research Relationships</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+	<!-- MARKDOWN -->
+	<script type="text/javascript" src="../../lib/marked/marked.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Manage Research Relationships</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-elementtype-BusinessProcess"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-BusinessProcess" target="hint"></a>
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+                    	<li role="presentation"><a href="#analysis" aria-controls="analysis" role="tab" data-toggle="tab" class="i18n-analysis"></a></li>
+
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="markdown-doc"><script type="text/plain">### Identity
+Work here establishes and sustains relationships with external research partners, funders, and stakeholders so that collaborative activity is tracked and obligations are met.
+
+### Trigger
+The arrival of a Collaboration Request from an external organisation, when no active Research Partnership Agreement covers that organisation for the proposed activity.
+
+### Consumes
+Collaboration Request supplies the proposed activity, partner details, and desired outcomes. Research Relationship Register supplies the history of past interactions and current agreements with the partner. Stakeholder Engagement Record supplies the last recorded contact and any outstanding commitments. Research Partnership Agreement supplies the terms and obligations when an existing agreement covers the relationship.
+
+### Steps
+The Collaboration Request is checked against the Research Relationship Register to identify existing links. If an active Research Partnership Agreement exists, the request is routed to the agreement owner for renewal or amendment. If no agreement exists, the process drafts a new Research Partnership Agreement covering data sharing, intellectual property, and publication rights. The draft is approved by legal and the partner before being signed. After signing, the relationship is added to the Research Relationship Register. The process then sets a schedule for Stakeholder Engagement Records and produces a Partnership Performance Report at each annual review.
+
+### Produces
+Research Partnership Agreement: issued when the collaboration terms are signed, establishing the legal basis for joint work. Research Relationship Register: updated with the new or amended relationship, establishing the current relationship portfolio. Partnership Performance Report: issued at review points, establishing whether the collaboration is delivering against its objectives.
+
+### Outcome
+Every external research relationship is under a signed agreement and is actively reviewed.
+
+### Fails when
+The Stakeholder Engagement Record shows no contact for over a year and the process does not schedule a review; the partnership lapses and the Research Partnership Agreement is breached.</script></div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>tier</td><td class="convertlinks no-margin" style="white-space:pre-wrap">paid</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="used-in-views-view-domain_processes-[id-10002]">
+																	<td><a href="../views/view-domain_processes-[id-10002].html" target="view" title="Enabling Capabilities - Processes"> Enabling Capabilities - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200025]">
+																	<td><a href="../views/view-capability_processes-[id-200025].html" target="view" title="Research Opportunity &amp; Planning - Processes"> Research Opportunity &amp; Planning - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-892]">
+																	<td><a href="../views/view-process_context-[id-892].html" target="view" title="Research Funding Identification - Context"> Research Funding Identification - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-890]">
+																	<td><a href="../views/view-process_context-[id-890].html" target="view" title="Collaborative Opportunity Mgt - Context"> Collaborative Opportunity Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-domain_processes-[id-10003]">
+																	<td><a href="../views/view-domain_processes-[id-10003].html" target="view" title="Research - Processes"> Research - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-processes_overview-[UCISA]">
+																	<td><a href="../views/view-processes_overview-[UCISA].html" target="view" title="Processes Overview"> Processes Overview </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-902]">
+																	<td><a href="../views/view-process_context-[id-902].html" target="view" title="Manage Research Relationships - Context"> Manage Research Relationships - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200023]">
+																	<td><a href="../views/view-capability_processes-[id-200023].html" target="view" title="Research Impact - Processes"> Research Impact - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-903]">
+																	<td><a href="../views/view-process_context-[id-903].html" target="view" title="Commercialise Research Outcomes - Context"> Commercialise Research Outcomes - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-904]">
+																	<td><a href="../views/view-process_context-[id-904].html" target="view" title="Non-Commercial Research Impact Mgt - Context"> Non-Commercial Research Impact Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-922]">
+																	<td><a href="../views/view-process_context-[id-922].html" target="view" title="Industry Relationship Mgt - Context"> Industry Relationship Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200022]">
+																	<td><a href="../views/view-capability_processes-[id-200022].html" target="view" title="Research Funding - Processes"> Research Funding - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200013]">
+																	<td><a href="../views/view-capability_processes-[id-200013].html" target="view" title="Government, Public &amp; Stakeholder Relationships - Processes"> Government, Public &amp; Stakeholder Relationships - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-elements_map-[UCISA]">
+																	<td><a href="../views/view-elements_map-[UCISA].html" target="view" title="Elements Map"> Elements Map </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr>
+											<td><a href="../elements/elem-id-206a5333-b136-4f4a-b26f-ffedf9e190e1.html" target="element" title="Stakeholder Needs Statement">Stakeholder Needs Statement</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+											<td><a href="../elements/elem-id-904.html" target="element"> Non-Commercial Research Impact Mgt</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-43bfc627-6ae6-4e7e-a1be-3ee02c783268.html" target="element" title="Partnership Opportunity">Partnership Opportunity</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+											<td><a href="../elements/elem-id-892.html" target="element"> Research Funding Identification</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-d61191e5-5a86-4004-ba82-b597a654734e.html" target="element" title="Industry Engagement Record">Industry Engagement Record</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+											<td><a href="../elements/elem-id-922.html" target="element"> Industry Relationship Mgt</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-f6816763-dcd6-445c-89e3-fcd2fbd0deec.html" target="element" title="Commercialisation Lead">Commercialisation Lead</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+											<td><a href="../elements/elem-id-903.html" target="element"> Commercialise Research Outcomes</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-b-94.html" target="element" title=""></a></td>
+											<td><span class="i18n-elementtype-RealizationRelationship" /></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+											<td><a href="../elements/elem-id-200023.html" target="element"> Research Impact</a></td>
+										</tr>
+									<tr>
+											<td><a href="../elements/elem-id-0caa1e3d-57c7-4cb4-92e2-dea441763cff.html" target="element" title="Societal Impact Report">Societal Impact Report</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-904.html" target="element"> Non-Commercial Research Impact Mgt</a></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-8b6475b3-c069-46cb-a042-57ce2a77abf6.html" target="element" title="Collaboration Proposal">Collaboration Proposal</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-890.html" target="element"> Collaborative Opportunity Mgt</a></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-be9c7385-ca49-4a0d-9268-d660850cc952.html" target="element" title="Commercialisation Outcome Report">Commercialisation Outcome Report</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-903.html" target="element"> Commercialise Research Outcomes</a></td>
+											<td><a href="../elements/elem-id-902.html" target="element"> Manage Research Relationships</a></td>
+										</tr>
+							</tbody>
+						</table>
+					</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

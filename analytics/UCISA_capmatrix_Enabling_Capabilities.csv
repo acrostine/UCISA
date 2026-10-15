@@ -1,0 +1,13 @@
+source \ target,Accommodation Management,Facilities & Property Management,Finance Management,"Government, Public & Stakeholder Relationships",Human Resource Management,Information & Communication Technology Mgt,Information Management,Legal Services,Library Management,Promotions Management,Supporting Services,OUT (row sum)
+Accommodation Management,0,0,0,0,0,0,0,0,0,0,0,0
+Facilities & Property Management,0,0,1,0,0,0,1,0,0,0,0,2
+Finance Management,0,1,0,0,0,0,0,0,0,0,0,1
+"Government, Public & Stakeholder Relationships",0,0,0,0,0,0,0,1,0,0,0,1
+Human Resource Management,0,0,0,0,0,0,0,0,0,0,0,0
+Information & Communication Technology Mgt,0,0,0,0,1,0,0,0,0,0,0,1
+Information Management,0,0,1,0,1,1,0,0,0,0,0,3
+Legal Services,0,0,1,0,0,0,0,0,0,0,0,1
+Library Management,0,0,0,0,1,0,1,0,0,0,0,2
+Promotions Management,0,0,0,0,0,0,1,0,0,0,1,2
+Supporting Services,0,0,0,0,0,0,0,0,0,1,0,1
+IN (col sum),0,1,3,0,3,1,3,1,0,1,1,14

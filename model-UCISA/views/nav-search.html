@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>UK Higher Education — Search</title>
+<style>
+body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 0;
+       background: #f4f3ee; color: #2c2c2a; overflow-y: auto; }
+main.content { padding: 24px 28px; min-width: 0; }
+h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+p.sub { color: #5f5e5a; margin: 0 0 14px; font-size: 13px; }
+input.search-box { width: 100%; max-width: 480px; padding: 10px 14px; font-size: 15px;
+           border: 1px solid #d8d6cd; border-radius: 8px; margin-bottom: 18px;
+           box-sizing: border-box; }
+input.search-box:focus { outline: none; border-color: #639922; }
+p.count { font-size: 12px; color: #888; margin: 0 0 14px; }
+.grid.compact { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px; }
+a.tile { display: block; text-decoration: none; color: inherit; background: #fff;
+         border: 1px solid #d8d6cd; border-radius: 8px; overflow: hidden; }
+a.tile:hover { border-color: #639922; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.thumb { width: 100%; height: 180px; object-fit: contain; background: #fafafa;
+         border-bottom: 1px solid #eee; display: block; }
+.cap { padding: 6px 8px; font-size: 11px; font-weight: 500; }
+a.tile.hidden { display: none; }
+
+.hidden { display: none !important; }
+.fbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        margin: 0 0 16px; font-size: 13px; }
+.fbar label { font-weight: 700; color: #33424f; }
+.fbar select { padding: 7px 10px; font-size: 13px; border: 1px solid #d8d6cd;
+        border-radius: 8px; background: #fff; color: #2c2c2a; max-width: 100%; }
+.fbar select:focus { outline: none; border-color: #639922; }
+.fbar a { color: #639922; font-weight: 700; text-decoration: none; }
+.fbar .n { color: #888; font-size: 12px; }
+p.maps { font-size: 13px; margin: 0 0 14px; color: #5f5e5a; }
+p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
+</style>
+</head>
+<body>
+<main class="content">
+<h1>UK Higher Education — Search</h1>
+<p class="sub">Type any word from a diagram's title -- e.g. "Context" -- to filter to matching pictures.</p>
+<p class="maps">Maps: <a target="view" href="nav-home_thumbs.html">Home maps</a> &middot; <a target="view" href="nav-catalogue_thumbs.html">Catalogue</a> &middot; <a target="view" href="view-capabilities_overview-[UCISA]_thumbs.html">Capabilities Overview</a> &middot; <a target="view" href="view-processes_overview-[UCISA]_thumbs.html">Processes Overview</a></p>
+<input class="search-box" id="search-box" type="text" placeholder="Search by title...">
+<div class="fbar" id="fbar"><label for="type-filter">View type</label><select id="type-filter" data-filter="type"><option value="">All types (287)</option><option value="home">Home (1)</option><option value="system_overview">System overview (1)</option><option value="elements_map">Elements map (1)</option><option value="capabilities_overview">Capabilities overview (1)</option><option value="processes_overview">Processes overview (1)</option><option value="domain_capabilities">Domain capabilities (5)</option><option value="domain_processes">Domain processes (5)</option><option value="capability_context">Capability context (37)</option><option value="capability_processes">Capability processes (37)</option><option value="process_context">Process context (186)</option><option value="process_flow">Process flow (10)</option><option value="source_import_business_context">Source import: business context (1)</option><option value="source_import_data_model">Source import: data model (1)</option></select><a href="#" id="fbar-clear">Clear</a></div>
+<p class="count" id="search-count">287 of 287 diagrams</p>
+<div class="grid compact">
+  <a class="tile" target="view" href="../views/view-home-[UCISA].html" data-title="home" data-type="home">
+    <img class="thumb" src="../images/view-home-[UCISA].png" alt="Home" loading="lazy">
+    <div class="cap">Home</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-system_overview-[UCISA].html" data-title="system overview" data-type="system_overview">
+    <img class="thumb" src="../images/view-system_overview-[UCISA].png" alt="System Overview" loading="lazy">
+    <div class="cap">System Overview</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-elements_map-[UCISA].html" data-title="elements map" data-type="elements_map">
+    <img class="thumb" src="../images/view-elements_map-[UCISA].png" alt="Elements Map" loading="lazy">
+    <div class="cap">Elements Map</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capabilities_overview-[UCISA].html" data-title="capabilities overview" data-type="capabilities_overview">
+    <img class="thumb" src="../images/view-capabilities_overview-[UCISA].png" alt="Capabilities Overview" loading="lazy">
+    <div class="cap">Capabilities Overview</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-processes_overview-[UCISA].html" data-title="processes overview" data-type="processes_overview">
+    <img class="thumb" src="../images/view-processes_overview-[UCISA].png" alt="Processes Overview" loading="lazy">
+    <div class="cap">Processes Overview</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_capabilities-[id-10001].html" data-title="commercial activity - capabilities" data-type="domain_capabilities">
+    <img class="thumb" src="../images/view-domain_capabilities-[id-10001].png" alt="Commercial Activity - Capabilities" loading="lazy">
+    <div class="cap">Commercial Activity - Capabilities</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_capabilities-[id-10002].html" data-title="enabling capabilities - capabilities" data-type="domain_capabilities">
+    <img class="thumb" src="../images/view-domain_capabilities-[id-10002].png" alt="Enabling Capabilities - Capabilities" loading="lazy">
+    <div class="cap">Enabling Capabilities - Capabilities</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_capabilities-[id-10003].html" data-title="research - capabilities" data-type="domain_capabilities">
+    <img class="thumb" src="../images/view-domain_capabilities-[id-10003].png" alt="Research - Capabilities" loading="lazy">
+    <div class="cap">Research - Capabilities</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_capabilities-[id-10004].html" data-title="strategy &amp; governance - capabilities" data-type="domain_capabilities">
+    <img class="thumb" src="../images/view-domain_capabilities-[id-10004].png" alt="Strategy &amp; Governance - Capabilities" loading="lazy">
+    <div class="cap">Strategy &amp; Governance - Capabilities</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_capabilities-[id-10005].html" data-title="teaching &amp; learning - capabilities" data-type="domain_capabilities">
+    <img class="thumb" src="../images/view-domain_capabilities-[id-10005].png" alt="Teaching &amp; Learning - Capabilities" loading="lazy">
+    <div class="cap">Teaching &amp; Learning - Capabilities</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10001].html" data-title="commercial activity - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10001].png" alt="Commercial Activity - Processes" loading="lazy">
+    <div class="cap">Commercial Activity - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10002].html" data-title="enabling capabilities - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10002].png" alt="Enabling Capabilities - Processes" loading="lazy">
+    <div class="cap">Enabling Capabilities - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10003].html" data-title="research - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10003].png" alt="Research - Processes" loading="lazy">
+    <div class="cap">Research - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10004].html" data-title="strategy &amp; governance - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10004].png" alt="Strategy &amp; Governance - Processes" loading="lazy">
+    <div class="cap">Strategy &amp; Governance - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10005].html" data-title="teaching &amp; learning - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10005].png" alt="Teaching &amp; Learning - Processes" loading="lazy">
+    <div class="cap">Teaching &amp; Learning - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20001].html" data-title="academic administration - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20001].png" alt="Academic Administration - Context" loading="lazy">
+    <div class="cap">Academic Administration - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20002].html" data-title="accommodation management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20002].png" alt="Accommodation Management - Context" loading="lazy">
+    <div class="cap">Accommodation Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20003].html" data-title="alumni engagement - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20003].png" alt="Alumni Engagement - Context" loading="lazy">
+    <div class="cap">Alumni Engagement - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20004].html" data-title="business capability management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20004].png" alt="Business Capability Management - Context" loading="lazy">
+    <div class="cap">Business Capability Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20005].html" data-title="commercial delivery - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20005].png" alt="Commercial Delivery - Context" loading="lazy">
+    <div class="cap">Commercial Delivery - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20006].html" data-title="commercial engagement - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20006].png" alt="Commercial Engagement - Context" loading="lazy">
+    <div class="cap">Commercial Engagement - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20007].html" data-title="commercial monitoring - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20007].png" alt="Commercial Monitoring - Context" loading="lazy">
+    <div class="cap">Commercial Monitoring - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20008].html" data-title="commercial sourcing - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20008].png" alt="Commercial Sourcing - Context" loading="lazy">
+    <div class="cap">Commercial Sourcing - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-20009].html" data-title="corporate governance - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-20009].png" alt="Corporate Governance - Context" loading="lazy">
+    <div class="cap">Corporate Governance - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200010].html" data-title="curriculum management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200010].png" alt="Curriculum Management - Context" loading="lazy">
+    <div class="cap">Curriculum Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200011].html" data-title="facilities &amp; property management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200011].png" alt="Facilities &amp; Property Management - Context" loading="lazy">
+    <div class="cap">Facilities &amp; Property Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200012].html" data-title="finance management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200012].png" alt="Finance Management - Context" loading="lazy">
+    <div class="cap">Finance Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200013].html" data-title="government, public &amp; stakeholder relationships - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200013].png" alt="Government, Public &amp; Stakeholder Relationships - Context" loading="lazy">
+    <div class="cap">Government, Public &amp; Stakeholder Relationships - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200014].html" data-title="human resource management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200014].png" alt="Human Resource Management - Context" loading="lazy">
+    <div class="cap">Human Resource Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200015].html" data-title="information &amp; communication technology mgt - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200015].png" alt="Information &amp; Communication Technology Mgt - Context" loading="lazy">
+    <div class="cap">Information &amp; Communication Technology Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200016].html" data-title="information management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200016].png" alt="Information Management - Context" loading="lazy">
+    <div class="cap">Information Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200017].html" data-title="legal services - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200017].png" alt="Legal Services - Context" loading="lazy">
+    <div class="cap">Legal Services - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200018].html" data-title="library management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200018].png" alt="Library Management - Context" loading="lazy">
+    <div class="cap">Library Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200019].html" data-title="promotions management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200019].png" alt="Promotions Management - Context" loading="lazy">
+    <div class="cap">Promotions Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200020].html" data-title="research administration - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200020].png" alt="Research Administration - Context" loading="lazy">
+    <div class="cap">Research Administration - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200021].html" data-title="research delivery - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200021].png" alt="Research Delivery - Context" loading="lazy">
+    <div class="cap">Research Delivery - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200022].html" data-title="research funding - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200022].png" alt="Research Funding - Context" loading="lazy">
+    <div class="cap">Research Funding - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200023].html" data-title="research impact - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200023].png" alt="Research Impact - Context" loading="lazy">
+    <div class="cap">Research Impact - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200024].html" data-title="research improvement - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200024].png" alt="Research Improvement - Context" loading="lazy">
+    <div class="cap">Research Improvement - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200025].html" data-title="research opportunity &amp; planning - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200025].png" alt="Research Opportunity &amp; Planning - Context" loading="lazy">
+    <div class="cap">Research Opportunity &amp; Planning - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200026].html" data-title="research publications - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200026].png" alt="Research Publications - Context" loading="lazy">
+    <div class="cap">Research Publications - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200027].html" data-title="research training - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200027].png" alt="Research Training - Context" loading="lazy">
+    <div class="cap">Research Training - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200028].html" data-title="strategy management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200028].png" alt="Strategy Management - Context" loading="lazy">
+    <div class="cap">Strategy Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200029].html" data-title="student administration - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200029].png" alt="Student Administration - Context" loading="lazy">
+    <div class="cap">Student Administration - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200030].html" data-title="student admission management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200030].png" alt="Student Admission Management - Context" loading="lazy">
+    <div class="cap">Student Admission Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200031].html" data-title="student assessment - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200031].png" alt="Student Assessment - Context" loading="lazy">
+    <div class="cap">Student Assessment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200032].html" data-title="student attraction &amp; recruitment - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200032].png" alt="Student Attraction &amp; Recruitment - Context" loading="lazy">
+    <div class="cap">Student Attraction &amp; Recruitment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200033].html" data-title="student completion &amp; graduation - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200033].png" alt="Student Completion &amp; Graduation - Context" loading="lazy">
+    <div class="cap">Student Completion &amp; Graduation - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200034].html" data-title="student enrolment - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200034].png" alt="Student Enrolment - Context" loading="lazy">
+    <div class="cap">Student Enrolment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200035].html" data-title="student support &amp; wellbeing management - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200035].png" alt="Student Support &amp; Wellbeing Management - Context" loading="lazy">
+    <div class="cap">Student Support &amp; Wellbeing Management - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200036].html" data-title="supporting services - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200036].png" alt="Supporting Services - Context" loading="lazy">
+    <div class="cap">Supporting Services - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_context-[id-200037].html" data-title="teaching &amp; learning delivery - context" data-type="capability_context">
+    <img class="thumb" src="../images/view-capability_context-[id-200037].png" alt="Teaching &amp; Learning Delivery - Context" loading="lazy">
+    <div class="cap">Teaching &amp; Learning Delivery - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20001].html" data-title="academic administration - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20001].png" alt="Academic Administration - Processes" loading="lazy">
+    <div class="cap">Academic Administration - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20002].html" data-title="accommodation management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20002].png" alt="Accommodation Management - Processes" loading="lazy">
+    <div class="cap">Accommodation Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20003].html" data-title="alumni engagement - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20003].png" alt="Alumni Engagement - Processes" loading="lazy">
+    <div class="cap">Alumni Engagement - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20004].html" data-title="business capability management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20004].png" alt="Business Capability Management - Processes" loading="lazy">
+    <div class="cap">Business Capability Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20005].html" data-title="commercial delivery - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20005].png" alt="Commercial Delivery - Processes" loading="lazy">
+    <div class="cap">Commercial Delivery - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20006].html" data-title="commercial engagement - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20006].png" alt="Commercial Engagement - Processes" loading="lazy">
+    <div class="cap">Commercial Engagement - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20007].html" data-title="commercial monitoring - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20007].png" alt="Commercial Monitoring - Processes" loading="lazy">
+    <div class="cap">Commercial Monitoring - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20008].html" data-title="commercial sourcing - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20008].png" alt="Commercial Sourcing - Processes" loading="lazy">
+    <div class="cap">Commercial Sourcing - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20009].html" data-title="corporate governance - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20009].png" alt="Corporate Governance - Processes" loading="lazy">
+    <div class="cap">Corporate Governance - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200010].html" data-title="curriculum management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200010].png" alt="Curriculum Management - Processes" loading="lazy">
+    <div class="cap">Curriculum Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200011].html" data-title="facilities &amp; property management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200011].png" alt="Facilities &amp; Property Management - Processes" loading="lazy">
+    <div class="cap">Facilities &amp; Property Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200012].html" data-title="finance management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200012].png" alt="Finance Management - Processes" loading="lazy">
+    <div class="cap">Finance Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200013].html" data-title="government, public &amp; stakeholder relationships - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200013].png" alt="Government, Public &amp; Stakeholder Relationships - Processes" loading="lazy">
+    <div class="cap">Government, Public &amp; Stakeholder Relationships - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200014].html" data-title="human resource management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200014].png" alt="Human Resource Management - Processes" loading="lazy">
+    <div class="cap">Human Resource Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200015].html" data-title="information &amp; communication technology mgt - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200015].png" alt="Information &amp; Communication Technology Mgt - Processes" loading="lazy">
+    <div class="cap">Information &amp; Communication Technology Mgt - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200016].html" data-title="information management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200016].png" alt="Information Management - Processes" loading="lazy">
+    <div class="cap">Information Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200017].html" data-title="legal services - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200017].png" alt="Legal Services - Processes" loading="lazy">
+    <div class="cap">Legal Services - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200018].html" data-title="library management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200018].png" alt="Library Management - Processes" loading="lazy">
+    <div class="cap">Library Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200019].html" data-title="promotions management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200019].png" alt="Promotions Management - Processes" loading="lazy">
+    <div class="cap">Promotions Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200020].html" data-title="research administration - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200020].png" alt="Research Administration - Processes" loading="lazy">
+    <div class="cap">Research Administration - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200021].html" data-title="research delivery - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200021].png" alt="Research Delivery - Processes" loading="lazy">
+    <div class="cap">Research Delivery - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200022].html" data-title="research funding - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200022].png" alt="Research Funding - Processes" loading="lazy">
+    <div class="cap">Research Funding - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200023].html" data-title="research impact - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200023].png" alt="Research Impact - Processes" loading="lazy">
+    <div class="cap">Research Impact - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200024].html" data-title="research improvement - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200024].png" alt="Research Improvement - Processes" loading="lazy">
+    <div class="cap">Research Improvement - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200025].html" data-title="research opportunity &amp; planning - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200025].png" alt="Research Opportunity &amp; Planning - Processes" loading="lazy">
+    <div class="cap">Research Opportunity &amp; Planning - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200026].html" data-title="research publications - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200026].png" alt="Research Publications - Processes" loading="lazy">
+    <div class="cap">Research Publications - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200027].html" data-title="research training - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200027].png" alt="Research Training - Processes" loading="lazy">
+    <div class="cap">Research Training - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200028].html" data-title="strategy management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200028].png" alt="Strategy Management - Processes" loading="lazy">
+    <div class="cap">Strategy Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200029].html" data-title="student administration - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200029].png" alt="Student Administration - Processes" loading="lazy">
+    <div class="cap">Student Administration - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200030].html" data-title="student admission management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200030].png" alt="Student Admission Management - Processes" loading="lazy">
+    <div class="cap">Student Admission Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200031].html" data-title="student assessment - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200031].png" alt="Student Assessment - Processes" loading="lazy">
+    <div class="cap">Student Assessment - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200032].html" data-title="student attraction &amp; recruitment - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200032].png" alt="Student Attraction &amp; Recruitment - Processes" loading="lazy">
+    <div class="cap">Student Attraction &amp; Recruitment - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200033].html" data-title="student completion &amp; graduation - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200033].png" alt="Student Completion &amp; Graduation - Processes" loading="lazy">
+    <div class="cap">Student Completion &amp; Graduation - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200034].html" data-title="student enrolment - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200034].png" alt="Student Enrolment - Processes" loading="lazy">
+    <div class="cap">Student Enrolment - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200035].html" data-title="student support &amp; wellbeing management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200035].png" alt="Student Support &amp; Wellbeing Management - Processes" loading="lazy">
+    <div class="cap">Student Support &amp; Wellbeing Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200036].html" data-title="supporting services - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200036].png" alt="Supporting Services - Processes" loading="lazy">
+    <div class="cap">Supporting Services - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200037].html" data-title="teaching &amp; learning delivery - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200037].png" alt="Teaching &amp; Learning Delivery - Processes" loading="lazy">
+    <div class="cap">Teaching &amp; Learning Delivery - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-872].html" data-title="academic advice mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-872].png" alt="Academic Advice Mgt - Context" loading="lazy">
+    <div class="cap">Academic Advice Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-840].html" data-title="academic policy &amp; regulation mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-840].png" alt="Academic Policy &amp; Regulation Mgt - Context" loading="lazy">
+    <div class="cap">Academic Policy &amp; Regulation Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-871].html" data-title="academic skills development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-871].png" alt="Academic Skills Development - Context" loading="lazy">
+    <div class="cap">Academic Skills Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-841].html" data-title="academic year scheduling - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-841].png" alt="Academic Year Scheduling - Context" loading="lazy">
+    <div class="cap">Academic Year Scheduling - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-1001].html" data-title="accommodation allocation - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-1001].png" alt="Accommodation Allocation - Context" loading="lazy">
+    <div class="cap">Accommodation Allocation - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-1004].html" data-title="accommodation departure &amp; turnaround mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-1004].png" alt="Accommodation Departure &amp; Turnaround Mgt - Context" loading="lazy">
+    <div class="cap">Accommodation Departure &amp; Turnaround Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-1002].html" data-title="accommodation facilities mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-1002].png" alt="Accommodation Facilities Mgt - Context" loading="lazy">
+    <div class="cap">Accommodation Facilities Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-1003].html" data-title="accommodation incident &amp; emergency response - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-1003].png" alt="Accommodation Incident &amp; Emergency Response - Context" loading="lazy">
+    <div class="cap">Accommodation Incident &amp; Emergency Response - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-856].html" data-title="alumni event &amp; campaign mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-856].png" alt="Alumni Event &amp; Campaign Mgt - Context" loading="lazy">
+    <div class="cap">Alumni Event &amp; Campaign Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-855].html" data-title="alumni relationship mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-855].png" alt="Alumni Relationship Mgt - Context" loading="lazy">
+    <div class="cap">Alumni Relationship Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-956].html" data-title="application lifecycle mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-956].png" alt="Application Lifecycle Mgt - Context" loading="lazy">
+    <div class="cap">Application Lifecycle Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-964].html" data-title="art/museum collection mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-964].png" alt="Art/Museum Collection Mgt - Context" loading="lazy">
+    <div class="cap">Art/Museum Collection Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-887].html" data-title="assessment administration - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-887].png" alt="Assessment Administration - Context" loading="lazy">
+    <div class="cap">Assessment Administration - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-884].html" data-title="assessment delivery - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-884].png" alt="Assessment Delivery - Context" loading="lazy">
+    <div class="cap">Assessment Delivery - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-886].html" data-title="assessment marking and feedback - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-886].png" alt="Assessment Marking and Feedback - Context" loading="lazy">
+    <div class="cap">Assessment Marking and Feedback - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-995].html" data-title="asset mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-995].png" alt="Asset Mgt - Context" loading="lazy">
+    <div class="cap">Asset Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-857].html" data-title="benefactor mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-857].png" alt="Benefactor Mgt - Context" loading="lazy">
+    <div class="cap">Benefactor Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-826].html" data-title="benefits mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-826].png" alt="Benefits Mgt - Context" loading="lazy">
+    <div class="cap">Benefits Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-927].html" data-title="brand mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-927].png" alt="Brand Mgt - Context" loading="lazy">
+    <div class="cap">Brand Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-991].html" data-title="budget mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-991].png" alt="Budget Mgt - Context" loading="lazy">
+    <div class="cap">Budget Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-975].html" data-title="business &amp; operational reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-975].png" alt="Business &amp; Operational Reporting - Context" loading="lazy">
+    <div class="cap">Business &amp; Operational Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-836].html" data-title="business continuity mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-836].png" alt="Business Continuity Mgt - Context" loading="lazy">
+    <div class="cap">Business Continuity Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-822].html" data-title="business horizon scanning - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-822].png" alt="Business Horizon Scanning - Context" loading="lazy">
+    <div class="cap">Business Horizon Scanning - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-928].html" data-title="campaign mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-928].png" alt="Campaign Mgt - Context" loading="lazy">
+    <div class="cap">Campaign Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-985].html" data-title="campus parking - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-985].png" alt="Campus Parking - Context" loading="lazy">
+    <div class="cap">Campus Parking - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-981].html" data-title="campus security - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-981].png" alt="Campus Security - Context" loading="lazy">
+    <div class="cap">Campus Security - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-870].html" data-title="career &amp; employability engagement mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-870].png" alt="Career &amp; Employability Engagement Mgt - Context" loading="lazy">
+    <div class="cap">Career &amp; Employability Engagement Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-829].html" data-title="change portfolio mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-829].png" alt="Change Portfolio Mgt - Context" loading="lazy">
+    <div class="cap">Change Portfolio Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-937].html" data-title="child care mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-937].png" alt="Child Care Mgt - Context" loading="lazy">
+    <div class="cap">Child Care Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-890].html" data-title="collaborative opportunity mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-890].png" alt="Collaborative Opportunity Mgt - Context" loading="lazy">
+    <div class="cap">Collaborative Opportunity Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-917].html" data-title="commercial activity exit mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-917].png" alt="Commercial Activity Exit Mgt - Context" loading="lazy">
+    <div class="cap">Commercial Activity Exit Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-916].html" data-title="commercial activity issue mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-916].png" alt="Commercial Activity Issue Mgt - Context" loading="lazy">
+    <div class="cap">Commercial Activity Issue Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-915].html" data-title="commercial activity output mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-915].png" alt="Commercial Activity Output Mgt - Context" loading="lazy">
+    <div class="cap">Commercial Activity Output Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-919].html" data-title="commercial activity reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-919].png" alt="Commercial Activity Reporting - Context" loading="lazy">
+    <div class="cap">Commercial Activity Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-920].html" data-title="commercial contingency planning - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-920].png" alt="Commercial Contingency Planning - Context" loading="lazy">
+    <div class="cap">Commercial Contingency Planning - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-918].html" data-title="commercial contract performance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-918].png" alt="Commercial Contract Performance Mgt - Context" loading="lazy">
+    <div class="cap">Commercial Contract Performance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-911].html" data-title="commercial market analysis - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-911].png" alt="Commercial Market Analysis - Context" loading="lazy">
+    <div class="cap">Commercial Market Analysis - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-912].html" data-title="commercial opportunity assessment - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-912].png" alt="Commercial Opportunity Assessment - Context" loading="lazy">
+    <div class="cap">Commercial Opportunity Assessment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-910].html" data-title="commercial opportunity identification - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-910].png" alt="Commercial Opportunity Identification - Context" loading="lazy">
+    <div class="cap">Commercial Opportunity Identification - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-913].html" data-title="commercial partner engagement - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-913].png" alt="Commercial Partner Engagement - Context" loading="lazy">
+    <div class="cap">Commercial Partner Engagement - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-914].html" data-title="commercial partner integration &amp; transition - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-914].png" alt="Commercial Partner Integration &amp; Transition - Context" loading="lazy">
+    <div class="cap">Commercial Partner Integration &amp; Transition - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-988].html" data-title="commercial tenancy - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-988].png" alt="Commercial Tenancy - Context" loading="lazy">
+    <div class="cap">Commercial Tenancy - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-903].html" data-title="commercialise research outcomes - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-903].png" alt="Commercialise Research Outcomes - Context" loading="lazy">
+    <div class="cap">Commercialise Research Outcomes - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-941].html" data-title="complaint &amp; compliment mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-941].png" alt="Complaint &amp; Compliment Mgt - Context" loading="lazy">
+    <div class="cap">Complaint &amp; Compliment Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-833].html" data-title="compliance monitoring &amp; reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-833].png" alt="Compliance Monitoring &amp; Reporting - Context" loading="lazy">
+    <div class="cap">Compliance Monitoring &amp; Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-976].html" data-title="contract mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-976].png" alt="Contract Mgt - Context" loading="lazy">
+    <div class="cap">Contract Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-969].html" data-title="copyright mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-969].png" alt="Copyright Mgt - Context" loading="lazy">
+    <div class="cap">Copyright Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-825].html" data-title="corporate performance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-825].png" alt="Corporate Performance Mgt - Context" loading="lazy">
+    <div class="cap">Corporate Performance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-848].html" data-title="curriculum &amp; resource development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-848].png" alt="Curriculum &amp; Resource Development - Context" loading="lazy">
+    <div class="cap">Curriculum &amp; Resource Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-845].html" data-title="curriculum change mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-845].png" alt="Curriculum Change Mgt - Context" loading="lazy">
+    <div class="cap">Curriculum Change Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-844].html" data-title="curriculum design - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-844].png" alt="Curriculum Design - Context" loading="lazy">
+    <div class="cap">Curriculum Design - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-849].html" data-title="curriculum performance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-849].png" alt="Curriculum Performance Mgt - Context" loading="lazy">
+    <div class="cap">Curriculum Performance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-843].html" data-title="curriculum retirement mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-843].png" alt="Curriculum Retirement Mgt - Context" loading="lazy">
+    <div class="cap">Curriculum Retirement Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-958].html" data-title="digital communication mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-958].png" alt="Digital Communication Mgt - Context" loading="lazy">
+    <div class="cap">Digital Communication Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-878].html" data-title="disability support mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-878].png" alt="Disability Support Mgt - Context" loading="lazy">
+    <div class="cap">Disability Support Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-978].html" data-title="dispute resolution - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-978].png" alt="Dispute Resolution - Context" loading="lazy">
+    <div class="cap">Dispute Resolution - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-853].html" data-title="domestic student recruitment - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-853].png" alt="Domestic Student Recruitment - Context" loading="lazy">
+    <div class="cap">Domestic Student Recruitment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-949].html" data-title="employee performance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-949].png" alt="Employee Performance Mgt - Context" loading="lazy">
+    <div class="cap">Employee Performance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-952].html" data-title="employee support - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-952].png" alt="Employee Support - Context" loading="lazy">
+    <div class="cap">Employee Support - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-961].html" data-title="end user computing - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-961].png" alt="End User Computing - Context" loading="lazy">
+    <div class="cap">End User Computing - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-862].html" data-title="enrolment status mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-862].png" alt="Enrolment Status Mgt - Context" loading="lazy">
+    <div class="cap">Enrolment Status Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-830].html" data-title="enterprise architecture - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-830].png" alt="Enterprise Architecture - Context" loading="lazy">
+    <div class="cap">Enterprise Architecture - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-974].html" data-title="enterprise content mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-974].png" alt="Enterprise Content Mgt - Context" loading="lazy">
+    <div class="cap">Enterprise Content Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-984].html" data-title="environmental mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-984].png" alt="Environmental Mgt - Context" loading="lazy">
+    <div class="cap">Environmental Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-980].html" data-title="estate development &amp; mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-980].png" alt="Estate Development &amp; Mgt - Context" loading="lazy">
+    <div class="cap">Estate Development &amp; Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-929].html" data-title="event mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-929].png" alt="Event Mgt - Context" loading="lazy">
+    <div class="cap">Event Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-998].html" data-title="expenditure mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-998].png" alt="Expenditure Mgt - Context" loading="lazy">
+    <div class="cap">Expenditure Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-1000].html" data-title="financial advisory - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-1000].png" alt="Financial Advisory - Context" loading="lazy">
+    <div class="cap">Financial Advisory - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-996].html" data-title="financial reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-996].png" alt="Financial Reporting - Context" loading="lazy">
+    <div class="cap">Financial Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-933].html" data-title="food &amp; retail mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-933].png" alt="Food &amp; Retail Mgt - Context" loading="lazy">
+    <div class="cap">Food &amp; Retail Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-921].html" data-title="government relationship mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-921].png" alt="Government Relationship Mgt - Context" loading="lazy">
+    <div class="cap">Government Relationship Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-861].html" data-title="graduation eligibility mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-861].png" alt="Graduation Eligibility Mgt - Context" loading="lazy">
+    <div class="cap">Graduation Eligibility Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-858].html" data-title="graduation event mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-858].png" alt="Graduation Event Mgt - Context" loading="lazy">
+    <div class="cap">Graduation Event Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-859].html" data-title="graduation record certificate mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-859].png" alt="Graduation Record Certificate Mgt - Context" loading="lazy">
+    <div class="cap">Graduation Record Certificate Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-986].html" data-title="health &amp; safety - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-986].png" alt="Health &amp; Safety - Context" loading="lazy">
+    <div class="cap">Health &amp; Safety - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-938].html" data-title="health care mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-938].png" alt="Health Care Mgt - Context" loading="lazy">
+    <div class="cap">Health Care Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-960].html" data-title="high performance computing - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-960].png" alt="High Performance Computing - Context" loading="lazy">
+    <div class="cap">High Performance Computing - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-875].html" data-title="housing advice - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-875].png" alt="Housing Advice - Context" loading="lazy">
+    <div class="cap">Housing Advice - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-957].html" data-title="ict service support - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-957].png" alt="ICT Service Support - Context" loading="lazy">
+    <div class="cap">ICT Service Support - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-959].html" data-title="identity &amp; access mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-959].png" alt="Identity &amp; Access Mgt - Context" loading="lazy">
+    <div class="cap">Identity &amp; Access Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-993].html" data-title="income mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-993].png" alt="Income Mgt - Context" loading="lazy">
+    <div class="cap">Income Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-922].html" data-title="industry relationship mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-922].png" alt="Industry Relationship Mgt - Context" loading="lazy">
+    <div class="cap">Industry Relationship Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-971].html" data-title="information &amp; data mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-971].png" alt="Information &amp; Data Mgt - Context" loading="lazy">
+    <div class="cap">Information &amp; Data Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-967].html" data-title="information &amp; data security mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-967].png" alt="Information &amp; Data Security Mgt - Context" loading="lazy">
+    <div class="cap">Information &amp; Data Security Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-972].html" data-title="information analytics - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-972].png" alt="Information Analytics - Context" loading="lazy">
+    <div class="cap">Information Analytics - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-968].html" data-title="information collection mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-968].png" alt="Information Collection Mgt - Context" loading="lazy">
+    <div class="cap">Information Collection Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-966].html" data-title="information search &amp; discovery - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-966].png" alt="Information Search &amp; Discovery - Context" loading="lazy">
+    <div class="cap">Information Search &amp; Discovery - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-955].html" data-title="infrastructure lifecycle mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-955].png" alt="Infrastructure Lifecycle Mgt - Context" loading="lazy">
+    <div class="cap">Infrastructure Lifecycle Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-994].html" data-title="insurance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-994].png" alt="Insurance Mgt - Context" loading="lazy">
+    <div class="cap">Insurance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-835].html" data-title="internal audit &amp; reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-835].png" alt="Internal Audit &amp; Reporting - Context" loading="lazy">
+    <div class="cap">Internal Audit &amp; Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-940].html" data-title="internal communications - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-940].png" alt="Internal Communications - Context" loading="lazy">
+    <div class="cap">Internal Communications - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-925].html" data-title="internal stakeholder relationship mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-925].png" alt="Internal Stakeholder Relationship Mgt - Context" loading="lazy">
+    <div class="cap">Internal Stakeholder Relationship Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-852].html" data-title="international student recruitment - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-852].png" alt="International Student Recruitment - Context" loading="lazy">
+    <div class="cap">International Student Recruitment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-970].html" data-title="knowledge mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-970].png" alt="Knowledge Mgt - Context" loading="lazy">
+    <div class="cap">Knowledge Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-977].html" data-title="legal &amp; legislative compliance - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-977].png" alt="Legal &amp; Legislative Compliance - Context" loading="lazy">
+    <div class="cap">Legal &amp; Legislative Compliance - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-979].html" data-title="legal advisory - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-979].png" alt="Legal Advisory - Context" loading="lazy">
+    <div class="cap">Legal Advisory - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-962].html" data-title="library collection access mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-962].png" alt="Library Collection Access Mgt - Context" loading="lazy">
+    <div class="cap">Library Collection Access Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-963].html" data-title="library collection resource mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-963].png" alt="Library Collection Resource Mgt - Context" loading="lazy">
+    <div class="cap">Library Collection Resource Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-965].html" data-title="library membership mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-965].png" alt="Library Membership Mgt - Context" loading="lazy">
+    <div class="cap">Library Membership Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-987].html" data-title="mail mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-987].png" alt="Mail Mgt - Context" loading="lazy">
+    <div class="cap">Mail Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-902].html" data-title="manage research relationships - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-902].png" alt="Manage Research Relationships - Context" loading="lazy">
+    <div class="cap">Manage Research Relationships - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-930].html" data-title="market research - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-930].png" alt="Market Research - Context" loading="lazy">
+    <div class="cap">Market Research - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-931].html" data-title="marketing mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-931].png" alt="Marketing Mgt - Context" loading="lazy">
+    <div class="cap">Marketing Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-924].html" data-title="media relations mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-924].png" alt="Media Relations Mgt - Context" loading="lazy">
+    <div class="cap">Media Relations Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-932].html" data-title="merchandising - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-932].png" alt="Merchandising - Context" loading="lazy">
+    <div class="cap">Merchandising - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-838].html" data-title="module selection mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-838].png" alt="Module Selection Mgt - Context" loading="lazy">
+    <div class="cap">Module Selection Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-881].html" data-title="non presence based teaching - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-881].png" alt="Non Presence Based Teaching - Context" loading="lazy">
+    <div class="cap">Non Presence Based Teaching - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-860].html" data-title="non-academic achievement mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-860].png" alt="Non-Academic Achievement Mgt - Context" loading="lazy">
+    <div class="cap">Non-Academic Achievement Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-904].html" data-title="non-commercial research impact mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-904].png" alt="Non-Commercial Research Impact Mgt - Context" loading="lazy">
+    <div class="cap">Non-Commercial Research Impact Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-948].html" data-title="occupational health - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-948].png" alt="Occupational Health - Context" loading="lazy">
+    <div class="cap">Occupational Health - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-869].html" data-title="offer, acceptance &amp; quota mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-869].png" alt="Offer, Acceptance &amp; Quota Mgt - Context" loading="lazy">
+    <div class="cap">Offer, Acceptance &amp; Quota Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-828].html" data-title="organisational design - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-828].png" alt="Organisational Design - Context" loading="lazy">
+    <div class="cap">Organisational Design - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-923].html" data-title="other tertiary institution relationship mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-923].png" alt="Other Tertiary Institution Relationship Mgt - Context" loading="lazy">
+    <div class="cap">Other Tertiary Institution Relationship Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-879].html" data-title="personal learning mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-879].png" alt="Personal Learning Mgt - Context" loading="lazy">
+    <div class="cap">Personal Learning Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-876].html" data-title="personal tutor provision - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-876].png" alt="Personal Tutor Provision - Context" loading="lazy">
+    <div class="cap">Personal Tutor Provision - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-898].html" data-title="pgr student skills development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-898].png" alt="PGR Student Skills Development - Context" loading="lazy">
+    <div class="cap">PGR Student Skills Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-899].html" data-title="pgr supervisor development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-899].png" alt="PGR Supervisor Development - Context" loading="lazy">
+    <div class="cap">PGR Supervisor Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-834].html" data-title="policy &amp; regulation mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-834].png" alt="Policy &amp; Regulation Mgt - Context" loading="lazy">
+    <div class="cap">Policy &amp; Regulation Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-880].html" data-title="presence based teaching - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-880].png" alt="Presence Based Teaching - Context" loading="lazy">
+    <div class="cap">Presence Based Teaching - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-939].html" data-title="printing mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-939].png" alt="Printing Mgt - Context" loading="lazy">
+    <div class="cap">Printing Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-1005].html" data-title="private sector housing mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-1005].png" alt="Private Sector Housing Mgt - Context" loading="lazy">
+    <div class="cap">Private Sector Housing Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-990].html" data-title="procurement &amp; purchasing mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-990].png" alt="Procurement &amp; Purchasing Mgt - Context" loading="lazy">
+    <div class="cap">Procurement &amp; Purchasing Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-846].html" data-title="professional accreditation - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-846].png" alt="Professional Accreditation - Context" loading="lazy">
+    <div class="cap">Professional Accreditation - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-847].html" data-title="professional learning (staff) - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-847].png" alt="Professional Learning (Staff) - Context" loading="lazy">
+    <div class="cap">Professional Learning (Staff) - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-827].html" data-title="programme and project mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-827].png" alt="Programme and Project Mgt - Context" loading="lazy">
+    <div class="cap">Programme and Project Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-837].html" data-title="programme enrolment - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-837].png" alt="Programme Enrolment - Context" loading="lazy">
+    <div class="cap">Programme Enrolment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-864].html" data-title="programme transfer mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-864].png" alt="Programme Transfer Mgt - Context" loading="lazy">
+    <div class="cap">Programme Transfer Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-983].html" data-title="property maintenance - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-983].png" alt="Property Maintenance - Context" loading="lazy">
+    <div class="cap">Property Maintenance - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-851].html" data-title="prospective student engagement - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-851].png" alt="Prospective Student Engagement - Context" loading="lazy">
+    <div class="cap">Prospective Student Engagement - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-926].html" data-title="public relationship mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-926].png" alt="Public Relationship Mgt - Context" loading="lazy">
+    <div class="cap">Public Relationship Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-831].html" data-title="quality mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-831].png" alt="Quality Mgt - Context" loading="lazy">
+    <div class="cap">Quality Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-973].html" data-title="records mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-973].png" alt="Records Mgt - Context" loading="lazy">
+    <div class="cap">Records Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-934].html" data-title="religious support - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-934].png" alt="Religious Support - Context" loading="lazy">
+    <div class="cap">Religious Support - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-945].html" data-title="remuneration &amp; entitlements mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-945].png" alt="Remuneration &amp; Entitlements Mgt - Context" loading="lazy">
+    <div class="cap">Remuneration &amp; Entitlements Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-908].html" data-title="research compliance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-908].png" alt="Research Compliance Mgt - Context" loading="lazy">
+    <div class="cap">Research Compliance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-896].html" data-title="research dataset mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-896].png" alt="Research Dataset Mgt - Context" loading="lazy">
+    <div class="cap">Research Dataset Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-892].html" data-title="research funding identification - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-892].png" alt="Research Funding Identification - Context" loading="lazy">
+    <div class="cap">Research Funding Identification - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-893].html" data-title="research funds mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-893].png" alt="Research Funds Mgt - Context" loading="lazy">
+    <div class="cap">Research Funds Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-909].html" data-title="research infrastructure mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-909].png" alt="Research Infrastructure Mgt - Context" loading="lazy">
+    <div class="cap">Research Infrastructure Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-888].html" data-title="research opportunity analysis - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-888].png" alt="Research Opportunity Analysis - Context" loading="lazy">
+    <div class="cap">Research Opportunity Analysis - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-894].html" data-title="research output mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-894].png" alt="Research Output Mgt - Context" loading="lazy">
+    <div class="cap">Research Output Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-901].html" data-title="research output reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-901].png" alt="Research Output Reporting - Context" loading="lazy">
+    <div class="cap">Research Output Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-889].html" data-title="research prioritisation - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-889].png" alt="Research Prioritisation - Context" loading="lazy">
+    <div class="cap">Research Prioritisation - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-895].html" data-title="research production - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-895].png" alt="Research Production - Context" loading="lazy">
+    <div class="cap">Research Production - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-891].html" data-title="research programme development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-891].png" alt="Research Programme Development - Context" loading="lazy">
+    <div class="cap">Research Programme Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-905].html" data-title="research programme performance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-905].png" alt="Research Programme Performance Mgt - Context" loading="lazy">
+    <div class="cap">Research Programme Performance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-900].html" data-title="research publication mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-900].png" alt="Research Publication Mgt - Context" loading="lazy">
+    <div class="cap">Research Publication Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-906].html" data-title="research quality mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-906].png" alt="Research Quality Mgt - Context" loading="lazy">
+    <div class="cap">Research Quality Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-907].html" data-title="researcher performance mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-907].png" alt="Researcher Performance Mgt - Context" loading="lazy">
+    <div class="cap">Researcher Performance Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-897].html" data-title="researcher training &amp; development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-897].png" alt="Researcher Training &amp; Development - Context" loading="lazy">
+    <div class="cap">Researcher Training &amp; Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-832].html" data-title="risk mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-832].png" alt="Risk Mgt - Context" loading="lazy">
+    <div class="cap">Risk Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-850].html" data-title="scholarship &amp; bursary mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-850].png" alt="Scholarship &amp; Bursary Mgt - Context" loading="lazy">
+    <div class="cap">Scholarship &amp; Bursary Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-982].html" data-title="space utilisation - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-982].png" alt="Space Utilisation - Context" loading="lazy">
+    <div class="cap">Space Utilisation - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-935].html" data-title="sport &amp; recreation mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-935].png" alt="Sport &amp; Recreation Mgt - Context" loading="lazy">
+    <div class="cap">Sport &amp; Recreation Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-954].html" data-title="staff absence mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-954].png" alt="Staff Absence Mgt - Context" loading="lazy">
+    <div class="cap">Staff Absence Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-947].html" data-title="staff engagement - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-947].png" alt="Staff Engagement - Context" loading="lazy">
+    <div class="cap">Staff Engagement - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-953].html" data-title="staff record &amp; details mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-953].png" alt="Staff Record &amp; Details Mgt - Context" loading="lazy">
+    <div class="cap">Staff Record &amp; Details Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-943].html" data-title="staff recruitment - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-943].png" alt="Staff Recruitment - Context" loading="lazy">
+    <div class="cap">Staff Recruitment - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-823].html" data-title="strategic plan development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-823].png" alt="Strategic Plan Development - Context" loading="lazy">
+    <div class="cap">Strategic Plan Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-821].html" data-title="strategic plan mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-821].png" alt="Strategic Plan Mgt - Context" loading="lazy">
+    <div class="cap">Strategic Plan Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-824].html" data-title="strategic reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-824].png" alt="Strategic Reporting - Context" loading="lazy">
+    <div class="cap">Strategic Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-820].html" data-title="strategic vision development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-820].png" alt="Strategic Vision Development - Context" loading="lazy">
+    <div class="cap">Strategic Vision Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-868].html" data-title="student application mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-868].png" alt="Student Application Mgt - Context" loading="lazy">
+    <div class="cap">Student Application Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-874].html" data-title="student engagement &amp; retention - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-874].png" alt="Student Engagement &amp; Retention - Context" loading="lazy">
+    <div class="cap">Student Engagement &amp; Retention - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-866].html" data-title="student exceptional factors misconduct / appeal mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-866].png" alt="Student Exceptional Factors Misconduct / Appeal Mgt - Context" loading="lazy">
+    <div class="cap">Student Exceptional Factors Misconduct / Appeal Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-867].html" data-title="student financial administration - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-867].png" alt="Student Financial Administration - Context" loading="lazy">
+    <div class="cap">Student Financial Administration - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-873].html" data-title="student financial advice - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-873].png" alt="Student Financial Advice - Context" loading="lazy">
+    <div class="cap">Student Financial Advice - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-877].html" data-title="student health &amp; wellbeing - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-877].png" alt="Student Health &amp; Wellbeing - Context" loading="lazy">
+    <div class="cap">Student Health &amp; Wellbeing - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-839].html" data-title="student induction mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-839].png" alt="Student Induction Mgt - Context" loading="lazy">
+    <div class="cap">Student Induction Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-865].html" data-title="student mobility - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-865].png" alt="Student Mobility - Context" loading="lazy">
+    <div class="cap">Student Mobility - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-883].html" data-title="student placement mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-883].png" alt="Student Placement Mgt - Context" loading="lazy">
+    <div class="cap">Student Placement Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-863].html" data-title="student record &amp; details mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-863].png" alt="Student Record &amp; Details Mgt - Context" loading="lazy">
+    <div class="cap">Student Record &amp; Details Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-854].html" data-title="student recruitment agent mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-854].png" alt="Student Recruitment Agent Mgt - Context" loading="lazy">
+    <div class="cap">Student Recruitment Agent Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-885].html" data-title="student results mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-885].png" alt="Student Results Mgt - Context" loading="lazy">
+    <div class="cap">Student Results Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-999].html" data-title="supplier mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-999].png" alt="Supplier Mgt - Context" loading="lazy">
+    <div class="cap">Supplier Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-944].html" data-title="talent mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-944].png" alt="Talent Mgt - Context" loading="lazy">
+    <div class="cap">Talent Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-997].html" data-title="taxation mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-997].png" alt="Taxation Mgt - Context" loading="lazy">
+    <div class="cap">Taxation Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-882].html" data-title="teaching &amp; learning content mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-882].png" alt="Teaching &amp; Learning Content Mgt - Context" loading="lazy">
+    <div class="cap">Teaching &amp; Learning Content Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-842].html" data-title="timetabling mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-842].png" alt="Timetabling Mgt - Context" loading="lazy">
+    <div class="cap">Timetabling Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-950].html" data-title="training &amp; development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-950].png" alt="Training &amp; Development - Context" loading="lazy">
+    <div class="cap">Training &amp; Development - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-992].html" data-title="treasury mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-992].png" alt="Treasury Mgt - Context" loading="lazy">
+    <div class="cap">Treasury Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-989].html" data-title="vehicle mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-989].png" alt="Vehicle Mgt - Context" loading="lazy">
+    <div class="cap">Vehicle Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-936].html" data-title="venue mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-936].png" alt="Venue Mgt - Context" loading="lazy">
+    <div class="cap">Venue Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-942].html" data-title="workforce planning - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-942].png" alt="Workforce Planning - Context" loading="lazy">
+    <div class="cap">Workforce Planning - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-946].html" data-title="workforce relations mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-946].png" alt="Workforce Relations Mgt - Context" loading="lazy">
+    <div class="cap">Workforce Relations Mgt - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-951].html" data-title="workforce reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-951].png" alt="Workforce Reporting - Context" loading="lazy">
+    <div class="cap">Workforce Reporting - Context</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-887].html" data-title="assessment administration - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-887].png" alt="Assessment Administration - Flow" loading="lazy">
+    <div class="cap">Assessment Administration - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-884].html" data-title="assessment delivery - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-884].png" alt="Assessment Delivery - Flow" loading="lazy">
+    <div class="cap">Assessment Delivery - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-886].html" data-title="assessment marking and feedback - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-886].png" alt="Assessment Marking and Feedback - Flow" loading="lazy">
+    <div class="cap">Assessment Marking and Feedback - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-826].html" data-title="benefits mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-826].png" alt="Benefits Mgt - Flow" loading="lazy">
+    <div class="cap">Benefits Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-829].html" data-title="change portfolio mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-829].png" alt="Change Portfolio Mgt - Flow" loading="lazy">
+    <div class="cap">Change Portfolio Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-830].html" data-title="enterprise architecture - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-830].png" alt="Enterprise Architecture - Flow" loading="lazy">
+    <div class="cap">Enterprise Architecture - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-828].html" data-title="organisational design - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-828].png" alt="Organisational Design - Flow" loading="lazy">
+    <div class="cap">Organisational Design - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-827].html" data-title="programme and project mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-827].png" alt="Programme and Project Mgt - Flow" loading="lazy">
+    <div class="cap">Programme and Project Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-831].html" data-title="quality mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-831].png" alt="Quality Mgt - Flow" loading="lazy">
+    <div class="cap">Quality Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-885].html" data-title="student results mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-885].png" alt="Student Results Mgt - Flow" loading="lazy">
+    <div class="cap">Student Results Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/id-view-0e375695-7078-459e-87dc-1630b6f2e4aa.html" data-title="business context (source import)" data-type="source_import_business_context">
+    <img class="thumb" src="../images/id-view-0e375695-7078-459e-87dc-1630b6f2e4aa.png" alt="Business Context (Source Import)" loading="lazy">
+    <div class="cap">Business Context (Source Import)</div>
+  </a>
+  <a class="tile" target="view" href="../views/id-view-e3535eb7-34a2-460d-a773-1472b4cc683f.html" data-title="data model (source import)" data-type="source_import_data_model">
+    <img class="thumb" src="../images/id-view-e3535eb7-34a2-460d-a773-1472b4cc683f.png" alt="Data Model (Source Import)" loading="lazy">
+    <div class="cap">Data Model (Source Import)</div>
+  </a>
+</div>
+</main>
+<script>
+(function() {
+  var MODEL = "model-UCISA";
+  var sel = document.getElementById('type-filter');
+  var box = document.getElementById('search-box');
+  var cnt = document.getElementById('search-count') || document.getElementById('fbar-count');
+  var clr = document.getElementById('fbar-clear');
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('a.tile'));
+  var grids = Array.prototype.slice.call(document.querySelectorAll('div.grid'));
+  var KT = 'lightbox.type.' + MODEL, KN = 'lightbox.name.' + MODEL;
+  function get(k) { try { return window.sessionStorage.getItem(k); } catch (e) { return null; } }
+  function put(k, v) { try { window.sessionStorage.setItem(k, v); } catch (e) {} }
+  function apply(save) {
+    var q = box ? box.value.trim().toLowerCase() : '';
+    var t = sel ? sel.value : '';
+    var shown = 0;
+    tiles.forEach(function(el) {
+      var ok = (!q || (el.dataset.title || '').indexOf(q) !== -1) && (!t || el.dataset.type === t);
+      el.classList.toggle('hidden', !ok);
+      if (ok) shown++;
+    });
+    grids.forEach(function(g) {
+      var vis = g.querySelector('a.tile:not(.hidden)');
+      g.classList.toggle('hidden', !vis);
+      var h = g.previousElementSibling;
+      if (h && h.tagName === 'H2') h.classList.toggle('hidden', !vis);
+    });
+    if (cnt) cnt.textContent = shown + ' of ' + tiles.length + ' diagrams';
+    if (save) { put(KT, t); if (box) put(KN, box.value); }
+  }
+  if (sel) {
+    var v = get(KT);
+    if (v) { for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].value === v) { sel.value = v; break; } } }
+    sel.addEventListener('change', function() { apply(true); });
+  }
+  if (box) {
+    var n = get(KN);
+    if (n !== null) box.value = n;
+    box.addEventListener('input', function() { apply(true); });
+  }
+  if (clr) clr.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (sel) sel.value = '';
+    if (box) box.value = '';
+    apply(true);
+  });
+  apply(false);
+  if (box) box.focus();
+})();
+</script>
+</body>
+</html>

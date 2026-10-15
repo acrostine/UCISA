@@ -1,0 +1,895 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<title>UCISA -- connectivity matrices</title>
+<style>
+/* html/body locked to viewport height, own scroll container inside -- this page is loaded into
+   a published site's <iframe name="view" scrolling="no">, which suppresses the BROWSER's own
+   scrollbar on the frame. Without an internal scroll container the content below the fold is
+   simply unreachable. Same fix as Office/Design/sql space/module_template.html, the sibling
+   page in the same analytics/ folder. */
+html, body { height: 100%; margin: 0; overflow: hidden; }
+body { font-family: -apple-system, Segoe UI, Arial, sans-serif; color: #1a1a1a; }
+.page { display: flex; height: 100%; }
+.toc { flex: 0 0 220px; overflow-y: auto; height: 100%; box-sizing: border-box;
+     padding: 20px 14px; background: #fafafa; border-right: 1px solid #e2e2e2; font-size: 0.85em; }
+.toc-title { font-weight: 700; text-transform: uppercase; font-size: 0.75em; letter-spacing: .04em;
+           color: #888; margin-bottom: 10px; }
+.toc ul { list-style: none; margin: 0; padding-left: 0; }
+.toc li ul { padding-left: 14px; margin-top: 4px; margin-bottom: 8px; }
+.toc a { color: #2a5db0; text-decoration: none; display: block; padding: 3px 0; }
+.toc a:hover { text-decoration: underline; }
+.toc > ul > li { margin-bottom: 6px; }
+.content { flex: 1 1 auto; overflow-y: auto; height: 100%; box-sizing: border-box;
+         padding: 24px 28px; }
+h1 { font-size: 1.4em; margin-top: 0; } h3 { margin-top: 2em; }
+.note { color: #555; font-size: 0.9em; max-width: 780px; }
+.matrix-wrap { overflow-x: auto; margin: 12px 0 28px; }
+table.matrix { border-collapse: collapse; font-size: 0.78em; }
+table.matrix th, table.matrix td { border: 1px solid #ddd; padding: 4px 6px; text-align: center; min-width: 26px; }
+table.matrix th.rowhead, table.matrix th.colhead { text-align: left; font-weight: 600; background: #f7f7f7; }
+table.matrix th.colhead { writing-mode: vertical-rl; transform: rotate(180deg); text-align: right; white-space: nowrap; }
+table.matrix .sub { font-weight: 400; color: #888; font-size: 0.85em; }
+table.matrix th.corner { background: #eee; }
+table.matrix td.zero { color: #ccc; }
+table.matrix td.diag { background: #fff3d6; }
+table.matrix td.nz { background: #e8f0fe; font-weight: 600; }
+table.matrix th.sumhead, table.matrix td.sumcell { background: #f0f0f0; font-weight: 700; }
+table.matrix td.total { background: #ddd; }
+table.matrix.xdom td.subhead { background: #f7f7f7; font-size: 0.75em; color: #888; font-weight: 400; }
+table.matrix.xdom td.na { background: #f2f2f2; color: #ccc; }
+table.matrix.xdom td.domcell { color: #888; font-style: italic; text-align: left; white-space: nowrap; }
+table.matrix.xdom th.colhead { writing-mode: horizontal-tb; transform: none; text-align: center; }
+.domain-block { margin-bottom: 40px; }
+table.domtotal { border-collapse: collapse; margin-top: 6px; font-size: 0.85em; }
+table.domtotal th, table.domtotal td { border: 1px solid #b8d9c0; padding: 4px 10px; text-align: center; }
+table.domtotal th.domtotal-head { background: #2f6b4a; color: #fff; font-weight: 600; text-align: left; }
+table.domtotal tr:nth-child(2) th { background: #eaf5ee; }
+table.domtotal td.domname { text-align: left; font-weight: 600; background: #eaf5ee; }
+table.domtotal tr:not(:first-child):not(:nth-child(2)) td:not(.domname) { background: #f5fbf7; }
+ul.isolated { columns: 3; font-size: 0.85em; }
+p.avgline { font-size: 0.9em; color: #444; background: #f3f3f3; padding: 6px 10px; display: inline-block; }
+table.avgtable { border-collapse: collapse; font-size: 0.85em; }
+table.avgtable th, table.avgtable td { border: 1px solid #ddd; padding: 5px 10px; text-align: center; }
+table.avgtable th { background: #f0f0f0; }
+table.avgtable td.nodename { text-align: left; font-weight: 600; background: #fafafa; }
+table.avgtable td.zero { color: #ccc; }
+table.avgtable td.nz { font-weight: 600; background: #e8f0fe; }
+table.avgtable td.gaugecell { padding: 2px 6px; }
+table.avgtable td.gaugecell .gauge { display: block; margin: 0 auto; }
+table.avgtable td.gaugecell .ratio { display: block; color: #666; font-size: 0.82em; margin-top: -4px; }
+</style></head><body>
+<div class='page'>
+<nav class='toc'><div class='toc-title'>Contents</div><ul><li><a data-target='dom-matrix'>Domain &times; Domain matrix</a></li><li>Per-domain capability matrices<ul><li><a data-target='dom-enabling-capabilities'>Enabling Capabilities</a></li><li><a data-target='dom-teaching-learning'>Teaching &amp; Learning</a></li><li><a data-target='dom-research'>Research</a></li><li><a data-target='dom-commercial-activity'>Commercial Activity</a></li><li><a data-target='dom-strategy-governance'>Strategy &amp; Governance</a></li></ul></li><li><a data-target='avg-domains'>Domain averages</a></li><li><a data-target='avg-capabilities'>Capability averages</a></li></ul></nav>
+<main class='content'>
+<h1>UCISA -- directed connectivity matrices</h1>
+<p class='note'><b>Derived flows included.</b> This model's capability-level flows are all roll-ups derived from its process-level flows; every count below includes them.</p>
+<p class='note'>Source = row, Target = column. Diagonal = intra-node authored flows (same domain, on both ends, between two DIFFERENT capabilities -- no capability flows to itself). Only authored capability→capability FlowRelationship rows count -- never a derived rollup, trigger, composition, or actor association. See <code>SPEC_static_connectivity_analytics.md</code> section 1 for the full definition.</p>
+<div id='dom-matrix'><h3>Domain × Domain (10 domains, 80 flows)</h3>
+<div class='matrix-wrap'><table class='matrix'>
+<tr><th class='corner'>source \ target</th><th class='colhead'>Commercial Activity</th><th class='colhead'>Consumers</th><th class='colhead'>Enabling Capabilities</th><th class='colhead'>Locations</th><th class='colhead'>Market Segments</th><th class='colhead'>Products</th><th class='colhead'>Research</th><th class='colhead'>Stakeholders</th><th class='colhead'>Strategy &amp; Governance</th><th class='colhead'>Teaching &amp; Learning</th><th class='sumhead'>OUT</th></tr>
+<tr><th class='rowhead'>Commercial Activity</th><td class='diag'>6</td><td class='zero'></td><td class='nz'>6</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='nz'>2</td><td class='zero'></td><td class='sumcell'>15</td></tr>
+<tr><th class='rowhead'>Consumers</th><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Enabling Capabilities</th><td class='zero'></td><td class='zero'></td><td class='diag'>14</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='sumcell'>15</td></tr>
+<tr><th class='rowhead'>Locations</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Market Segments</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Products</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Research</th><td class='nz'>1</td><td class='zero'></td><td class='nz'>8</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'>12</td><td class='zero'></td><td class='nz'>2</td><td class='zero'></td><td class='sumcell'>23</td></tr>
+<tr><th class='rowhead'>Stakeholders</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Strategy &amp; Governance</th><td class='zero'></td><td class='zero'></td><td class='nz'>7</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'>3</td><td class='nz'>2</td><td class='sumcell'>12</td></tr>
+<tr><th class='rowhead'>Teaching &amp; Learning</th><td class='zero'></td><td class='zero'></td><td class='nz'>2</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'>13</td><td class='sumcell'>15</td></tr>
+<tr><th class='sumhead'>IN</th><td class='sumcell'>7</td><td class='sumcell'>0</td><td class='sumcell'>37</td><td class='sumcell'>0</td><td class='sumcell'>0</td><td class='sumcell'>0</td><td class='sumcell'>13</td><td class='sumcell'>0</td><td class='sumcell'>7</td><td class='sumcell'>16</td><td class='sumcell total'>80</td></tr>
+</table></div></div>
+<h2>Per-domain capability matrices</h2>
+<p class='note'>One square matrix per domain -- that domain's own capabilities on both axes, INTRA-domain flows only. A domain with zero intra-domain flows is omitted here (its capabilities may still show cross-domain activity, in the table below).</p>
+<div class='domain-block' id='dom-enabling-capabilities'><h3>Enabling Capabilities (10 of 11 capabilities connected intra-domain)</h3>
+<div class='matrix-wrap'><table class='matrix'>
+<tr><th class='corner'>source \ target</th><th class='colhead'>Accommodation Management</th><th class='colhead'>Facilities &amp; Property Management</th><th class='colhead'>Finance Management</th><th class='colhead'>Government, Public &amp; Stakeholder Relationships</th><th class='colhead'>Human Resource Management</th><th class='colhead'>Information &amp; Communication Technology Mgt</th><th class='colhead'>Information Management</th><th class='colhead'>Legal Services</th><th class='colhead'>Library Management</th><th class='colhead'>Promotions Management</th><th class='colhead'>Supporting Services</th><th class='sumhead'>OUT</th></tr>
+<tr><th class='rowhead'>Accommodation Management</th><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Facilities &amp; Property Management</th><td class='zero'></td><td class='diag'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Finance Management</th><td class='zero'></td><td class='nz'>1</td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Government, Public &amp; Stakeholder Relationships</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Human Resource Management</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Information &amp; Communication Technology Mgt</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Information Management</th><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='nz'>1</td><td class='nz'>1</td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>3</td></tr>
+<tr><th class='rowhead'>Legal Services</th><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Library Management</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Promotions Management</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='nz'>1</td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Supporting Services</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='diag'></td><td class='sumcell'>1</td></tr>
+<tr><th class='sumhead'>IN</th><td class='sumcell'>0</td><td class='sumcell'>1</td><td class='sumcell'>3</td><td class='sumcell'>0</td><td class='sumcell'>3</td><td class='sumcell'>1</td><td class='sumcell'>3</td><td class='sumcell'>1</td><td class='sumcell'>0</td><td class='sumcell'>1</td><td class='sumcell'>1</td><td class='sumcell total'>14</td></tr>
+</table></div><table class='domtotal'>
+<tr><th colspan='3' class='domtotal-head'>Aggregate links to OTHER domains (domain-level total, not per-capability)</th></tr>
+<tr><th>domain</th><th>out</th><th>in</th></tr>
+<tr><td class='domname'>Research</td><td>0</td><td>8</td></tr>
+<tr><td class='domname'>Strategy &amp; Governance</td><td>0</td><td>7</td></tr>
+<tr><td class='domname'>Commercial Activity</td><td>0</td><td>6</td></tr>
+<tr><td class='domname'>Teaching &amp; Learning</td><td>1</td><td>2</td></tr>
+</table></div>
+<div class='domain-block' id='dom-teaching-learning'><h3>Teaching &amp; Learning (11 of 11 capabilities connected intra-domain)</h3>
+<div class='matrix-wrap'><table class='matrix'>
+<tr><th class='corner'>source \ target</th><th class='colhead'>Academic Administration</th><th class='colhead'>Alumni Engagement</th><th class='colhead'>Curriculum Management</th><th class='colhead'>Student Administration</th><th class='colhead'>Student Admission Management</th><th class='colhead'>Student Assessment</th><th class='colhead'>Student Attraction &amp; Recruitment</th><th class='colhead'>Student Completion &amp; Graduation</th><th class='colhead'>Student Enrolment</th><th class='colhead'>Student Support &amp; Wellbeing Management</th><th class='colhead'>Teaching &amp; Learning Delivery</th><th class='sumhead'>OUT</th></tr>
+<tr><th class='rowhead'>Academic Administration</th><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Alumni Engagement</th><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Curriculum Management</th><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Student Administration</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Student Admission Management</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Student Assessment</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Student Attraction &amp; Recruitment</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Student Completion &amp; Graduation</th><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Student Enrolment</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='nz'>1</td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Student Support &amp; Wellbeing Management</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Teaching &amp; Learning Delivery</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='diag'></td><td class='sumcell'>1</td></tr>
+<tr><th class='sumhead'>IN</th><td class='sumcell'>1</td><td class='sumcell'>1</td><td class='sumcell'>0</td><td class='sumcell'>3</td><td class='sumcell'>1</td><td class='sumcell'>2</td><td class='sumcell'>0</td><td class='sumcell'>0</td><td class='sumcell'>1</td><td class='sumcell'>1</td><td class='sumcell'>3</td><td class='sumcell total'>13</td></tr>
+</table></div><table class='domtotal'>
+<tr><th colspan='3' class='domtotal-head'>Aggregate links to OTHER domains (domain-level total, not per-capability)</th></tr>
+<tr><th>domain</th><th>out</th><th>in</th></tr>
+<tr><td class='domname'>Enabling Capabilities</td><td>2</td><td>1</td></tr>
+<tr><td class='domname'>Strategy &amp; Governance</td><td>0</td><td>2</td></tr>
+</table></div>
+<div class='domain-block' id='dom-research'><h3>Research (7 of 8 capabilities connected intra-domain)</h3>
+<div class='matrix-wrap'><table class='matrix'>
+<tr><th class='corner'>source \ target</th><th class='colhead'>Research Administration</th><th class='colhead'>Research Delivery</th><th class='colhead'>Research Funding</th><th class='colhead'>Research Impact</th><th class='colhead'>Research Improvement</th><th class='colhead'>Research Opportunity &amp; Planning</th><th class='colhead'>Research Publications</th><th class='colhead'>Research Training</th><th class='sumhead'>OUT</th></tr>
+<tr><th class='rowhead'>Research Administration</th><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Research Delivery</th><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Research Funding</th><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Research Impact</th><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Research Improvement</th><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='nz'>1</td><td class='nz'>1</td><td class='nz'>1</td><td class='sumcell'>4</td></tr>
+<tr><th class='rowhead'>Research Opportunity &amp; Planning</th><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Research Publications</th><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Research Training</th><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='zero'></td><td class='diag'></td><td class='sumcell'>2</td></tr>
+<tr><th class='sumhead'>IN</th><td class='sumcell'>0</td><td class='sumcell'>2</td><td class='sumcell'>2</td><td class='sumcell'>1</td><td class='sumcell'>1</td><td class='sumcell'>2</td><td class='sumcell'>3</td><td class='sumcell'>1</td><td class='sumcell total'>12</td></tr>
+</table></div><table class='domtotal'>
+<tr><th colspan='3' class='domtotal-head'>Aggregate links to OTHER domains (domain-level total, not per-capability)</th></tr>
+<tr><th>domain</th><th>out</th><th>in</th></tr>
+<tr><td class='domname'>Enabling Capabilities</td><td>8</td><td>0</td></tr>
+<tr><td class='domname'>Strategy &amp; Governance</td><td>2</td><td>0</td></tr>
+<tr><td class='domname'>Commercial Activity</td><td>1</td><td>1</td></tr>
+</table></div>
+<div class='domain-block' id='dom-commercial-activity'><h3>Commercial Activity (4 of 4 capabilities connected intra-domain)</h3>
+<div class='matrix-wrap'><table class='matrix'>
+<tr><th class='corner'>source \ target</th><th class='colhead'>Commercial Delivery</th><th class='colhead'>Commercial Engagement</th><th class='colhead'>Commercial Monitoring</th><th class='colhead'>Commercial Sourcing</th><th class='sumhead'>OUT</th></tr>
+<tr><th class='rowhead'>Commercial Delivery</th><td class='diag'></td><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Commercial Engagement</th><td class='nz'>1</td><td class='diag'></td><td class='nz'>1</td><td class='nz'>1</td><td class='sumcell'>3</td></tr>
+<tr><th class='rowhead'>Commercial Monitoring</th><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='zero'></td><td class='sumcell'>1</td></tr>
+<tr><th class='rowhead'>Commercial Sourcing</th><td class='zero'></td><td class='nz'>1</td><td class='zero'></td><td class='diag'></td><td class='sumcell'>1</td></tr>
+<tr><th class='sumhead'>IN</th><td class='sumcell'>2</td><td class='sumcell'>1</td><td class='sumcell'>2</td><td class='sumcell'>1</td><td class='sumcell total'>6</td></tr>
+</table></div><table class='domtotal'>
+<tr><th colspan='3' class='domtotal-head'>Aggregate links to OTHER domains (domain-level total, not per-capability)</th></tr>
+<tr><th>domain</th><th>out</th><th>in</th></tr>
+<tr><td class='domname'>Enabling Capabilities</td><td>6</td><td>0</td></tr>
+<tr><td class='domname'>Research</td><td>1</td><td>1</td></tr>
+<tr><td class='domname'>Strategy &amp; Governance</td><td>2</td><td>0</td></tr>
+</table></div>
+<div class='domain-block' id='dom-strategy-governance'><h3>Strategy &amp; Governance (3 of 3 capabilities connected intra-domain)</h3>
+<div class='matrix-wrap'><table class='matrix'>
+<tr><th class='corner'>source \ target</th><th class='colhead'>Business Capability Management</th><th class='colhead'>Corporate Governance</th><th class='colhead'>Strategy Management</th><th class='sumhead'>OUT</th></tr>
+<tr><th class='rowhead'>Business Capability Management</th><td class='diag'></td><td class='zero'></td><td class='zero'></td><td class='sumcell'>0</td></tr>
+<tr><th class='rowhead'>Corporate Governance</th><td class='nz'>1</td><td class='diag'></td><td class='nz'>1</td><td class='sumcell'>2</td></tr>
+<tr><th class='rowhead'>Strategy Management</th><td class='zero'></td><td class='nz'>1</td><td class='diag'></td><td class='sumcell'>1</td></tr>
+<tr><th class='sumhead'>IN</th><td class='sumcell'>1</td><td class='sumcell'>1</td><td class='sumcell'>1</td><td class='sumcell total'>3</td></tr>
+</table></div><table class='domtotal'>
+<tr><th colspan='3' class='domtotal-head'>Aggregate links to OTHER domains (domain-level total, not per-capability)</th></tr>
+<tr><th>domain</th><th>out</th><th>in</th></tr>
+<tr><td class='domname'>Enabling Capabilities</td><td>7</td><td>0</td></tr>
+<tr><td class='domname'>Teaching &amp; Learning</td><td>2</td><td>0</td></tr>
+<tr><td class='domname'>Commercial Activity</td><td>0</td><td>2</td></tr>
+<tr><td class='domname'>Research</td><td>0</td><td>2</td></tr>
+</table></div>
+<div id='avg-domains'><h3>Internal vs external connectivity -- domains, compared to system average</h3>
+<p class='note'>Internal = intra-domain authored flows (both endpoints in this domain). External = cross-domain authored flows touching this domain (either direction). "vs avg" is this domain's count divided by the system-wide average across all domains -- 1.0&times; is exactly average, higher is more connected than typical.</p>
+<p class='avgline'>System average internal (domain): <b>4.8</b> (min 0, max 14) &nbsp;|&nbsp; System average external (domain): <b>6.4</b> (min 0, max 24)</p>
+<div class='matrix-wrap'><table class='avgtable'>
+<tr><th>domain</th><th>internal</th><th>vs avg (internal)</th><th>external</th><th>vs avg (external)</th></tr>
+<tr><td class='nodename'>Enabling Capabilities</td><td class='nz'>14</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="97.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>2.9&times;</span></td><td class='nz'>24</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="97.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>3.8&times;</span></td></tr>
+<tr><td class='nodename'>Research</td><td class='nz'>12</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="93.3" y2="38.9" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>2.5&times;</span></td><td class='nz'>12</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="60.0" y2="18.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>1.9&times;</span></td></tr>
+<tr><td class='nodename'>Teaching &amp; Learning</td><td class='nz'>13</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="96.1" y2="46.8" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>2.7&times;</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="30.6" y2="32.5" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>0.8&times;</span></td></tr>
+<tr><td class='nodename'>Commercial Activity</td><td class='nz'>6</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="51.8" y2="18.9" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>1.2&times;</span></td><td class='nz'>10</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="50.4" y2="19.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>1.6&times;</span></td></tr>
+<tr><td class='nodename'>Strategy &amp; Governance</td><td class='nz'>3</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="31.1" y2="31.9" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>0.6&times;</span></td><td class='nz'>13</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="64.8" y2="18.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>2.0&times;</span></td></tr>
+<tr><td class='nodename'>Consumers</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>0.0&times;</span></td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>0.0&times;</span></td></tr>
+<tr><td class='nodename'>Locations</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>0.0&times;</span></td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>0.0&times;</span></td></tr>
+<tr><td class='nodename'>Market Segments</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>0.0&times;</span></td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>0.0&times;</span></td></tr>
+<tr><td class='nodename'>Products</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>0.0&times;</span></td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>0.0&times;</span></td></tr>
+<tr><td class='nodename'>Stakeholders</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="42.0" y1="21.5" x2="36.8" y2="11.9" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">14</text>
+</svg><span class='ratio'>0.0&times;</span></td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="34.6" y1="26.8" x2="27.2" y2="18.6" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">24</text>
+</svg><span class='ratio'>0.0&times;</span></td></tr>
+</table></div></div>
+<div id='avg-capabilities'><h3>Internal vs external connectivity -- capabilities, compared to system average</h3>
+<p class='note'>Internal is always 0 at capability level -- no capability flows to itself in this model (see the diagonal note above). External = every authored flow this capability touches, in either direction. Shown for structural symmetry with the domain table and so the "vs avg" external ratio is directly comparable across levels. Includes isolated capabilities (external=0), which is why the system average is lower here than the median connected capability.</p>
+<p class='avgline'>System average internal (capability): <b>0.0</b> (min 0, max 0) &nbsp;|&nbsp; System average external (capability): <b>4.3</b> (min 1, max 10)</p>
+<div class='matrix-wrap'><table class='avgtable'>
+<tr><th>capability</th><th>internal</th><th>vs avg (internal)</th><th>external</th><th>vs avg (external)</th></tr>
+<tr><td class='nodename'>Corporate Governance</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>10</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="97.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>2.3&times;</span></td></tr>
+<tr><td class='nodename'>Information Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>9</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="94.8" y2="42.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>2.1&times;</span></td></tr>
+<tr><td class='nodename'>Finance Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>9</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="94.8" y2="42.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>2.1&times;</span></td></tr>
+<tr><td class='nodename'>Human Resource Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>7</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="78.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.6&times;</span></td></tr>
+<tr><td class='nodename'>Commercial Engagement</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>7</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="78.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.6&times;</span></td></tr>
+<tr><td class='nodename'>Research Impact</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>7</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="78.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.6&times;</span></td></tr>
+<tr><td class='nodename'>Commercial Monitoring</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>6</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="66.4" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.4&times;</span></td></tr>
+<tr><td class='nodename'>Research Improvement</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>6</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="66.4" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.4&times;</span></td></tr>
+<tr><td class='nodename'>Business Capability Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>6</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="66.4" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.4&times;</span></td></tr>
+<tr><td class='nodename'>Academic Administration</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="53.6" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.2&times;</span></td></tr>
+<tr><td class='nodename'>Commercial Delivery</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="53.6" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.2&times;</span></td></tr>
+<tr><td class='nodename'>Facilities &amp; Property Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="53.6" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.2&times;</span></td></tr>
+<tr><td class='nodename'>Legal Services</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="53.6" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.2&times;</span></td></tr>
+<tr><td class='nodename'>Teaching &amp; Learning Delivery</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="53.6" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.2&times;</span></td></tr>
+<tr><td class='nodename'>Research Publications</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="53.6" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.2&times;</span></td></tr>
+<tr><td class='nodename'>Student Administration</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>5</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="53.6" y2="18.6" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>1.2&times;</span></td></tr>
+<tr><td class='nodename'>Commercial Sourcing</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>4</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="41.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.9&times;</span></td></tr>
+<tr><td class='nodename'>Information &amp; Communication Technology Mgt</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>4</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="41.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.9&times;</span></td></tr>
+<tr><td class='nodename'>Promotions Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>4</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="41.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.9&times;</span></td></tr>
+<tr><td class='nodename'>Research Delivery</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>4</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="41.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.9&times;</span></td></tr>
+<tr><td class='nodename'>Research Funding</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>4</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="41.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.9&times;</span></td></tr>
+<tr><td class='nodename'>Research Training</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>4</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="41.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.9&times;</span></td></tr>
+<tr><td class='nodename'>Research Opportunity &amp; Planning</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>4</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="41.5" y2="23.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.9&times;</span></td></tr>
+<tr><td class='nodename'>Student Enrolment</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>3</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="31.7" y2="31.2" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.7&times;</span></td></tr>
+<tr><td class='nodename'>Government, Public &amp; Stakeholder Relationships</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>3</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="31.7" y2="31.2" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.7&times;</span></td></tr>
+<tr><td class='nodename'>Library Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>3</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="31.7" y2="31.2" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.7&times;</span></td></tr>
+<tr><td class='nodename'>Student Support &amp; Wellbeing Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>3</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="31.7" y2="31.2" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.7&times;</span></td></tr>
+<tr><td class='nodename'>Strategy Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>3</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="31.7" y2="31.2" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.7&times;</span></td></tr>
+<tr><td class='nodename'>Student Assessment</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>3</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="31.7" y2="31.2" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.7&times;</span></td></tr>
+<tr><td class='nodename'>Research Administration</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>2</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="25.2" y2="42.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.5&times;</span></td></tr>
+<tr><td class='nodename'>Curriculum Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>2</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="25.2" y2="42.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.5&times;</span></td></tr>
+<tr><td class='nodename'>Student Admission Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>2</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="25.2" y2="42.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.5&times;</span></td></tr>
+<tr><td class='nodename'>Supporting Services</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>2</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="25.2" y2="42.3" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.5&times;</span></td></tr>
+<tr><td class='nodename'>Student Completion &amp; Graduation</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>1</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.2&times;</span></td></tr>
+<tr><td class='nodename'>Alumni Engagement</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>1</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.2&times;</span></td></tr>
+<tr><td class='nodename'>Student Attraction &amp; Recruitment</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>1</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.2&times;</span></td></tr>
+<tr><td class='nodename'>Accommodation Management</td><td class='zero'>0</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="22.0" y1="55.0" x2="11.0" y2="55.0" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#c98a2b" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#c98a2b"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">0</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">0</text>
+</svg><span class='ratio'>n/a</span></td><td class='nz'>1</td><td class='gaugecell'><svg class='gauge' viewBox="0 0 120 70" width="90" height="52">
+  <path d="M 15.0 55.0 A 45 45 0 0 1 105.0 55.0" fill="none" stroke="#ddd" stroke-width="8" stroke-linecap="round"/>
+  <line x1="44.8" y1="20.2" x2="40.5" y2="10.1" stroke="#888" stroke-width="2"/>
+  <line x1="60" y1="55" x2="23.0" y2="55.0" stroke="#3366cc" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="55" r="3.5" fill="#3366cc"/>
+  <text x="13" y="67" font-size="8" fill="#999" text-anchor="start">1</text>
+  <text x="107" y="67" font-size="8" fill="#999" text-anchor="end">10</text>
+</svg><span class='ratio'>0.2&times;</span></td></tr>
+</table></div></div>
+<script>document.querySelectorAll('.toc a[data-target]').forEach(function(a){a.style.cursor='pointer';a.addEventListener('click',function(e){e.preventDefault();var el=document.getElementById(a.getAttribute('data-target'));if(el){el.scrollIntoView({block:'start'});}});});</script>
+</main></div><!-- publisher:step:09_connectivity profile:branded ts:2026-10-15T07:46:12Z -->
+</body></html>

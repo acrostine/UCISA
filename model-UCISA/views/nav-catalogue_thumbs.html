@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>System Overview - thumbnails</title>
+<style>
+body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 0;
+       background: #f4f3ee; color: #2c2c2a; overflow-y: auto; }
+main.content { padding: 24px 28px; min-width: 0; }
+h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+p.sub { color: #5f5e5a; margin: 0 0 18px; font-size: 13px; }
+h2 { font-size: 14px; font-weight: 700; color: #33424f; margin: 26px 0 12px;
+     border-bottom: 1px solid #d8d6cd; padding-bottom: 6px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+        gap: 14px; }
+.grid.compact { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px; }
+a.tile { display: block; text-decoration: none; color: inherit; background: #fff;
+         border: 1px solid #d8d6cd; border-radius: 8px; overflow: hidden; }
+a.tile:hover { border-color: #639922; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.thumb { width: 100%; height: 320px; object-fit: contain; background: #fafafa;
+         border-bottom: 1px solid #eee; display: block; }
+.grid.compact .thumb { height: 180px; }
+.cap { padding: 8px 10px; font-size: 12px; font-weight: 500; }
+.grid.compact .cap { padding: 6px 8px; font-size: 11px; }
+
+.hidden { display: none !important; }
+.fbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        margin: 0 0 16px; font-size: 13px; }
+.fbar label { font-weight: 700; color: #33424f; }
+.fbar select { padding: 7px 10px; font-size: 13px; border: 1px solid #d8d6cd;
+        border-radius: 8px; background: #fff; color: #2c2c2a; max-width: 100%; }
+.fbar select:focus { outline: none; border-color: #639922; }
+.fbar a { color: #639922; font-weight: 700; text-decoration: none; }
+.fbar .n { color: #888; font-size: 12px; }
+p.maps { font-size: 13px; margin: 0 0 14px; color: #5f5e5a; }
+p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
+</style>
+</head>
+<body>
+<p style="margin:0 0 14px;"><a target="view" href="nav-search.html" style="font-size:13px;font-weight:700;color:#639922;text-decoration:none;">&#128269; Search</a></p>
+<main class="content">
+<h1>System Overview</h1>
+<p class="sub">5 diagrams &mdash; the full visual index. "C to", not "Click to". Recognise the picture; the diagram is two clicks away.</p>
+<div class="grid">
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10001].html" data-title="commercial activity - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10001].png" alt="Commercial Activity - Processes" loading="lazy">
+    <div class="cap">Commercial Activity - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10003].html" data-title="research - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10003].png" alt="Research - Processes" loading="lazy">
+    <div class="cap">Research - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10004].html" data-title="strategy &amp; governance - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10004].png" alt="Strategy &amp; Governance - Processes" loading="lazy">
+    <div class="cap">Strategy &amp; Governance - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10002].html" data-title="enabling capabilities - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10002].png" alt="Enabling Capabilities - Processes" loading="lazy">
+    <div class="cap">Enabling Capabilities - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10005].html" data-title="teaching &amp; learning - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10005].png" alt="Teaching &amp; Learning - Processes" loading="lazy">
+    <div class="cap">Teaching &amp; Learning - Processes</div>
+  </a>
+</div>
+</main>
+</body>
+</html>

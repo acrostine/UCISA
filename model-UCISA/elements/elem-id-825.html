@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Corporate Performance Mgt</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+	<!-- MARKDOWN -->
+	<script type="text/javascript" src="../../lib/marked/marked.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Corporate Performance Mgt</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-elementtype-BusinessProcess"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-BusinessProcess" target="hint"></a>
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+                    	<li role="presentation"><a href="#analysis" aria-controls="analysis" role="tab" data-toggle="tab" class="i18n-analysis"></a></li>
+
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="markdown-doc"><script type="text/plain">### Identity
+This process monitors the institution's Key Performance Indicators against annual targets, analyses variances, and initiates corrective action where performance is off track. It is the part of the capability that holds the institution to its strategic commitments.
+
+### Trigger
+The end of a reporting period or the availability of a new Performance Data set triggers the process, when targets for that period are due to be assessed.
+
+### Consumes
+Key Performance Indicators supply the defined measures and their targets for the academic year. Performance Data supply the actual values for student enrolments, research outputs, commercial contracts, and service requests. Corrective Action Request from previous periods supplies unresolved performance gaps.
+
+### Steps
+First the process collects the actual Performance Data for each KPI and calculates the variance against target. It then identifies the KPIs with significant adverse variance. For each, it analyses the root cause using the underlying activity data. It drafts a Performance Review Report for the responsible executive. It decides whether a Corrective Action Request is required and assigns an owner. It monitors the implementation of existing corrective actions and updates their status. It presents the performance dashboard to the governing body.
+
+### Produces
+Performance Dashboard records the current values, targets, and variances for each KPI. Performance Review Report records the analysis of significant variances and the actions agreed. Corrective Action Request records the owner, action, and due date for each unresolved variance.
+
+### Outcome
+The institution's performance against its KPI targets is visible each reporting period, and each significant variance has an assigned corrective action.
+
+### Fails when
+Performance Data for a KPI are not available, because the variance cannot be calculated and the KPI is reported as null, leaving a gap in the governing body's view of institutional performance.</script></div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>tier</td><td class="convertlinks no-margin" style="white-space:pre-wrap">paid</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="used-in-views-view-capability_processes-[id-200028]">
+																	<td><a href="../views/view-capability_processes-[id-200028].html" target="view" title="Strategy Management - Processes"> Strategy Management - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-825]">
+																	<td><a href="../views/view-process_context-[id-825].html" target="view" title="Corporate Performance Mgt - Context"> Corporate Performance Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-824]">
+																	<td><a href="../views/view-process_context-[id-824].html" target="view" title="Strategic Reporting - Context"> Strategic Reporting - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-20009]">
+																	<td><a href="../views/view-capability_processes-[id-20009].html" target="view" title="Corporate Governance - Processes"> Corporate Governance - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-835]">
+																	<td><a href="../views/view-process_context-[id-835].html" target="view" title="Internal Audit &amp; Reporting - Context"> Internal Audit &amp; Reporting - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-domain_processes-[id-10004]">
+																	<td><a href="../views/view-domain_processes-[id-10004].html" target="view" title="Strategy &amp; Governance - Processes"> Strategy &amp; Governance - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-elements_map-[UCISA]">
+																	<td><a href="../views/view-elements_map-[UCISA].html" target="view" title="Elements Map"> Elements Map </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-processes_overview-[UCISA]">
+																	<td><a href="../views/view-processes_overview-[UCISA].html" target="view" title="Processes Overview"> Processes Overview </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr>
+											<td><a href="../elements/elem-id-4e92d767-f9ea-427d-a962-91eb3d227cad.html" target="element" title="Performance Dashboards">Performance Dashboards</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-825.html" target="element"> Corporate Performance Mgt</a></td>
+											<td><a href="../elements/elem-id-824.html" target="element"> Strategic Reporting</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-b-114.html" target="element" title=""></a></td>
+											<td><span class="i18n-elementtype-RealizationRelationship" /></td>
+											<td><a href="../elements/elem-id-825.html" target="element"> Corporate Performance Mgt</a></td>
+											<td><a href="../elements/elem-id-200028.html" target="element"> Strategy Management</a></td>
+										</tr>
+									<tr>
+											<td><a href="../elements/elem-id-24341411-ab53-49e5-9e34-ae67546bebc6.html" target="element" title="Audit Performance Findings">Audit Performance Findings</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-835.html" target="element"> Internal Audit &amp; Reporting</a></td>
+											<td><a href="../elements/elem-id-825.html" target="element"> Corporate Performance Mgt</a></td>
+										</tr>
+							</tbody>
+						</table>
+					</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

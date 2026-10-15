@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Processes Overview - thumbnails</title>
+<style>
+body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 0;
+       background: #f4f3ee; color: #2c2c2a; overflow-y: auto; }
+main.content { padding: 24px 28px; min-width: 0; }
+h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+p.sub { color: #5f5e5a; margin: 0 0 18px; font-size: 13px; }
+h2 { font-size: 14px; font-weight: 700; color: #33424f; margin: 26px 0 12px;
+     border-bottom: 1px solid #d8d6cd; padding-bottom: 6px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+        gap: 14px; }
+.grid.compact { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px; }
+a.tile { display: block; text-decoration: none; color: inherit; background: #fff;
+         border: 1px solid #d8d6cd; border-radius: 8px; overflow: hidden; }
+a.tile:hover { border-color: #639922; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.thumb { width: 100%; height: 320px; object-fit: contain; background: #fafafa;
+         border-bottom: 1px solid #eee; display: block; }
+.grid.compact .thumb { height: 180px; }
+.cap { padding: 8px 10px; font-size: 12px; font-weight: 500; }
+.grid.compact .cap { padding: 6px 8px; font-size: 11px; }
+
+.hidden { display: none !important; }
+.fbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        margin: 0 0 16px; font-size: 13px; }
+.fbar label { font-weight: 700; color: #33424f; }
+.fbar select { padding: 7px 10px; font-size: 13px; border: 1px solid #d8d6cd;
+        border-radius: 8px; background: #fff; color: #2c2c2a; max-width: 100%; }
+.fbar select:focus { outline: none; border-color: #639922; }
+.fbar a { color: #639922; font-weight: 700; text-decoration: none; }
+.fbar .n { color: #888; font-size: 12px; }
+p.maps { font-size: 13px; margin: 0 0 14px; color: #5f5e5a; }
+p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
+</style>
+</head>
+<body>
+<p style="margin:0 0 14px;"><a target="view" href="nav-search.html" style="font-size:13px;font-weight:700;color:#639922;text-decoration:none;">&#128269; Search</a></p>
+<main class="content">
+<h1>Processes Overview</h1>
+<p class="sub">0 maps, 42 detail views &mdash; "C to", not "Click to". Recognise the picture; the diagram is two clicks away.</p>
+<div class="fbar" id="fbar"><label for="type-filter">View type</label><select id="type-filter" data-filter="type"><option value="">All types (42)</option><option value="domain_processes">Domain processes (5)</option><option value="capability_processes">Capability processes (37)</option></select><a href="#" id="fbar-clear">Clear</a><span class="n" id="fbar-count">42 of 42 diagrams</span></div>
+<h2>Detail views</h2>
+<div class="grid compact">
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200018].html" data-title="library management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200018].png" alt="Library Management - Processes" loading="lazy">
+    <div class="cap">Library Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200017].html" data-title="legal services - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200017].png" alt="Legal Services - Processes" loading="lazy">
+    <div class="cap">Legal Services - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200013].html" data-title="government, public &amp; stakeholder relationships - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200013].png" alt="Government, Public &amp; Stakeholder Relationships - Processes" loading="lazy">
+    <div class="cap">Government, Public &amp; Stakeholder Relationships - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20002].html" data-title="accommodation management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20002].png" alt="Accommodation Management - Processes" loading="lazy">
+    <div class="cap">Accommodation Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200012].html" data-title="finance management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200012].png" alt="Finance Management - Processes" loading="lazy">
+    <div class="cap">Finance Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200015].html" data-title="information &amp; communication technology mgt - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200015].png" alt="Information &amp; Communication Technology Mgt - Processes" loading="lazy">
+    <div class="cap">Information &amp; Communication Technology Mgt - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200011].html" data-title="facilities &amp; property management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200011].png" alt="Facilities &amp; Property Management - Processes" loading="lazy">
+    <div class="cap">Facilities &amp; Property Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200014].html" data-title="human resource management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200014].png" alt="Human Resource Management - Processes" loading="lazy">
+    <div class="cap">Human Resource Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200016].html" data-title="information management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200016].png" alt="Information Management - Processes" loading="lazy">
+    <div class="cap">Information Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200036].html" data-title="supporting services - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200036].png" alt="Supporting Services - Processes" loading="lazy">
+    <div class="cap">Supporting Services - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200019].html" data-title="promotions management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200019].png" alt="Promotions Management - Processes" loading="lazy">
+    <div class="cap">Promotions Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10002].html" data-title="enabling capabilities - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10002].png" alt="Enabling Capabilities - Processes" loading="lazy">
+    <div class="cap">Enabling Capabilities - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200035].html" data-title="student support &amp; wellbeing management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200035].png" alt="Student Support &amp; Wellbeing Management - Processes" loading="lazy">
+    <div class="cap">Student Support &amp; Wellbeing Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200030].html" data-title="student admission management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200030].png" alt="Student Admission Management - Processes" loading="lazy">
+    <div class="cap">Student Admission Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200029].html" data-title="student administration - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200029].png" alt="Student Administration - Processes" loading="lazy">
+    <div class="cap">Student Administration - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200032].html" data-title="student attraction &amp; recruitment - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200032].png" alt="Student Attraction &amp; Recruitment - Processes" loading="lazy">
+    <div class="cap">Student Attraction &amp; Recruitment - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200034].html" data-title="student enrolment - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200034].png" alt="Student Enrolment - Processes" loading="lazy">
+    <div class="cap">Student Enrolment - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20003].html" data-title="alumni engagement - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20003].png" alt="Alumni Engagement - Processes" loading="lazy">
+    <div class="cap">Alumni Engagement - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200037].html" data-title="teaching &amp; learning delivery - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200037].png" alt="Teaching &amp; Learning Delivery - Processes" loading="lazy">
+    <div class="cap">Teaching &amp; Learning Delivery - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200031].html" data-title="student assessment - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200031].png" alt="Student Assessment - Processes" loading="lazy">
+    <div class="cap">Student Assessment - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200033].html" data-title="student completion &amp; graduation - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200033].png" alt="Student Completion &amp; Graduation - Processes" loading="lazy">
+    <div class="cap">Student Completion &amp; Graduation - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200010].html" data-title="curriculum management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200010].png" alt="Curriculum Management - Processes" loading="lazy">
+    <div class="cap">Curriculum Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20001].html" data-title="academic administration - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20001].png" alt="Academic Administration - Processes" loading="lazy">
+    <div class="cap">Academic Administration - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10005].html" data-title="teaching &amp; learning - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10005].png" alt="Teaching &amp; Learning - Processes" loading="lazy">
+    <div class="cap">Teaching &amp; Learning - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200028].html" data-title="strategy management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200028].png" alt="Strategy Management - Processes" loading="lazy">
+    <div class="cap">Strategy Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20004].html" data-title="business capability management - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20004].png" alt="Business Capability Management - Processes" loading="lazy">
+    <div class="cap">Business Capability Management - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20009].html" data-title="corporate governance - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20009].png" alt="Corporate Governance - Processes" loading="lazy">
+    <div class="cap">Corporate Governance - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10004].html" data-title="strategy &amp; governance - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10004].png" alt="Strategy &amp; Governance - Processes" loading="lazy">
+    <div class="cap">Strategy &amp; Governance - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200021].html" data-title="research delivery - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200021].png" alt="Research Delivery - Processes" loading="lazy">
+    <div class="cap">Research Delivery - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200026].html" data-title="research publications - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200026].png" alt="Research Publications - Processes" loading="lazy">
+    <div class="cap">Research Publications - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200023].html" data-title="research impact - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200023].png" alt="Research Impact - Processes" loading="lazy">
+    <div class="cap">Research Impact - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200022].html" data-title="research funding - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200022].png" alt="Research Funding - Processes" loading="lazy">
+    <div class="cap">Research Funding - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200025].html" data-title="research opportunity &amp; planning - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200025].png" alt="Research Opportunity &amp; Planning - Processes" loading="lazy">
+    <div class="cap">Research Opportunity &amp; Planning - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200027].html" data-title="research training - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200027].png" alt="Research Training - Processes" loading="lazy">
+    <div class="cap">Research Training - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200024].html" data-title="research improvement - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200024].png" alt="Research Improvement - Processes" loading="lazy">
+    <div class="cap">Research Improvement - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-200020].html" data-title="research administration - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-200020].png" alt="Research Administration - Processes" loading="lazy">
+    <div class="cap">Research Administration - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10003].html" data-title="research - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10003].png" alt="Research - Processes" loading="lazy">
+    <div class="cap">Research - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20005].html" data-title="commercial delivery - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20005].png" alt="Commercial Delivery - Processes" loading="lazy">
+    <div class="cap">Commercial Delivery - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20006].html" data-title="commercial engagement - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20006].png" alt="Commercial Engagement - Processes" loading="lazy">
+    <div class="cap">Commercial Engagement - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20007].html" data-title="commercial monitoring - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20007].png" alt="Commercial Monitoring - Processes" loading="lazy">
+    <div class="cap">Commercial Monitoring - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-capability_processes-[id-20008].html" data-title="commercial sourcing - processes" data-type="capability_processes">
+    <img class="thumb" src="../images/view-capability_processes-[id-20008].png" alt="Commercial Sourcing - Processes" loading="lazy">
+    <div class="cap">Commercial Sourcing - Processes</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-domain_processes-[id-10001].html" data-title="commercial activity - processes" data-type="domain_processes">
+    <img class="thumb" src="../images/view-domain_processes-[id-10001].png" alt="Commercial Activity - Processes" loading="lazy">
+    <div class="cap">Commercial Activity - Processes</div>
+  </a>
+</div>
+</main>
+<script>
+(function() {
+  var MODEL = "model-UCISA";
+  var sel = document.getElementById('type-filter');
+  var box = document.getElementById('search-box');
+  var cnt = document.getElementById('search-count') || document.getElementById('fbar-count');
+  var clr = document.getElementById('fbar-clear');
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('a.tile'));
+  var grids = Array.prototype.slice.call(document.querySelectorAll('div.grid'));
+  var KT = 'lightbox.type.' + MODEL, KN = 'lightbox.name.' + MODEL;
+  function get(k) { try { return window.sessionStorage.getItem(k); } catch (e) { return null; } }
+  function put(k, v) { try { window.sessionStorage.setItem(k, v); } catch (e) {} }
+  function apply(save) {
+    var q = box ? box.value.trim().toLowerCase() : '';
+    var t = sel ? sel.value : '';
+    var shown = 0;
+    tiles.forEach(function(el) {
+      var ok = (!q || (el.dataset.title || '').indexOf(q) !== -1) && (!t || el.dataset.type === t);
+      el.classList.toggle('hidden', !ok);
+      if (ok) shown++;
+    });
+    grids.forEach(function(g) {
+      var vis = g.querySelector('a.tile:not(.hidden)');
+      g.classList.toggle('hidden', !vis);
+      var h = g.previousElementSibling;
+      if (h && h.tagName === 'H2') h.classList.toggle('hidden', !vis);
+    });
+    if (cnt) cnt.textContent = shown + ' of ' + tiles.length + ' diagrams';
+    if (save) { put(KT, t); if (box) put(KN, box.value); }
+  }
+  if (sel) {
+    var v = get(KT);
+    if (v) { for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].value === v) { sel.value = v; break; } } }
+    sel.addEventListener('change', function() { apply(true); });
+  }
+  if (box) {
+    var n = get(KN);
+    if (n !== null) box.value = n;
+    box.addEventListener('input', function() { apply(true); });
+  }
+  if (clr) clr.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (sel) sel.value = '';
+    if (box) box.value = '';
+    apply(true);
+  });
+  apply(false);
+  if (box) box.focus();
+})();
+</script>
+</body>
+</html>

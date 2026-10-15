@@ -1,0 +1,5 @@
+source \ target,Business Capability Management,Corporate Governance,Strategy Management,OUT (row sum)
+Business Capability Management,0,0,0,0
+Corporate Governance,1,0,1,2
+Strategy Management,0,1,0,1
+IN (col sum),1,1,1,3

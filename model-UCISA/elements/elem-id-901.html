@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Research Output Reporting</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+	<!-- MARKDOWN -->
+	<script type="text/javascript" src="../../lib/marked/marked.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Research Output Reporting</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-elementtype-BusinessProcess"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-BusinessProcess" target="hint"></a>
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+                    	<li role="presentation"><a href="#analysis" aria-controls="analysis" role="tab" data-toggle="tab" class="i18n-analysis"></a></li>
+
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="markdown-doc"><script type="text/plain">### Identity
+Work here assembles the institution's research output and publication records into external reports required by funders and regulators.
+
+### Trigger
+The arrival of a reporting deadline, when the institution has accumulated Research Outputs and Research Publications for the reporting period.
+
+### Consumes
+Research Output supplies the validated and deposited outputs to be reported. Research Publication supplies the published records and their open access status. Research Funder Report supplies the template and required fields for the specific funder. Open Access Compliance Record supplies the compliance evidence for each publication.
+
+### Steps
+The process collects all Research Outputs and Research Publications created during the reporting period. Each item is checked against the Research Funder Report template to ensure all required fields are present. Missing fields trigger a request to the owning researcher for completion. The populated Research Funder Report is submitted to the funder before the deadline.
+
+### Produces
+Research Funder Report: issued as the completed submission, establishing the institution's formal reporting of research outputs.
+
+### Outcome
+The institution has fulfilled its research output reporting obligations for the period.
+
+### Fails when
+The report is submitted with missing Open Access Compliance Records and the funder rejects the return; the institution is recorded as non-compliant.</script></div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>tier</td><td class="convertlinks no-margin" style="white-space:pre-wrap">paid</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="used-in-views-view-domain_processes-[id-10003]">
+																	<td><a href="../views/view-domain_processes-[id-10003].html" target="view" title="Research - Processes"> Research - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-elements_map-[UCISA]">
+																	<td><a href="../views/view-elements_map-[UCISA].html" target="view" title="Elements Map"> Elements Map </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200023]">
+																	<td><a href="../views/view-capability_processes-[id-200023].html" target="view" title="Research Impact - Processes"> Research Impact - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-900]">
+																	<td><a href="../views/view-process_context-[id-900].html" target="view" title="Research Publication Mgt - Context"> Research Publication Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200028]">
+																	<td><a href="../views/view-capability_processes-[id-200028].html" target="view" title="Strategy Management - Processes"> Strategy Management - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-domain_processes-[id-10004]">
+																	<td><a href="../views/view-domain_processes-[id-10004].html" target="view" title="Strategy &amp; Governance - Processes"> Strategy &amp; Governance - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-901]">
+																	<td><a href="../views/view-process_context-[id-901].html" target="view" title="Research Output Reporting - Context"> Research Output Reporting - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-904]">
+																	<td><a href="../views/view-process_context-[id-904].html" target="view" title="Non-Commercial Research Impact Mgt - Context"> Non-Commercial Research Impact Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-896]">
+																	<td><a href="../views/view-process_context-[id-896].html" target="view" title="Research Dataset Mgt - Context"> Research Dataset Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200021]">
+																	<td><a href="../views/view-capability_processes-[id-200021].html" target="view" title="Research Delivery - Processes"> Research Delivery - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-200026]">
+																	<td><a href="../views/view-capability_processes-[id-200026].html" target="view" title="Research Publications - Processes"> Research Publications - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-processes_overview-[UCISA]">
+																	<td><a href="../views/view-processes_overview-[UCISA].html" target="view" title="Processes Overview"> Processes Overview </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-824]">
+																	<td><a href="../views/view-process_context-[id-824].html" target="view" title="Strategic Reporting - Context"> Strategic Reporting - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr>
+											<td><a href="../elements/elem-id-3caee891-7ff3-4233-a156-18543469e945.html" target="element" title="Citation Report">Citation Report</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-901.html" target="element"> Research Output Reporting</a></td>
+											<td><a href="../elements/elem-id-900.html" target="element"> Research Publication Mgt</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-45d27a8c-6915-4ccf-88f3-8e370f34a2b6.html" target="element" title="Research Performance Report">Research Performance Report</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-901.html" target="element"> Research Output Reporting</a></td>
+											<td><a href="../elements/elem-id-824.html" target="element"> Strategic Reporting</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-b-105.html" target="element" title=""></a></td>
+											<td><span class="i18n-elementtype-RealizationRelationship" /></td>
+											<td><a href="../elements/elem-id-901.html" target="element"> Research Output Reporting</a></td>
+											<td><a href="../elements/elem-id-200026.html" target="element"> Research Publications</a></td>
+										</tr>
+									<tr>
+											<td><a href="../elements/elem-id-026d0d31-3e0a-4a75-8345-5f69899bf5d7.html" target="element" title="Publication Record">Publication Record</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-900.html" target="element"> Research Publication Mgt</a></td>
+											<td><a href="../elements/elem-id-901.html" target="element"> Research Output Reporting</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-258ca31c-54e7-4449-822c-44a65af4125c.html" target="element" title="Dataset Metadata Record">Dataset Metadata Record</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-896.html" target="element"> Research Dataset Mgt</a></td>
+											<td><a href="../elements/elem-id-901.html" target="element"> Research Output Reporting</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-79a63fbf-ca30-4590-8f3f-5ed8c13b5f0f.html" target="element" title="Impact Assessment Report">Impact Assessment Report</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-904.html" target="element"> Non-Commercial Research Impact Mgt</a></td>
+											<td><a href="../elements/elem-id-901.html" target="element"> Research Output Reporting</a></td>
+										</tr>
+							</tbody>
+						</table>
+					</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

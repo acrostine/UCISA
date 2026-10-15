@@ -156,6 +156,49 @@ $(document).ready(function() {
         $(this).html(createLinks($(this).html()));
     });
 
+	// Render markdown documentation. Raw markdown lives in a nested
+	// <script type="text/plain"> so quote characters in real prose
+	// (apostrophes, contractions) never collide with an HTML attribute
+	// delimiter -- text content only needs &lt;/&gt;/&amp; escaping,
+	// which the template's xml-encode already provides.
+	// Strip the template's own indentation before parsing.
+	//
+	// WHY (bug found 18 Aug 2026 -- STAFF, "Validate Pay Inputs - Context"):
+	// StringTemplate indents EVERY LINE AFTER THE FIRST of an interpolated
+	// value by the indentation of the tag itself. frame.stg:248 sits at six
+	// tabs, so a multi-line Documentation arrives with ~12 spaces on every
+	// line but the first. In Markdown 4+ leading spaces means CODE BLOCK, so
+	// marked correctly rendered the headings and tables as literal monospace
+	// text. The element page escaped it only because Archi renders that page
+	// through a path that adds no indent: identical source text, one page
+	// formatted, the other raw.
+	//
+	// Fixed here rather than in the .stg because this covers every page and
+	// survives future template edits. Dedent by the MINIMUM common indent
+	// across non-blank lines (skipping line 1, which ST never indents), so
+	// intended relative indentation -- nested lists, real fenced code -- is
+	// preserved.
+	function dedentTemplateIndent(text) {
+		var lines = text.split('\n');
+		if (lines.length < 2) return text;
+		var min = null;
+		for (var i = 1; i < lines.length; i++) {
+			if (!lines[i].trim()) continue;          // blank lines don't count
+			var n = lines[i].match(/^[ \t]*/)[0].length;
+			if (min === null || n < min) min = n;
+		}
+		if (!min) return text;
+		for (var j = 1; j < lines.length; j++) {
+			lines[j] = lines[j].slice(min);
+		}
+		return lines.join('\n');
+	}
+
+    $('.markdown-doc').each(function () {
+        var raw = $(this).find('script[type="text/plain"]').text() || '';
+        $(this).html(marked.parse(dedentTemplateIndent(raw)));
+    });
+
 	// Replace Hint URL
 	for (var id in hints) {
 		if (document.getElementById('hint-'+id) != null)

@@ -1,0 +1,6 @@
+source \ target,Commercial Delivery,Commercial Engagement,Commercial Monitoring,Commercial Sourcing,OUT (row sum)
+Commercial Delivery,0,0,1,0,1
+Commercial Engagement,1,0,1,1,3
+Commercial Monitoring,1,0,0,0,1
+Commercial Sourcing,0,1,0,0,1
+IN (col sum),2,1,2,1,6

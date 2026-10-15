@@ -1,0 +1,10 @@
+source \ target,Research Administration,Research Delivery,Research Funding,Research Impact,Research Improvement,Research Opportunity & Planning,Research Publications,Research Training,OUT (row sum)
+Research Administration,0,0,0,0,0,0,0,0,0
+Research Delivery,0,0,0,0,0,0,1,0,1
+Research Funding,0,0,0,0,0,1,0,0,1
+Research Impact,0,0,1,0,0,0,1,0,2
+Research Improvement,0,0,1,0,0,1,1,1,4
+Research Opportunity & Planning,0,1,0,1,0,0,0,0,2
+Research Publications,0,0,0,0,0,0,0,0,0
+Research Training,0,1,0,0,1,0,0,0,2
+IN (col sum),0,2,2,1,1,2,3,1,12

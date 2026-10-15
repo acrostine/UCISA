@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="frame" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title>Commercial Activity Exit Mgt</title>
+
+	<!-- JQUERY -->
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<!-- BOOTSTRAP -->
+	<link type="text/css" rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.yeti.css">
+	<script type="text/javascript" src="../../lib/bootstrap/js/bootstrap-3.4.1.min.js"></script>
+	<!-- REPORT SPECIFIC -->
+	<link type="text/css" rel="stylesheet" href="../../css/model.css">
+	<link type="text/css" rel="stylesheet" href="../../css/i18n.css">
+	<script type="text/javascript" src="../../js/frame.js"></script>
+	<script type="text/javascript" src="../../js/imageMapResizer.min.js"></script>
+	<!-- MARKDOWN -->
+	<script type="text/javascript" src="../../lib/marked/marked.min.js"></script>
+</head>
+
+<body>
+	<div class="panel panel-default root-panel">
+
+		<div class="panel-heading root-panel-heading">
+            <!-- Name -->
+               <b>Commercial Activity Exit Mgt</b>
+
+            <!-- If a View with Viewpoint -->
+			   (<span class="i18n-elementtype-BusinessProcess"></span>)
+			   <a class="glyphicon glyphicon-info-sign" id="hint-BusinessProcess" target="hint"></a>
+		</div>
+
+		<div class="panel-body root-panel-body">
+		    <!-- If this is a digram model (has children and no bounds) show the image -->
+
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+                    <!-- Purpose / Documentation / Content -->
+					   <li role="presentation" class="active"><a href="#documentation" aria-controls="documentation" role="tab" data-toggle="tab" class="i18n-documentation"></a></li>
+
+                    <!-- Properties -->
+                    <li role="presentation"><a href="#properties" aria-controls="properties" role="tab" data-toggle="tab" class="i18n-properties"></a></li>
+
+                    <!-- Analysis -->
+                    	<li role="presentation"><a href="#analysis" aria-controls="analysis" role="tab" data-toggle="tab" class="i18n-analysis"></a></li>
+
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" id="documentation">
+						<div class="markdown-doc"><script type="text/plain">### Identity
+This process is controlled closure of a commercial arrangement once a counterparty or internal sponsor has signalled termination. It realises the delivery capability's obligation to end contracts without leaving unresolved liabilities or unreturned assets. It converts a termination notice into a settled, documented closure.
+
+### Trigger
+Arrival of an Exit Notice from a counterparty or internal budget holder, with the contract still active and obligations outstanding.
+
+### Consumes
+Contract Agreement supplies termination clauses, notice periods, asset return requirements and settlement basis. Exit Notice supplies the stated reason, effective date, and any request for early termination. Outstanding Invoice Register supplies the unpaid amounts and outstanding credits that must be settled.
+
+### Steps
+The process first verifies the Exit Notice against the termination clauses in the Contract Agreement to confirm validity and effective date. It then assembles a schedule of all outstanding obligations: invoices, credits, assets, data returns, and confidentiality deeds. Each obligation is assigned to an owner and a due date; any obligation contested by either party is logged as an unresolved item. The process calculates the exit settlement, applying early termination charges and set-offs from the Outstanding Invoice Register. It then obtains internal approval from Finance and the Commercial Delivery owner; if approval is refused, the process returns the settlement to negotiation and reissues the calculation. Once approved, it issues an Exit Settlement Statement to the counterparty and records the agreed final position. After confirmation of settlement and asset return, it closes the Contract Agreement and marks the contract as ended in the Contract Closure Record.
+
+### Produces
+Exit Settlement Statement records the final amounts payable or receivable and the effective closure date. Contract Closure Record establishes that all obligations are discharged and the contract is no longer active. Asset Return Schedule records the assets to be returned and their confirmed receipt.
+
+### Outcome
+The commercial relationship is closed with every liability settled, every asset returned, and the contract no longer available for new commitments.
+
+### Fails when
+Exit Notice is disputed or settlement is not approved before the notice period expires; the contract remains open, the counterparty pursues legal remedies, and Financial Statements cannot close the commitment.</script></div>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="properties">
+						<table class="table table-striped table-hover table-condensed">
+							<thead>
+								<tr>
+									<th class="i18n-key"></th>
+									<th class="i18n-value"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><td>tier</td><td class="convertlinks no-margin" style="white-space:pre-wrap">paid</td></tr>
+							</tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="analysis">
+						<table class="table table-striped table-hover table-condensed" id="used-in-views">
+							<thead>
+								<tr><th colspan="2" class="i18n-used-in-views" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-viewpoint"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="used-in-views-view-process_context-[id-919]">
+																	<td><a href="../views/view-process_context-[id-919].html" target="view" title="Commercial Activity Reporting - Context"> Commercial Activity Reporting - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-917]">
+																	<td><a href="../views/view-process_context-[id-917].html" target="view" title="Commercial Activity Exit Mgt - Context"> Commercial Activity Exit Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-916]">
+																	<td><a href="../views/view-process_context-[id-916].html" target="view" title="Commercial Activity Issue Mgt - Context"> Commercial Activity Issue Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-process_context-[id-915]">
+																	<td><a href="../views/view-process_context-[id-915].html" target="view" title="Commercial Activity Output Mgt - Context"> Commercial Activity Output Mgt - Context </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-elements_map-[UCISA]">
+																	<td><a href="../views/view-elements_map-[UCISA].html" target="view" title="Elements Map"> Elements Map </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-20005]">
+																	<td><a href="../views/view-capability_processes-[id-20005].html" target="view" title="Commercial Delivery - Processes"> Commercial Delivery - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-capability_processes-[id-20007]">
+																	<td><a href="../views/view-capability_processes-[id-20007].html" target="view" title="Commercial Monitoring - Processes"> Commercial Monitoring - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-domain_processes-[id-10001]">
+																	<td><a href="../views/view-domain_processes-[id-10001].html" target="view" title="Commercial Activity - Processes"> Commercial Activity - Processes </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr><tr id="used-in-views-view-processes_overview-[UCISA]">
+																	<td><a href="../views/view-processes_overview-[UCISA].html" target="view" title="Processes Overview"> Processes Overview </a></td>
+																	<td><span class="i18n-viewpoint-" /></td>
+																</tr>
+							</tbody>
+						</table>
+						<table class="table table-striped table-hover table-condensed" id="model-relations">
+							<thead>
+								<tr><th colspan="4" class="i18n-model-relations" /></tr>
+								<tr>
+									<th class="i18n-name"></th>
+									<th class="i18n-type"></th>
+									<th class="i18n-source"></th>
+									<th class="i18n-target"></th>
+								</tr>
+							</thead>
+							<tbody>
+									<tr>
+											<td><a href="../elements/elem-id-5095ed6f-49cf-48c0-b594-5250f58d8284.html" target="element" title="Exit Issue Trigger">Exit Issue Trigger</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-917.html" target="element"> Commercial Activity Exit Mgt</a></td>
+											<td><a href="../elements/elem-id-916.html" target="element"> Commercial Activity Issue Mgt</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-69d9dfef-78c3-44b1-9633-822b1818d13d.html" target="element" title="Exit Report">Exit Report</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-917.html" target="element"> Commercial Activity Exit Mgt</a></td>
+											<td><a href="../elements/elem-id-919.html" target="element"> Commercial Activity Reporting</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-b-172.html" target="element" title=""></a></td>
+											<td><span class="i18n-elementtype-RealizationRelationship" /></td>
+											<td><a href="../elements/elem-id-917.html" target="element"> Commercial Activity Exit Mgt</a></td>
+											<td><a href="../elements/elem-id-20005.html" target="element"> Commercial Delivery</a></td>
+										</tr>
+									<tr>
+											<td><a href="../elements/elem-id-0bbf1a34-e746-46d5-80cb-7baf1f704f17.html" target="element" title="Unresolved Issue Register">Unresolved Issue Register</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-916.html" target="element"> Commercial Activity Issue Mgt</a></td>
+											<td><a href="../elements/elem-id-917.html" target="element"> Commercial Activity Exit Mgt</a></td>
+										</tr><tr>
+											<td><a href="../elements/elem-id-4f06bfc6-67e4-47e0-b91b-716f1b27c08b.html" target="element" title="Final Deliverable Report">Final Deliverable Report</a></td>
+											<td><span class="i18n-elementtype-FlowRelationship" /></td>
+											<td><a href="../elements/elem-id-915.html" target="element"> Commercial Activity Output Mgt</a></td>
+											<td><a href="../elements/elem-id-917.html" target="element"> Commercial Activity Exit Mgt</a></td>
+										</tr>
+							</tbody>
+						</table>
+					</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">imageMapResize();</script>
+</body>
+</html>

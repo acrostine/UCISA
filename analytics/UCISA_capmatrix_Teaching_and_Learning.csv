@@ -1,0 +1,13 @@
+source \ target,Academic Administration,Alumni Engagement,Curriculum Management,Student Administration,Student Admission Management,Student Assessment,Student Attraction & Recruitment,Student Completion & Graduation,Student Enrolment,Student Support & Wellbeing Management,Teaching & Learning Delivery,OUT (row sum)
+Academic Administration,0,0,0,0,0,1,0,0,0,0,1,2
+Alumni Engagement,0,0,0,0,0,0,0,0,0,0,0,0
+Curriculum Management,1,0,0,0,0,0,0,0,0,0,1,2
+Student Administration,0,0,0,0,0,1,0,0,0,0,0,1
+Student Admission Management,0,0,0,0,0,0,0,0,1,0,0,1
+Student Assessment,0,0,0,1,0,0,0,0,0,0,0,1
+Student Attraction & Recruitment,0,0,0,0,1,0,0,0,0,0,0,1
+Student Completion & Graduation,0,1,0,0,0,0,0,0,0,0,0,1
+Student Enrolment,0,0,0,1,0,0,0,0,0,0,1,2
+Student Support & Wellbeing Management,0,0,0,1,0,0,0,0,0,0,0,1
+Teaching & Learning Delivery,0,0,0,0,0,0,0,0,0,1,0,1
+IN (col sum),1,1,0,3,1,2,0,0,1,1,3,13
