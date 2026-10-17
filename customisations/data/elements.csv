@@ -169,7 +169,7 @@ Students receive personalised guidance to support academic progress.
 
 ### Fails when
 The advisor lacks the Student Enrolment record and cannot provide accurate advice.",""
-"elem-id-840","BusinessProcess","Academic Policy & Regulation Mgt","### Identity
+"elem-id-840","BusinessProcess","Academic Policy and Regulation Mgt","### Identity
 The work of drafting, approving, versioning and communicating the Academic Policies and Academic Regulations that govern admission, teaching, assessment and awards.
 
 ### Trigger
@@ -1029,7 +1029,7 @@ Complaints are resolved fairly and within time limits, and learning is captured.
 
 ### Fails when
 A complaint is not acknowledged within the policy timeframe, causing escalation and reputational damage.",""
-"elem-id-833","BusinessProcess","Compliance Monitoring & Reporting","### Identity
+"elem-id-833","BusinessProcess","Compliance Monitoring and Reporting","### Identity
 This process monitors the institution's compliance with external regulatory obligations and reports evidence to the relevant regulator by each due date. It is the part of the capability that demonstrates lawful operation.
 
 ### Trigger
@@ -1109,7 +1109,7 @@ The institution's performance against its KPI targets is visible each reporting 
 
 ### Fails when
 Performance Data for a KPI are not available, because the variance cannot be calculated and the KPI is reported as null, leaving a gap in the governing body's view of institutional performance.",""
-"elem-id-848","BusinessProcess","Curriculum & Resource Development","### Identity
+"elem-id-848","BusinessProcess","Curriculum and Resource Development","### Identity
 The work of developing learning materials and resources for approved curricula.
 
 ### Trigger
@@ -1929,7 +1929,7 @@ The institution has adequate insurance coverage and legitimate claims are settle
 
 ### Fails when
 A claim is denied because a policy condition was not met, causing an uninsured loss and budget impact.",""
-"elem-id-835","BusinessProcess","Internal Audit & Reporting","### Identity
+"elem-id-835","BusinessProcess","Internal Audit and Reporting","### Identity
 This process provides independent assurance over the institution's governance, risk management, and control processes through planned audits. It is the part of the capability that verifies the effectiveness of internal controls.
 
 ### Trigger
@@ -2489,7 +2489,7 @@ Every student has an assigned personal tutor and regular contact.
 
 ### Fails when
 Insufficient staff are available and some students are left without a tutor.",""
-"elem-id-834","BusinessProcess","Policy & Regulation Mgt","### Identity
+"elem-id-834","BusinessProcess","Policy and Regulation Mgt","### Identity
 This process develops, reviews, and approves the institution's Policy Statements in response to changing external regulation and internal governance decisions. It is the part of the capability that maintains a current suite of compliant policies.
 
 ### Trigger
@@ -2609,7 +2609,7 @@ Professional programmes hold recognised accreditation status.
 
 ### Fails when
 The Accreditation Decision is denied and no appeal or resubmission is made, losing professional recognition.",""
-"elem-id-847","BusinessProcess","Professional Learning (Staff)","### Identity
+"elem-id-847","BusinessProcess","Staff Professional Learning","### Identity
 The work of arranging and recording staff professional development activities.
 
 ### Trigger

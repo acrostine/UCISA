@@ -14,12 +14,20 @@ input.search-box { width: 100%; max-width: 480px; padding: 10px 14px; font-size:
            box-sizing: border-box; }
 input.search-box:focus { outline: none; border-color: #639922; }
 p.count { font-size: 12px; color: #888; margin: 0 0 14px; }
-.grid.compact { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.grid.compact { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--tile, 300px), 1fr));
         gap: 10px; }
+.lb-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 0 0 14px; }
+.lb-row input.search-box { flex: 1 1 260px; margin: 0; }
+.lb-row .fbar { margin: 0; }
+.lb-size { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #33424f; }
+.lb-size label { font-weight: 700; }
+.lb-size button { width: 26px; height: 26px; border: 1px solid #d8d6cd; border-radius: 6px;
+        background: #fff; cursor: pointer; font-weight: 700; line-height: 1; padding: 0; }
+.lb-size input[type=range] { width: 140px; accent-color: #639922; }
 a.tile { display: block; text-decoration: none; color: inherit; background: #fff;
          border: 1px solid #d8d6cd; border-radius: 8px; overflow: hidden; }
 a.tile:hover { border-color: #639922; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-.thumb { width: 100%; height: 180px; object-fit: contain; background: #fafafa;
+.thumb { width: 100%; height: calc(var(--tile, 300px) * 0.6); object-fit: contain; background: #fafafa;
          border-bottom: 1px solid #eee; display: block; }
 .cap { padding: 6px 8px; font-size: 11px; font-weight: 500; }
 a.tile.hidden { display: none; }
@@ -42,9 +50,8 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
 <h1>UK Higher Education — Search</h1>
 <p class="sub">Type any word from a diagram's title -- e.g. "Context" -- to filter to matching pictures.</p>
 <p class="maps">Maps: <a target="view" href="nav-home_thumbs.html">Home maps</a> &middot; <a target="view" href="nav-catalogue_thumbs.html">Catalogue</a> &middot; <a target="view" href="view-capabilities_overview-[UCISA]_thumbs.html">Capabilities Overview</a> &middot; <a target="view" href="view-processes_overview-[UCISA]_thumbs.html">Processes Overview</a></p>
-<input class="search-box" id="search-box" type="text" placeholder="Search by title...">
-<div class="fbar" id="fbar"><label for="type-filter">View type</label><select id="type-filter" data-filter="type"><option value="">All types (287)</option><option value="home">Home (1)</option><option value="system_overview">System overview (1)</option><option value="elements_map">Elements map (1)</option><option value="capabilities_overview">Capabilities overview (1)</option><option value="processes_overview">Processes overview (1)</option><option value="domain_capabilities">Domain capabilities (5)</option><option value="domain_processes">Domain processes (5)</option><option value="capability_context">Capability context (37)</option><option value="capability_processes">Capability processes (37)</option><option value="process_context">Process context (186)</option><option value="process_flow">Process flow (10)</option><option value="source_import_business_context">Source import: business context (1)</option><option value="source_import_data_model">Source import: data model (1)</option></select><a href="#" id="fbar-clear">Clear</a></div>
-<p class="count" id="search-count">287 of 287 diagrams</p>
+<div class="lb-row"><input class="search-box" id="search-box" type="text" placeholder="Search by title..."><div class="fbar" id="fbar"><label for="type-filter">View type</label><select id="type-filter" data-filter="type"><option value="">All types (302)</option><option value="home">Home (1)</option><option value="system_overview">System overview (1)</option><option value="elements_map">Elements map (1)</option><option value="capabilities_overview">Capabilities overview (1)</option><option value="processes_overview">Processes overview (1)</option><option value="domain_capabilities">Domain capabilities (5)</option><option value="domain_processes">Domain processes (5)</option><option value="capability_context">Capability context (37)</option><option value="capability_processes">Capability processes (37)</option><option value="process_context">Process context (186)</option><option value="process_flow">Process flow (25)</option><option value="source_import_business_context">Source import: business context (1)</option><option value="source_import_data_model">Source import: data model (1)</option></select><a href="#" id="fbar-clear">Clear</a></div><div class="lb-size" id="lb-size"><label for="lb-sizeRange">Size</label><button type="button" id="lb-sizeDown" aria-label="Smaller">&minus;</button><input type="range" id="lb-sizeRange" min="140" max="720" step="20" value="300"><button type="button" id="lb-sizeUp" aria-label="Larger">+</button></div></div>
+<p class="count" id="search-count">302 of 302 diagrams</p>
 <div class="grid compact">
   <a class="tile" target="view" href="../views/view-home-[UCISA].html" data-title="home" data-type="home">
     <img class="thumb" src="../images/view-home-[UCISA].png" alt="Home" loading="lazy">
@@ -406,9 +413,9 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_context-[id-872].png" alt="Academic Advice Mgt - Context" loading="lazy">
     <div class="cap">Academic Advice Mgt - Context</div>
   </a>
-  <a class="tile" target="view" href="../views/view-process_context-[id-840].html" data-title="academic policy &amp; regulation mgt - context" data-type="process_context">
-    <img class="thumb" src="../images/view-process_context-[id-840].png" alt="Academic Policy &amp; Regulation Mgt - Context" loading="lazy">
-    <div class="cap">Academic Policy &amp; Regulation Mgt - Context</div>
+  <a class="tile" target="view" href="../views/view-process_context-[id-840].html" data-title="academic policy and regulation mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-840].png" alt="Academic Policy and Regulation Mgt - Context" loading="lazy">
+    <div class="cap">Academic Policy and Regulation Mgt - Context</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_context-[id-871].html" data-title="academic skills development - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-871].png" alt="Academic Skills Development - Context" loading="lazy">
@@ -578,9 +585,9 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_context-[id-941].png" alt="Complaint &amp; Compliment Mgt - Context" loading="lazy">
     <div class="cap">Complaint &amp; Compliment Mgt - Context</div>
   </a>
-  <a class="tile" target="view" href="../views/view-process_context-[id-833].html" data-title="compliance monitoring &amp; reporting - context" data-type="process_context">
-    <img class="thumb" src="../images/view-process_context-[id-833].png" alt="Compliance Monitoring &amp; Reporting - Context" loading="lazy">
-    <div class="cap">Compliance Monitoring &amp; Reporting - Context</div>
+  <a class="tile" target="view" href="../views/view-process_context-[id-833].html" data-title="compliance monitoring and reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-833].png" alt="Compliance Monitoring and Reporting - Context" loading="lazy">
+    <div class="cap">Compliance Monitoring and Reporting - Context</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_context-[id-976].html" data-title="contract mgt - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-976].png" alt="Contract Mgt - Context" loading="lazy">
@@ -594,9 +601,9 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_context-[id-825].png" alt="Corporate Performance Mgt - Context" loading="lazy">
     <div class="cap">Corporate Performance Mgt - Context</div>
   </a>
-  <a class="tile" target="view" href="../views/view-process_context-[id-848].html" data-title="curriculum &amp; resource development - context" data-type="process_context">
-    <img class="thumb" src="../images/view-process_context-[id-848].png" alt="Curriculum &amp; Resource Development - Context" loading="lazy">
-    <div class="cap">Curriculum &amp; Resource Development - Context</div>
+  <a class="tile" target="view" href="../views/view-process_context-[id-848].html" data-title="curriculum and resource development - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-848].png" alt="Curriculum and Resource Development - Context" loading="lazy">
+    <div class="cap">Curriculum and Resource Development - Context</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_context-[id-845].html" data-title="curriculum change mgt - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-845].png" alt="Curriculum Change Mgt - Context" loading="lazy">
@@ -758,9 +765,9 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_context-[id-994].png" alt="Insurance Mgt - Context" loading="lazy">
     <div class="cap">Insurance Mgt - Context</div>
   </a>
-  <a class="tile" target="view" href="../views/view-process_context-[id-835].html" data-title="internal audit &amp; reporting - context" data-type="process_context">
-    <img class="thumb" src="../images/view-process_context-[id-835].png" alt="Internal Audit &amp; Reporting - Context" loading="lazy">
-    <div class="cap">Internal Audit &amp; Reporting - Context</div>
+  <a class="tile" target="view" href="../views/view-process_context-[id-835].html" data-title="internal audit and reporting - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-835].png" alt="Internal Audit and Reporting - Context" loading="lazy">
+    <div class="cap">Internal Audit and Reporting - Context</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_context-[id-940].html" data-title="internal communications - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-940].png" alt="Internal Communications - Context" loading="lazy">
@@ -870,9 +877,9 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_context-[id-899].png" alt="PGR Supervisor Development - Context" loading="lazy">
     <div class="cap">PGR Supervisor Development - Context</div>
   </a>
-  <a class="tile" target="view" href="../views/view-process_context-[id-834].html" data-title="policy &amp; regulation mgt - context" data-type="process_context">
-    <img class="thumb" src="../images/view-process_context-[id-834].png" alt="Policy &amp; Regulation Mgt - Context" loading="lazy">
-    <div class="cap">Policy &amp; Regulation Mgt - Context</div>
+  <a class="tile" target="view" href="../views/view-process_context-[id-834].html" data-title="policy and regulation mgt - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-834].png" alt="Policy and Regulation Mgt - Context" loading="lazy">
+    <div class="cap">Policy and Regulation Mgt - Context</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_context-[id-880].html" data-title="presence based teaching - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-880].png" alt="Presence Based Teaching - Context" loading="lazy">
@@ -893,10 +900,6 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
   <a class="tile" target="view" href="../views/view-process_context-[id-846].html" data-title="professional accreditation - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-846].png" alt="Professional Accreditation - Context" loading="lazy">
     <div class="cap">Professional Accreditation - Context</div>
-  </a>
-  <a class="tile" target="view" href="../views/view-process_context-[id-847].html" data-title="professional learning (staff) - context" data-type="process_context">
-    <img class="thumb" src="../images/view-process_context-[id-847].png" alt="Professional Learning (Staff) - Context" loading="lazy">
-    <div class="cap">Professional Learning (Staff) - Context</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_context-[id-827].html" data-title="programme and project mgt - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-827].png" alt="Programme and Project Mgt - Context" loading="lazy">
@@ -1026,6 +1029,10 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_context-[id-947].png" alt="Staff Engagement - Context" loading="lazy">
     <div class="cap">Staff Engagement - Context</div>
   </a>
+  <a class="tile" target="view" href="../views/view-process_context-[id-847].html" data-title="staff professional learning - context" data-type="process_context">
+    <img class="thumb" src="../images/view-process_context-[id-847].png" alt="Staff Professional Learning - Context" loading="lazy">
+    <div class="cap">Staff Professional Learning - Context</div>
+  </a>
   <a class="tile" target="view" href="../views/view-process_context-[id-953].html" data-title="staff record &amp; details mgt - context" data-type="process_context">
     <img class="thumb" src="../images/view-process_context-[id-953].png" alt="Staff Record &amp; Details Mgt - Context" loading="lazy">
     <div class="cap">Staff Record &amp; Details Mgt - Context</div>
@@ -1146,6 +1153,14 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_context-[id-951].png" alt="Workforce Reporting - Context" loading="lazy">
     <div class="cap">Workforce Reporting - Context</div>
   </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-840].html" data-title="academic policy and regulation mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-840].png" alt="Academic Policy and Regulation Mgt - Flow" loading="lazy">
+    <div class="cap">Academic Policy and Regulation Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-841].html" data-title="academic year scheduling - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-841].png" alt="Academic Year Scheduling - Flow" loading="lazy">
+    <div class="cap">Academic Year Scheduling - Flow</div>
+  </a>
   <a class="tile" target="view" href="../views/view-process_flow-[id-887].html" data-title="assessment administration - flow" data-type="process_flow">
     <img class="thumb" src="../images/view-process_flow-[id-887].png" alt="Assessment Administration - Flow" loading="lazy">
     <div class="cap">Assessment Administration - Flow</div>
@@ -1162,17 +1177,57 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_flow-[id-826].png" alt="Benefits Mgt - Flow" loading="lazy">
     <div class="cap">Benefits Mgt - Flow</div>
   </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-836].html" data-title="business continuity mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-836].png" alt="Business Continuity Mgt - Flow" loading="lazy">
+    <div class="cap">Business Continuity Mgt - Flow</div>
+  </a>
   <a class="tile" target="view" href="../views/view-process_flow-[id-829].html" data-title="change portfolio mgt - flow" data-type="process_flow">
     <img class="thumb" src="../images/view-process_flow-[id-829].png" alt="Change Portfolio Mgt - Flow" loading="lazy">
     <div class="cap">Change Portfolio Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-833].html" data-title="compliance monitoring and reporting - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-833].png" alt="Compliance Monitoring and Reporting - Flow" loading="lazy">
+    <div class="cap">Compliance Monitoring and Reporting - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-848].html" data-title="curriculum and resource development - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-848].png" alt="Curriculum and Resource Development - Flow" loading="lazy">
+    <div class="cap">Curriculum and Resource Development - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-845].html" data-title="curriculum change mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-845].png" alt="Curriculum Change Mgt - Flow" loading="lazy">
+    <div class="cap">Curriculum Change Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-844].html" data-title="curriculum design - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-844].png" alt="Curriculum Design - Flow" loading="lazy">
+    <div class="cap">Curriculum Design - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-849].html" data-title="curriculum performance mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-849].png" alt="Curriculum Performance Mgt - Flow" loading="lazy">
+    <div class="cap">Curriculum Performance Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-843].html" data-title="curriculum retirement mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-843].png" alt="Curriculum Retirement Mgt - Flow" loading="lazy">
+    <div class="cap">Curriculum Retirement Mgt - Flow</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_flow-[id-830].html" data-title="enterprise architecture - flow" data-type="process_flow">
     <img class="thumb" src="../images/view-process_flow-[id-830].png" alt="Enterprise Architecture - Flow" loading="lazy">
     <div class="cap">Enterprise Architecture - Flow</div>
   </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-835].html" data-title="internal audit and reporting - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-835].png" alt="Internal Audit and Reporting - Flow" loading="lazy">
+    <div class="cap">Internal Audit and Reporting - Flow</div>
+  </a>
   <a class="tile" target="view" href="../views/view-process_flow-[id-828].html" data-title="organisational design - flow" data-type="process_flow">
     <img class="thumb" src="../images/view-process_flow-[id-828].png" alt="Organisational Design - Flow" loading="lazy">
     <div class="cap">Organisational Design - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-834].html" data-title="policy and regulation mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-834].png" alt="Policy and Regulation Mgt - Flow" loading="lazy">
+    <div class="cap">Policy and Regulation Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-846].html" data-title="professional accreditation - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-846].png" alt="Professional Accreditation - Flow" loading="lazy">
+    <div class="cap">Professional Accreditation - Flow</div>
   </a>
   <a class="tile" target="view" href="../views/view-process_flow-[id-827].html" data-title="programme and project mgt - flow" data-type="process_flow">
     <img class="thumb" src="../images/view-process_flow-[id-827].png" alt="Programme and Project Mgt - Flow" loading="lazy">
@@ -1182,9 +1237,21 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
     <img class="thumb" src="../images/view-process_flow-[id-831].png" alt="Quality Mgt - Flow" loading="lazy">
     <div class="cap">Quality Mgt - Flow</div>
   </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-832].html" data-title="risk mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-832].png" alt="Risk Mgt - Flow" loading="lazy">
+    <div class="cap">Risk Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-847].html" data-title="staff professional learning - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-847].png" alt="Staff Professional Learning - Flow" loading="lazy">
+    <div class="cap">Staff Professional Learning - Flow</div>
+  </a>
   <a class="tile" target="view" href="../views/view-process_flow-[id-885].html" data-title="student results mgt - flow" data-type="process_flow">
     <img class="thumb" src="../images/view-process_flow-[id-885].png" alt="Student Results Mgt - Flow" loading="lazy">
     <div class="cap">Student Results Mgt - Flow</div>
+  </a>
+  <a class="tile" target="view" href="../views/view-process_flow-[id-842].html" data-title="timetabling mgt - flow" data-type="process_flow">
+    <img class="thumb" src="../images/view-process_flow-[id-842].png" alt="Timetabling Mgt - Flow" loading="lazy">
+    <div class="cap">Timetabling Mgt - Flow</div>
   </a>
   <a class="tile" target="view" href="../views/id-view-0e375695-7078-459e-87dc-1630b6f2e4aa.html" data-title="business context (source import)" data-type="source_import_business_context">
     <img class="thumb" src="../images/id-view-0e375695-7078-459e-87dc-1630b6f2e4aa.png" alt="Business Context (Source Import)" loading="lazy">
@@ -1244,6 +1311,25 @@ p.maps a { color: #639922; font-weight: 700; text-decoration: none; }
   });
   apply(false);
   if (box) box.focus();
+})();
+</script>
+<script>
+(function() {
+  var r = document.getElementById('lb-sizeRange');
+  if (!r) return;
+  var K = 'lightbox.tile';
+  function set(v, save) {
+    v = Math.max(+r.min, Math.min(+r.max, +v));
+    r.value = v;
+    document.documentElement.style.setProperty('--tile', v + 'px');
+    if (save) { try { window.localStorage.setItem(K, v); } catch (e) {} }
+  }
+  var saved = null;
+  try { saved = window.localStorage.getItem(K); } catch (e) {}
+  set(saved || r.value, false);
+  r.addEventListener('input', function() { set(r.value, true); });
+  document.getElementById('lb-sizeDown').addEventListener('click', function() { set(+r.value - 40, true); });
+  document.getElementById('lb-sizeUp').addEventListener('click', function() { set(+r.value + 40, true); });
 })();
 </script>
 </body>
